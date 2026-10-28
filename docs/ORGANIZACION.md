@@ -24,6 +24,11 @@ Todos implementan funciones sustanciales, revisan otros módulos, escriben prueb
 Revisores alternados: en los bloques impares C→M, M→J, J→C; en los pares C→J, M→C, J→M. Reparto inicial: 16 tareas por integrante y la misma suma de puntos relativos. Los puntos no son horas ni nota.
 Si cambian una asignación, acuerden el cambio y revisen la carga y el commit graph; no fabriquen commits para igualar cantidades.
 
+## Cuentas del equipo
+- Cristian: `cristiancarvajal22`, propietario del repositorio.
+- Marcelo: `marceloaguilera777`, usuario comunicado por Cristian; invitación de escritura enviada y aceptación pendiente. Sus 16 tareas y 16 revisiones están identificadas en las issues. La asignación nativa de GitHub se completará tras habilitar su acceso.
+- Joshep: usuario todavía pendiente; mantener responsabilidades por nombre.
+
 ## GitHub Project
 Vista principal de tipo Board agrupada por Status:
 1. **Backlog**: resultado definido, aún no listo por dependencias.

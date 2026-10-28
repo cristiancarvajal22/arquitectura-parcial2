@@ -4,7 +4,7 @@ Proyecto: [Kanban](https://github.com/users/cristiancarvajal22/projects/6). Cier
 
 **48 tareas, 16 por integrante; 57 puntos relativos y 16 revisiones por persona.** Los puntos comparan esfuerzo y no equivalen a horas ni calificación. Solo P2-001/002/003 empiezan en To Do; el resto, Backlog. No se ha desarrollado código.
 
-El cuerpo de cada issue conserva responsable, reviewer, rama, fase, dependencias, prioridad, rúbrica y criterios. Las asignaciones GitHub de Marcelo/Joshep requieren confirmar sus usuarios y acceso; no se adivinan cuentas. Reglas de revisión en [CONTRIBUTING](../CONTRIBUTING.md).
+El cuerpo de cada issue conserva responsable, reviewer, rama, fase, dependencias, prioridad, rúbrica y criterios. Marcelo = `marceloaguilera777`: sus responsabilidades y revisiones ya incluyen el usuario, pero faltan aceptar la invitación de escritura enviada y completar asignaciones nativas. El usuario de Joshep sigue pendiente; no se adivinan cuentas. Reglas de revisión en [CONTRIBUTING](../CONTRIBUTING.md).
 
 ## [P2-001][CORE] Acordar estado serializable y contrato de eventos
 

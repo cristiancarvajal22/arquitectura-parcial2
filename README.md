@@ -16,7 +16,7 @@ CPU mononúcleo, un programa/proceso/hilo; AX/BX/CX/DX de 8 bits, PC/IR/MAR/MDR 
 - GitHub Project: **Backlog → To Do → In Progress → In Review → Done**.
 - El backlog distribuye implementación, pruebas, documentación y defensa entre los tres; la preparación administrativa inicial no equivale a contribución técnica de los alumnos.
 - Consultar [plan de tareas](docs/BACKLOG.md) y dependencias antes de empezar.
-- Usuarios confirmados: Cristian = `cristiancarvajal22`; Marcelo y Joshep pendientes de confirmar. Los nombres en las issues definen responsabilidad; no implican asignación GitHub hasta verificar sus cuentas y acceso.
+- Usuarios confirmados: Cristian = `cristiancarvajal22`; Marcelo = `marceloaguilera777`; Joshep pendiente de confirmar. Invitación de escritura enviada a Marcelo; aceptación y asignaciones nativas pendientes. Sus 16 responsabilidades y 16 revisiones están registradas con su usuario. Los nombres en las issues definen responsabilidad; no implican asignación GitHub hasta verificar sus cuentas y acceso.
 
 ## Tablero
 [GitHub Project del equipo](https://github.com/users/cristiancarvajal22/projects/6) · [Issues](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues)

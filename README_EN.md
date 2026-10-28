@@ -20,3 +20,6 @@ The spreadsheet does not exist yet. A verified direct link and reproducible inst
 [Team Kanban](https://github.com/users/cristiancarvajal22/projects/6) · [Issues](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues)
 
 48 tasks: 16 tasks, 57 relative effort points and 16 reviews per member. The three initial contracts are To Do; the remaining 45 tasks start in Backlog.
+
+## GitHub accounts
+Cristian: `cristiancarvajal22`. Marcelo: `marceloaguilera777` (write-access invitation sent; acceptance and native issue assignment pending). Joshep: username pending. Marcelo's 16 ownership and 16 review responsibilities are recorded in the relevant issues.

@@ -1,25 +1,26 @@
-# Second Midterm - Computer Architecture (SIS-131)
+# Architecture - Second Midterm
 
-[Español](README.md) · [Team organization](docs/ORGANIZACION.md) · [Planned architecture](docs/ARQUITECTURA.md) · [Rubric mapping](docs/RUBRICA.md) · [Contribution workflow](CONTRIBUTING.md)
+A computer simulator built with **Google Sheets + JavaScript/Google Apps Script**.
 
-**Team:** Cristian, Marcelo and Joshep. **Stack:** Google Sheets + JavaScript/Google Apps Script.
-**Reported submission deadline:** Monday, November 9, 2026, 10:00 (America/La_Paz).
-**Status:** initial planning only; simulator implementation has not started. Target: Excellent across 100 group points and 60 individual points per student.
+**Team:** Cristian, Marcelo and Joseph.
+**Reported deadline:** Monday, November 9, 2026, 10:00 (America/La_Paz).
+**Status:** organization and planning only. Simulator implementation has not started.
+
+## Getting started
+Open the [Project board](https://github.com/users/cristiancarvajal22/projects/6) and read your task. Every issue explains its goal, suggested steps, completion checks and dependencies. The [task index](docs/BACKLOG.md) and [Spanish glossary](docs/GLOSARIO.md) help you find the details. Complete the three initial architecture agreements before implementing dependent modules.
+
+## Work distribution
+Each member owns **16 tasks and 57 relative effort points**. Points compare workload; they are not hours or grades. Work includes implementation, testing, documentation and oral-defense practice. Issues have one owner and no fixed review assignment. Team members check each other's PRs as required by the rubric.
+
+GitHub accounts: Cristian `cristiancarvajal22`, Marcelo `marceloaguilera777`, Joseph `JosephPerez725`.
+Marcelo has repository access and 16 native issue assignments. Joseph has Write access to the Project; his repository invitation has been sent and must be accepted before his repository assignments can be completed.
 
 ## Planned scope
-Single-core, single-program/process/thread CPU; 8-bit AX/BX/CX/DX, PC/IR/MAR/MDR and ZF/CF/SF; internal/external tri-state buses and visible control word; 256 B RAM (8×32 B), 512 B virtual memory (16×32 B), P/Dirty/Reference page table, FIFO and Swap; 8 B L1I, 8 B L1D, 32 B L2; 8 B keyboard queue and 8×1 LCD with an 8 B RAM video buffer; editor, assembler, loader and three demonstrations.
+Four-register CPU and ALU; internal/external tri-state buses and a visible control word; 256 B RAM, 512 B virtual memory, 32 B pages, FIFO and Swap; 8 B L1I/L1D and 32 B L2; an 8 B keyboard queue and an 8×1 LCD with 8 B video RAM; editor, assembler, loader, three demos and an animated spreadsheet.
 
-## Working agreement
-Stable deliveries use `main`; integration uses `develop`. Each issue uses a personal `feature/<name>/<module>` branch and a reviewed PR into `develop`. Commits must be atomic and semantic, with genuine individual authorship.
-The Project workflow is **Backlog → To Do → In Progress → In Review → Done**. Implementation, tests, documentation and oral-defense work are shared by all three members. Initial administrative setup is not evidence of student implementation contributions.
+The target is Excellent across 100 group points and 60 individual points per student. The planning documents do not certify a grade. Final architecture, ISA, control-word specification, installation guide and user manual must describe the implemented simulator in both languages.
 
-## Spreadsheet and documentation
-The spreadsheet does not exist yet. A verified direct link and reproducible installation instructions will be added during the publishing task. Final ISA, complete diagrams, control-word specification and the full bilingual user manual remain explicit backlog deliverables. See the Spanish planning documents for current task details; bilingual parity is an acceptance criterion of the documentation milestone.
+## Links
+[Español](README.md) · [Team organization](docs/ORGANIZACION.md) · [Contribution steps](CONTRIBUTING.md) · [Architecture](docs/ARQUITECTURA.md) · [Rubric](docs/RUBRICA.md) · [Issues](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues)
 
-## Project
-[Team Kanban](https://github.com/users/cristiancarvajal22/projects/6) · [Issues](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues)
-
-48 tasks: 16 tasks, 57 relative effort points and 16 reviews per member. The three initial contracts are To Do; the remaining 45 tasks start in Backlog.
-
-## GitHub accounts
-Cristian: `cristiancarvajal22`. Marcelo: `marceloaguilera777` (write-access invitation sent; acceptance and native issue assignment pending). Joshep: username pending. Marcelo's 16 ownership and 16 review responsibilities are recorded in the relevant issues.
+The spreadsheet does not exist yet. Its verified direct link will be added with the implementation and complete bilingual user manual.

@@ -1,24 +1,31 @@
 ---
-name: Tarea técnica
-about: Resultado verificable con responsable, reviewer y rúbrica
-title: "[MODULO] Resultado concreto"
+name: Tarea explicada
+about: Qué hacer, pasos sugeridos y cómo comprobar el resultado
+title: "Resultado concreto que queremos conseguir"
 ---
-## Organización
-Responsable:
-Reviewer:
-Rama: feature/<nombre>/<modulo>
-Prioridad: P0/P1/P2
-Puntos relativos:
-Dependencias:
-Rúbrica G/I:
-Estado inicial: Backlog
+**Responsable:** nombre y usuario de GitHub.
 
-## Resultado y alcance
+## Qué vas a hacer
+Explica el objetivo y para qué sirve. Define las palabras técnicas necesarias.
 
-## Criterios de aceptación
+## Paso a paso
+1. Primer paso.
+2. Segundo paso.
+3. Comprobación del resultado.
+
+## Cómo saber que está listo
 - [ ] Resultado observable.
-- [ ] Caso normal y límite reproducibles.
-- [ ] Evidencia y documentación vinculadas.
+- [ ] Caso normal y caso límite comprobados.
+- [ ] Evidencia enlazada.
 
-## Evidencia de cierre
-PR a develop, revisión ajena y prueba reproducible. No cerrar hasta cumplir criterios.
+## Qué debes entregar
+PR, prueba, captura, traza o documento según la tarea.
+
+## Antes de empezar
+Enlaza las tareas que deben estar terminadas.
+
+## Datos de trabajo
+Rama: feature/<nombre>/<modulo>, desde develop.
+Prioridad:
+Esfuerzo relativo:
+Rúbrica relacionada:

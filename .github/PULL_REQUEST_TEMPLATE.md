@@ -1,24 +1,18 @@
-## Problema y resultado
-Issue relacionada: #
-Base prevista: develop (o main para entrega revisada).
+## Qué resuelve este cambio
+Tarea relacionada: #
+Responsable:
+Rama de destino: develop (o main para una entrega estable).
 
-## Responsable y reviewer
-Autor:
-Reviewer solicitado (otra persona):
+## Qué cambió y cómo comprobarlo
+Explica el resultado esperado y los pasos para repetir la prueba.
+Añade la captura, traza o documento correspondiente.
 
-## Criterios de aceptación
-- [ ] Criterios específicos de la issue comprobados.
-- [ ] Prueba reproducible y resultados adjuntos.
-- [ ] Contratos de módulos y estado respetados.
-- [ ] Documentación ES/EN actualizada si aplica.
-- [ ] Sin credenciales ni cambios ajenos al alcance.
+## Para terminar
+- [ ] Se cumplen los criterios de la tarea.
+- [ ] Hay evidencia del resultado.
+- [ ] La documentación se actualizó en ambos idiomas si corresponde.
+- [ ] No se incluyeron credenciales ni cambios ajenos a la tarea.
+- [ ] Otro compañero comprobó el PR y dejó su aprobación.
+- [ ] Después de integrar: cerrar la tarjeta y moverla a Done.
 
-## Evidencia de rúbrica
-Criterios G/I:
-Traza/captura/resultado esperado y obtenido:
-Explicación de los micro-pasos implicados:
-
-## Integración y cierre
-Riesgos o limitaciones:
-- [ ] Revisión ajena aprobada.
-- [ ] Tras integrar: cerrar issue y mover a Done explícitamente si no ocurre automáticamente.
+Limitaciones o problemas pendientes:

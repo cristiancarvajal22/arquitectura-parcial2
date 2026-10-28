@@ -1,30 +1,38 @@
-# Segundo Parcial - Arquitectura de Computadoras (SIS-131)
+# Arquitectura - Segundo Parcial
 
-[English](README_EN.md) · [Organización](docs/ORGANIZACION.md) · [Arquitectura prevista](docs/ARQUITECTURA.md) · [Rúbrica](docs/RUBRICA.md) · [Flujo de trabajo](CONTRIBUTING.md)
+Simulador de una computadora en **Google Sheets + JavaScript/Google Apps Script**.
 
-**Equipo:** Cristian, Marcelo y Joshep. **Tecnología:** Google Sheets + JavaScript/Google Apps Script.
-**Cierre oficial comunicado:** lunes 9 de noviembre de 2026, 10:00 (America/La_Paz).
-**Estado:** planificación inicial; no existe todavía una implementación del simulador. Objetivo: nivel Excelente en los 100 puntos grupales y 60 individuales por alumno de parcial2.pdf.
+**Equipo:** Cristian, Marcelo y Joseph.
+**Cierre comunicado:** lunes 9 de noviembre de 2026 a las 10:00, hora de Bolivia (America/La_Paz).
+**Estado:** organización y planificación. Todavía no se ha programado el simulador.
 
-## Alcance
-CPU mononúcleo, un programa/proceso/hilo; AX/BX/CX/DX de 8 bits, PC/IR/MAR/MDR y ZF/CF/SF; buses internos/externos con tri-estado y micro-palabra; RAM 256 B (8×32 B), memoria virtual 512 B (16×32 B), tabla P/Dirty/Reference, FIFO y Swap; L1I 8 B, L1D 8 B y L2 32 B; KBD con cola de 8 B y LCD 8×1 con video de 8 B en RAM; editor, ensamblador, cargador y tres demos.
+## Por dónde empezar
+1. Abrir el [tablero](https://github.com/users/cristiancarvajal22/projects/6) y buscar la tarea de cada persona.
+2. Leer sus secciones **Qué vas a hacer**, **Paso a paso** y **Cómo saber que está listo**.
+3. Consultar el [glosario](docs/GLOSARIO.md) si aparece un término desconocido.
+4. Antes de programar, terminar entre los tres las primeras decisiones: [datos y comunicación](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [instrucciones y memoria](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2) y [cachés y señales](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3).
 
-## Organización antes de programar
-- `main`: entregas estables; `develop`: integración.
-- Una issue por resultado verificable, una rama `feature/<nombre>/<modulo>` y PR a `develop`.
-- Revisión cruzada; nadie aprueba su propio PR. Los commits de implementación deben ser personales y semánticos.
-- GitHub Project: **Backlog → To Do → In Progress → In Review → Done**.
-- El backlog distribuye implementación, pruebas, documentación y defensa entre los tres; la preparación administrativa inicial no equivale a contribución técnica de los alumnos.
-- Consultar [plan de tareas](docs/BACKLOG.md) y dependencias antes de empezar.
-- Usuarios confirmados: Cristian = `cristiancarvajal22`; Marcelo = `marceloaguilera777`; Joshep pendiente de confirmar. Invitación de escritura enviada a Marcelo; aceptación y asignaciones nativas pendientes. Sus 16 responsabilidades y 16 revisiones están registradas con su usuario. Los nombres en las issues definen responsabilidad; no implican asignación GitHub hasta verificar sus cuentas y acceso.
+Los enlaces a las primeras tareas están también en el [índice de las 48 tareas](docs/BACKLOG.md).
 
-## Tablero
-[GitHub Project del equipo](https://github.com/users/cristiancarvajal22/projects/6) · [Issues](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues)
+## Cómo se reparte el trabajo
+Cada integrante tiene **16 tareas** y **57 puntos relativos de esfuerzo**. Los puntos sirven para comparar la carga; no son horas ni calificación. Las tareas combinan programación, pruebas, documentación y preparación de la defensa. Cada tarjeta tiene un responsable y criterios de finalización; no hay una persona fija asignada para revisar cada tarea. Los PR se comprueban entre compañeros, como pide la rúbrica.
 
-48 tareas técnicas: 16 por integrante, 57 puntos relativos y 16 revisiones por persona. Tres contratos iniciales en To Do; 45 tareas futuras en Backlog.
+Cuentas: Cristian = `cristiancarvajal22`; Marcelo = `marceloaguilera777`; Joseph = `JosephPerez725`.
+Marcelo ya tiene acceso al repositorio y sus 16 asignaciones de GitHub. Joseph tiene permiso de escritura en el tablero; su invitación de escritura al repositorio está enviada y debe aceptarla para completar sus asignaciones allí.
 
-## Planilla y ejecución
-La planilla todavía no se ha creado: el enlace directo verificado se incorporará en la tarea de publicación. La guía de instalación, ISA definitiva, diagramas de micro-operaciones y manual completo se producirán y probarán con la implementación. No se presentan ejemplos de código inexistente.
+## Qué construiremos
+- CPU con cuatro registros, operaciones e instrucciones; buses y señales que muestran cómo se mueve cada dato.
+- RAM de 256 B y memoria virtual de 512 B, con páginas de 32 B, FIFO y Swap.
+- Cachés L1I/L1D de 8 B y L2 de 32 B; teclado y LCD de ocho caracteres.
+- Editor, ensamblador y cargador; tres programas demo; hoja animada y documentación completa en español e inglés.
 
-## Evaluación y evidencia
-Cada issue debe relacionar criterio G1-G7/I1-I4, criterios de aceptación, prueba reproducible y PR. Apuntar al 100% requiere demostrar funcionamiento y dominio individual; este repositorio inicial no certifica una nota.
+Los detalles obligatorios están en la [arquitectura](docs/ARQUITECTURA.md) y la [rúbrica](docs/RUBRICA.md). La meta es cumplir el nivel Excelente en los 100 puntos grupales y 60 individuales; la nota dependerá del producto y de la defensa real.
+
+## Enlaces de trabajo
+- [GitHub Project](https://github.com/users/cristiancarvajal22/projects/6)
+- [Todas las issues](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues)
+- [Organización y estructura](docs/ORGANIZACION.md)
+- [Cómo usar ramas, commits y PR](CONTRIBUTING.md)
+- [English documentation](README_EN.md)
+
+La planilla de Google Sheets todavía no existe. Se añadirá su enlace directo verificado y el manual cuando se implemente el simulador.

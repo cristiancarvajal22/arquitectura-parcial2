@@ -1,679 +1,389 @@
-# Backlog inicial del Segundo Parcial
+# Índice de las 48 tareas
 
-Proyecto: [Kanban](https://github.com/users/cristiancarvajal22/projects/6). Cierre: 9/11/2026 10:00 America/La_Paz.
+Equipo: Cristian, Marcelo y Joseph. Hay **16 tareas y 57 puntos relativos por persona**. Cada tarjeta enlazada contiene una explicación, pasos sugeridos, criterios de finalización y lo que debe entregarse.
 
-**48 tareas, 16 por integrante; 57 puntos relativos y 16 revisiones por persona.** Los puntos comparan esfuerzo y no equivalen a horas ni calificación. Solo P2-001/002/003 empiezan en To Do; el resto, Backlog. No se ha desarrollado código.
+Consulta el estado actual en el [tablero](https://github.com/users/cristiancarvajal22/projects/6). Antes de empezar una tarjeta, termina sus dependencias. No hay personas fijas asignadas para comprobar PR; el equipo realiza esa comprobación entre compañeros.
 
-El cuerpo de cada issue conserva responsable, reviewer, rama, fase, dependencias, prioridad, rúbrica y criterios. Marcelo = `marceloaguilera777`: sus responsabilidades y revisiones ya incluyen el usuario, pero faltan aceptar la invitación de escritura enviada y completar asignaciones nativas. El usuario de Joshep sigue pendiente; no se adivinan cuentas. Reglas de revisión en [CONTRIBUTING](../CONTRIBUTING.md).
+## [P2-001] Definir qué datos guarda el simulador y cómo se comunican sus partes
 
-## [P2-001][CORE] Acordar estado serializable y contrato de eventos
+[Ver tarea #1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1) · **Responsable: Cristian** · 2 puntos relativos.
 
-[Abrir issue #1](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/1)
+Antes de programar, acuerden qué información necesita cada parte: registros de la CPU, memoria, cachés, teclado y pantalla. Un evento será un registro de lo que ocurrió en un paso del reloj, para que todos los módulos y las animaciones cuenten la misma historia.
 
-Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 2 puntos.
-Fase: F1 · Contratos (27-29 oct). Estado inicial: To Do.
-Rama: `feature/cristian/core-contratos`. Rúbrica: G1,G2,G3,G4,G5,I1 + I1/I2.
-Dependencias: ninguna; revisar el contrato con todo el equipo.
+Antes de empezar: puede empezar ahora; acordar las decisiones entre los tres.
 
-- [ ] Definir estructura única de CPU, buses, RAM, páginas, cachés, E/S, reloj y estado de ejecución sin implementar lógica.
-- [ ] Especificar APIs de lectura/escritura/fetch y eventos de micro-paso con ciclo, fase, señales, emisor, receptores y direcciones virtual/física.
-- [ ] Publicar ejemplos de snapshots y contratos revisados por Marcelo y Joshep; definir reinicio determinista y errores atómicos.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-002] Definir las instrucciones y las direcciones de memoria
 
-## [P2-002][ISA] Cerrar ISA, anchuras de registros y mapa de RAM/E/S
+[Ver tarea #2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2) · **Responsable: Marcelo** · 2 puntos relativos.
 
-[Abrir issue #2](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/2)
+La ISA es la lista de instrucciones que entenderá la CPU, como sumar, saltar, leer el teclado o escribir en el LCD. También deben acordar en qué direcciones vivirán los programas, los datos y los dos dispositivos, para que ningún módulo use un mapa distinto.
 
-Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 2 puntos.
-Fase: F1 · Contratos (27-29 oct). Estado inicial: To Do.
-Rama: `feature/marcelo/isa-mapa`. Rúbrica: G3,G4,G5 + I1/I2.
-Dependencias: ninguna; revisar el contrato con todo el equipo.
+Antes de empezar: puede empezar ahora; acordar las decisiones entre los tres.
 
-- [ ] Documentar opcodes, operandos, longitud/codificación, flags y saltos para AX/BX/CX/DX de 8 bits; incluir IN reg,[KBD], OUT [LCD],reg y HALT.
-- [ ] Fijar anchuras PC/MAR para 0..511, IR multibyte si aplica y fronteras de instrucción; describir accesos cruzando línea/página.
-- [ ] Reservar exactamente 8 B KBD y 8 B LCD dentro de RAM 256 B; fijar direcciones, mapeo virtual, marcos protegidos y cantidad real de marcos reemplazables.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-003] Decidir cómo funcionarán las cachés y las señales de control
 
-## [P2-003][CACHE] Cerrar políticas de caché, coherencia y micro-palabra
+[Ver tarea #3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3) · **Responsable: Joseph** · 2 puntos relativos.
 
-[Abrir issue #3](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/3)
+Las cachés guardan copias de datos usados recientemente para evitar leer la RAM cada vez. Aquí se decide qué hacer al leer, escribir o reemplazar una copia, y qué señales binarias permiten moverla por los buses. Este acuerdo evita que una parte muestre datos diferentes de otra.
 
-Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 2 puntos.
-Fase: F1 · Contratos (27-29 oct). Estado inicial: To Do.
-Rama: `feature/joshep/cache-contratos`. Rúbrica: G1,G2,G3,G4 + I1/I2.
-Dependencias: ninguna; revisar el contrato con todo el equipo.
+Antes de empezar: puede empezar ahora; acordar las decisiones entre los tres.
 
-- [ ] Especificar L1I/L1D de una línea de 8 B y L2 de 4 líneas de 8 B (32 B), tags físicos, válidos, FIFO L2 y políticas de escritura/asignación.
-- [ ] Definir traducción antes de caché, E/S no cacheable, invalidación por reemplazo de marco/carga/edición y actualización de Dirty/Reference aun en hits.
-- [ ] Acordar vector completo Enable/Load/Read/Write/Clock/IO, anchura por segmento y trazas fetch/read/write/IN/OUT/Page Fault con un emisor por bus.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-004] Crear los cuatro registros y las operaciones de 8 bits
 
-## [P2-004][CPU] Implementar registros AX..DX y ALU de 8 bits
+[Ver tarea #4](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/4) · **Responsable: Cristian** · 5 puntos relativos.
 
-[Abrir issue #4](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/4)
+Los registros AX, BX, CX y DX son pequeñas casillas donde la CPU guarda números mientras trabaja. La ALU hace las operaciones aritméticas. Los indicadores ZF, CF y SF avisan si el resultado es cero, hubo acarreo o el número tiene signo.
 
-Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/cpu-registros-alu`. Rúbrica: G1,G5 + I1/I2.
-Dependencias: P2-001, P2-002.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2).
 
-- [ ] AX/BX/CX/DX solo conservan bytes; PC/IR/MAR/MDR siguen anchuras acordadas y son visibles en snapshots.
-- [ ] Operaciones de ISA actualizan ZF/CF/SF con reglas documentadas, incluyendo cero, acarreo/préstamo y signo.
-- [ ] Verificar 0, 127, 128, 255 y desbordamiento con resultados esperados; transferencias respetan contrato de buses.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-005] Hacer que la CPU busque, entienda y ejecute instrucciones
 
-## [P2-005][CPU] Implementar fetch/decode/execute y secuencias de control
+[Ver tarea #5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5) · **Responsable: Marcelo** · 5 puntos relativos.
 
-[Abrir issue #5](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/5)
+La CPU debe repetir tres etapas: buscar una instrucción en memoria, identificar qué significa y ejecutarla. Cada etapa se divide en pequeños pasos visibles, sin saltarse los buses ni los controles definidos.
 
-Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/cpu-microsecuencias`. Rúbrica: G1,G5 + I1/I2.
-Dependencias: P2-001, P2-002, P2-003.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3).
 
-- [ ] Fetch pasa PC→MAR→jerarquía→MDR→IR mediante señales y no mediante lecturas ocultas.
-- [ ] Cada opcode tiene microsecuencia trazable; saltos condicionales, bucles y HALT funcionan usando los cuatro registros.
-- [ ] Step avanza un micro-paso; una instrucción suspendida espera memoria/E/S y continúa sin duplicar efectos.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-006] Crear el reloj y guardar el estado entre pasos en Apps Script
 
-## [P2-006][CORE] Implementar reloj, snapshots y ciclo seguro en Apps Script
+[Ver tarea #6](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/6) · **Responsable: Joseph** · 5 puntos relativos.
 
-[Abrir issue #6](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/6)
+El reloj indica cuándo avanza el simulador. Cada paso debe terminar guardando un estado completo y coherente. Al usar Run se ejecutarán grupos pequeños de pasos para que Google Sheets siga respondiendo y pueda mostrar las animaciones.
 
-Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/core-reloj`. Rúbrica: G1,G7 + I1/I2.
-Dependencias: P2-001, P2-002, P2-003.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3).
 
-- [ ] Un estado/snapshot confirmado alimenta módulos y renderizado; reinicio restaura valores y contadores reproducibles.
-- [ ] Run ejecuta lotes acotados y cede control para animación; evita ejecuciones solapadas y estados parcialmente escritos.
-- [ ] Probar pausa/reanudación, doble clic y reinicio durante espera; documentar límites de Apps Script y recuperación.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-007] Controlar quién puede transmitir por cada bus
 
-## [P2-007][BUS] Implementar arbitraje, High-Z y detección de contención
+[Ver tarea #7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7) · **Responsable: Cristian** · 5 puntos relativos.
 
-[Abrir issue #7](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/7)
+Un bus es un camino compartido para mover información. En cada momento debe hablar un solo componente. Los demás quedan en High-Z, que significa que su salida está desconectada y no interfiere con el camino.
 
-Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/bus-arbitraje`. Rúbrica: G1 + I1/I2.
-Dependencias: P2-001, P2-003.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3).
 
-- [ ] Modelar bus interno y externo con control, dirección y datos; describir segmentos y ancho de cada uno.
-- [ ] Sin emisores el bus muestra Z; con uno propaga bits; con dos o más detiene el micro-paso antes de cambiar estado.
-- [ ] Todos los registros y periféricos exponen Enable/Load; pruebas fuerzan cada caso y verifican que receptores deshabilitados no capturan.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-008] Mover lecturas, escrituras y E/S a través de los buses
 
-## [P2-008][BUS] Integrar transacciones de lectura, escritura y E/S por bus
+[Ver tarea #8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8) · **Responsable: Marcelo** · 5 puntos relativos.
 
-[Abrir issue #8](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/8)
+Una lectura, una escritura y una operación con teclado o LCD deben recorrer los buses de verdad dentro del modelo. Las señales Read, Write, Clock e IO indicarán qué está ocurriendo y qué componente puede actuar.
 
-Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/bus-transacciones`. Rúbrica: G1,G3,G4 + I1/I2.
-Dependencias: P2-002, P2-003, P2-007.
+Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7).
 
-- [ ] Las señales Read/Write/Clock/IO y dirección correcta gobiernan transferencias CPU↔caché/RAM/E/S.
-- [ ] Lectura y escritura registran emisor/receptor, MAR/MDR y orden temporal; nunca Read y Write incompatibles simultáneos.
-- [ ] Verificar fetch, dato, IN y OUT con trazas y que no haya rutas directas que omitan buffers.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-009] Mostrar la micro-palabra y qué hace cada señal
 
-## [P2-009][BUS] Implementar micro-palabra visible y decodificador de señales
+[Ver tarea #9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9) · **Responsable: Joseph** · 5 puntos relativos.
 
-[Abrir issue #9](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/9)
+La micro-palabra es una fila de bits de control. Cada bit enciende o apaga una acción, como poner el PC en el bus o cargar un valor en MAR. Debe verse en pantalla y coincidir con lo que realmente ocurre en ese paso.
 
-Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/bus-micropalabra`. Rúbrica: G1,G7 + I1/I2.
-Dependencias: P2-003, P2-007.
+Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7).
 
-- [ ] Mostrar vector binario y nombres para todos los Enable/Load, Mem_R/Mem_W y E/S acordados, incluidos En_KBD y Ld_LCD.
-- [ ] Cada bit visible coincide con el evento del micro-paso y el buffer correspondiente; inactivos aparecen High-Z.
-- [ ] Comprobar al menos fetch, ALU→registro, read, write, IN y OUT con snapshots y explicación bit a bit.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-010] Crear la RAM de 256 bytes y reservar teclado y LCD
 
-## [P2-010][RAM] Implementar 8 marcos de 32 B y reserva de E/S
+[Ver tarea #10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10) · **Responsable: Cristian** · 3 puntos relativos.
 
-[Abrir issue #10](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/10)
+La RAM física tendrá exactamente 256 bytes, repartidos en ocho marcos de 32 bytes. Un marco es un espacio donde puede cargarse una página. Los buffers de teclado y pantalla ocuparán 16 bytes de esa misma RAM, sin añadir memoria extra.
 
-Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/ram-marcos`. Rúbrica: G3,G4 + I1/I2.
-Dependencias: P2-001, P2-002.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2).
 
-- [ ] RAM conserva exactamente 256 bytes con marcos 0..7; límites 0/31/32/255 y valores fuera de rango validados.
-- [ ] Cola KBD y video LCD ocupan sus 16 bytes dentro de RAM según mapa; acceso normal no los sobrescribe.
-- [ ] Representación hex/decimal y escritura controlada mantienen sincronía con snapshots y contrato de caché.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-011] Traducir direcciones virtuales a direcciones de RAM
 
-## [P2-011][MMU] Implementar traducción VPN/PFN/offset y tabla de 16 entradas
+[Ver tarea #11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11) · **Responsable: Marcelo** · 3 puntos relativos.
 
-[Abrir issue #11](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/11)
+El programa podrá usar 512 direcciones virtuales aunque la RAM solo tenga 256 bytes. La MMU busca en una tabla qué página virtual está cargada en qué marco y calcula la dirección física. La tabla también indica si la página está presente, fue modificada o fue consultada.
 
-Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/mmu-traduccion`. Rúbrica: G3 + I1/I2.
-Dependencias: P2-001, P2-002, P2-010.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10).
 
-- [ ] Para VA 0..511, VPN=floor(VA/32), offset=VA%32 y PA=PFN*32+offset con PFN 0..7.
-- [ ] Tabla visible contiene VPN, P, PFN, Dirty y Reference; detecta VA inválida y mapeos inconsistentes.
-- [ ] Probar VA 0,31,32,255,256,511 y páginas ausentes; permisos/reservas E/S acordados no crean RAM extra.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-012] Guardar y recuperar páginas en Swap
 
-## [P2-012][SWAP] Implementar respaldo por páginas y persistencia de 32 bytes
+[Ver tarea #12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12) · **Responsable: Joseph** · 3 puntos relativos.
 
-[Abrir issue #12](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/12)
+Swap será el respaldo de las páginas que no caben en la RAM. Se guarda una página completa de 32 bytes, de forma que, al volver a cargarla, sus cambios no se pierdan.
 
-Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/swap-paginas`. Rúbrica: G3 + I1/I2.
-Dependencias: P2-001, P2-002, P2-010.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10).
 
-- [ ] Backing store representa las 16 páginas virtuales de 32 B y copias de Swap sin incrementar RAM física.
-- [ ] Lectura/escritura de una página copia los 32 bytes exactos, conserva vecinos y valida índices y longitud.
-- [ ] Probar ida/vuelta de una página modificada y reset/carga; distinguir imagen inicial de programa y respaldo actualizado.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-013] Elegir qué página sale de RAM usando FIFO
 
-## [P2-013][FIFO] Implementar cola FIFO y elección de víctima elegible
+[Ver tarea #13](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/13) · **Responsable: Cristian** · 5 puntos relativos.
 
-[Abrir issue #13](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/13)
+FIFO significa que sale primero la página que entró primero. Solo se reemplaza una página cuando no quedan marcos libres utilizables. Los marcos reservados para E/S deben respetarse según el contrato inicial.
 
-Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/mmu-fifo`. Rúbrica: G3 + I1/I2.
-Dependencias: P2-002, P2-011, P2-012.
+Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12).
 
-- [ ] Usar marcos libres antes de desalojar; FIFO elige por orden de entrada, sin rejuvenecer por hit/Reference.
-- [ ] Excluir marcos reservados/fijados según contrato y mostrar cola, cabeza y víctima con motivos.
-- [ ] Secuencia de más páginas que marcos elegibles produce víctimas predichas; reset vacía cola y no duplica entradas.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-014] Atender un fallo de página y continuar la instrucción
 
-## [P2-014][MMU] Implementar Page Fault con Swap y reintento atómico
+[Ver tarea #14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14) · **Responsable: Marcelo** · 5 puntos relativos.
 
-[Abrir issue #14](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/14)
+Un Page Fault ocurre cuando el programa pide una página que no está cargada en RAM. La CPU debe esperar, conseguir un marco, guardar la página que sale si fue modificada, traer los 32 bytes solicitados y continuar exactamente donde quedó.
 
-Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/mmu-page-fault`. Rúbrica: G1,G3 + I1/I2.
-Dependencias: P2-005, P2-008, P2-011, P2-012, P2-013.
+Antes de empezar: [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12), [#13](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/13).
 
-- [ ] P=0 suspende instrucción, obtiene marco, escribe víctima sucia en Swap y trae exactamente 32 B.
-- [ ] Actualiza P/PFN/Dirty/Reference y ambas entradas de tabla sin alias entre páginas; víctima limpia no se escribe innecesariamente.
-- [ ] Reanuda exactamente el acceso fallido sin doble incremento de PC, doble escritura ni doble consumo de KBD; adjuntar traza completa.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-015] Actualizar Dirty y Reference y evitar copias viejas al cambiar páginas
 
-## [P2-015][MMU] Implementar bits Dirty/Reference e invalidación al reutilizar marcos
+[Ver tarea #15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15) · **Responsable: Joseph** · 5 puntos relativos.
 
-[Abrir issue #15](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/15)
+Dirty indica que una página fue escrita; Reference indica que fue consultada. Cuando se reutiliza un marco, las cachés no deben seguir entregando bytes de la página anterior. Aquí se conectan esas actualizaciones para no perder cambios ni leer copias viejas.
 
-Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/mmu-coherencia`. Rúbrica: G2,G3 + I1/I2.
-Dependencias: P2-003, P2-011, P2-014.
+Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14).
 
-- [ ] Todas las lecturas/fetch marcan Reference; escrituras marcan Dirty incluso con hit de caché y respetan E/S.
-- [ ] Antes de reutilizar un marco se invalidan o sincronizan L1I/L1D/L2 según políticas y no se sirven bytes de la víctima.
-- [ ] Probar escritura→desalojo→recarga y hit caliente→Page Fault→lectura nueva; verificar bytes y tabla contra modelo esperado.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-016] Crear la caché L1I para las instrucciones
 
-## [P2-016][L1I] Implementar L1I de 8 B para fetch exclusivo
+[Ver tarea #16](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/16) · **Responsable: Cristian** · 5 puntos relativos.
 
-[Abrir issue #16](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/16)
+L1I guarda únicamente los bytes de las instrucciones que busca el PC. Tiene una sola línea de ocho bytes. Si la instrucción ya está allí es un hit; si no está, es un miss y debe pedirse al siguiente nivel.
 
-Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/cache-l1i`. Rúbrica: G1,G2 + I1/I2.
-Dependencias: P2-003, P2-008, P2-011.
+Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11).
 
-- [ ] Una línea válida de 8 B con tag físico/offset; solo fetch la utiliza y lecturas de datos no la consultan.
-- [ ] Miss solicita línea a L2 por contrato y hit devuelve byte correcto; fetch cruzando frontera usa ambas líneas/páginas correctamente.
-- [ ] Verificar acceso frío/repetido, salto fuera de línea e invalidación tras recarga de marco o edición de programa.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-017] Crear la caché L1D para los datos
 
-## [P2-017][L1D] Implementar L1D de 8 B para operandos
+[Ver tarea #17](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/17) · **Responsable: Marcelo** · 5 puntos relativos.
 
-[Abrir issue #17](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/17)
+L1D guarda una línea de ocho bytes de datos u operandos. Debe funcionar tanto cuando la CPU lee como cuando escribe, siguiendo las reglas acordadas para mantener las copias actualizadas.
 
-Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/cache-l1d`. Rúbrica: G1,G2 + I1/I2.
-Dependencias: P2-003, P2-008, P2-011.
+Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11).
 
-- [ ] Una línea de datos de 8 B; cargas y almacenes respetan política de escritura/asignación acordada.
-- [ ] Hit/miss consultan L2 solo cuando corresponde; registros y memoria reciben bytes correctos a través de buses.
-- [ ] Probar lectura repetida, escritura y lectura posterior, límites y bypass completo de direcciones KBD/LCD.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-018] Crear la caché L2 de 32 bytes y su reemplazo FIFO
 
-## [P2-018][L2] Implementar L2 unificada de 32 B y reemplazo FIFO
+[Ver tarea #18](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/18) · **Responsable: Joseph** · 5 puntos relativos.
 
-[Abrir issue #18](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/18)
+L2 es el nivel compartido entre las cachés pequeñas y la RAM. Tendrá cuatro líneas de ocho bytes. Su propia cola FIFO decidirá qué línea sale cuando se necesita una quinta; esta cola es distinta del FIFO de páginas.
 
-Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/cache-l2`. Rúbrica: G1,G2 + I1/I2.
-Dependencias: P2-003, P2-008, P2-010, P2-011.
+Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11).
 
-- [ ] Cuatro líneas de 8 B con válido/tag y cola FIFO independiente del FIFO de páginas; capacidad total exacta 32 B.
-- [ ] Miss de L1I/L1D consulta L2; miss L2 trae bytes de RAM a través del bus; hits no duplican lecturas de RAM.
-- [ ] Acceder cinco bloques fuerza víctima conocida; validar hits compartidos entre instrucciones/datos y coherencia de la inclusión si se adopta.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-019] Mantener actualizadas las copias de caché y memoria
 
-## [P2-019][CACHE] Integrar escrituras, bypass E/S e invalidación multinivel
+[Ver tarea #19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19) · **Responsable: Cristian** · 3 puntos relativos.
 
-[Abrir issue #19](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/19)
+Un mismo dato puede estar copiado en L1, L2 y RAM. Esta tarea conecta las reglas necesarias para que una escritura, una carga de programa o un cambio de página no deje una copia antigua que luego se use por error.
 
-Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/cache-coherencia`. Rúbrica: G2,G3,G4 + I1/I2.
-Dependencias: P2-015, P2-016, P2-017, P2-018.
+Antes de empezar: [#15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15), [#16](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/16), [#17](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/17), [#18](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/18).
 
-- [ ] Escrituras mantienen coherencia L1D/L2/RAM/Swap según contrato; fetch no lee instrucciones obsoletas.
-- [ ] Carga de programa, edición de RAM y reemplazo de marco invalidan todas las líneas afectadas sin borrar vecinos.
-- [ ] Probar alias físicos, acceso E/S no cacheable y modificación seguida de lectura/fetch con valores esperados.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-020] Contar los hits y misses de cada caché
 
-## [P2-020][CACHE] Implementar métricas Hit/Miss y tasa por nivel
+[Ver tarea #20](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/20) · **Responsable: Marcelo** · 3 puntos relativos.
 
-[Abrir issue #20](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/20)
+Los contadores deben explicar cuántas consultas resolvió cada caché y cuántas fallaron. La tasa de aciertos es hits dividido entre el total de consultas. No se cuenta una consulta a L2 si L1 ya respondió.
 
-Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/cache-metricas`. Rúbrica: G2 + I1/I2.
-Dependencias: P2-016, P2-017, P2-018.
+Antes de empezar: [#16](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/16), [#17](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/17), [#18](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/18).
 
-- [ ] Contadores separados L1I/L1D/L2 contabilizan una búsqueda por acceso efectivo; L2 solo cuenta cuando se consulta.
-- [ ] Hit Rate=hits/(hits+misses) con denominador cero definido; reset reinicia coherentemente estado y contadores.
-- [ ] Una secuencia manual fría/caliente y reintento tras Page Fault coincide con expectativas documentadas sin doble conteo.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-021] Animar los aciertos, fallos y movimientos entre cachés
 
-## [P2-021][CACHE] Animar flujo L1I/L1D↔L2↔RAM e indicadores
+[Ver tarea #21](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/21) · **Responsable: Joseph** · 3 puntos relativos.
 
-[Abrir issue #21](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/21)
+La animación debe enseñar de dónde salió cada byte: L1I, L1D, L2 o RAM. No basta con encender un cuadro; el movimiento debe corresponder al evento real y coincidir con los contadores.
 
-Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/cache-animacion`. Rúbrica: G1,G2,G7 + I1/I2.
-Dependencias: P2-009, P2-016, P2-017, P2-018, P2-020.
+Antes de empezar: [#9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9), [#16](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/16), [#17](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/17), [#18](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/18), [#20](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/20).
 
-- [ ] Cada hit/miss resalta nivel, línea, tag y transferencia correspondiente al mismo micro-paso.
-- [ ] Mostrar relleno, reemplazo y actualización de contadores; líneas inactivas no aparentan transferencias.
-- [ ] Step permite inspección y Run conserva orden; comparar eventos con pantallas para lectura, escritura y fetch.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-022] Crear la entrada de teclado y su cola de ocho bytes
 
-## [P2-022][KBD] Implementar cola circular KBD de 8 B y entrada interactiva
+[Ver tarea #22](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/22) · **Responsable: Cristian** · 5 puntos relativos.
 
-[Abrir issue #22](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/22)
+El teclado necesita una cola: los caracteres esperan su turno hasta que el programa los lee con IN. Deben guardarse en ocho bytes de RAM. Una cola circular vuelve al principio del espacio cuando llega al final, sin alterar el orden.
 
-Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/io-kbd`. Rúbrica: G1,G4 + I1/I2.
-Dependencias: P2-002, P2-008, P2-010.
+Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10).
 
-- [ ] Panel captura caracteres con codificación definida; ocho bytes reales en RAM y punteros head/tail/count coherentes.
-- [ ] IN publica el byte mediante En_KBD y el bus; cola vacía y desbordamiento tienen comportamiento explícito sin corrupción.
-- [ ] Probar 0/1/8/9 caracteres, wrap-around y lectura interrumpida; consumo ocurre una vez al completar la transacción.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-023] Crear el LCD de ocho caracteres y su memoria de video
 
-## [P2-023][LCD] Implementar LCD 8×1 y video buffer de 8 B
+[Ver tarea #23](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/23) · **Responsable: Marcelo** · 5 puntos relativos.
 
-[Abrir issue #23](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/23)
+El LCD mostrará una fila de ocho caracteres. Cada posición representará uno de los ocho bytes reservados en RAM como memoria de video. La pantalla solo cambia cuando la CPU realiza la escritura permitida por Ld_LCD.
 
-Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/io-lcd`. Rúbrica: G1,G4 + I1/I2.
-Dependencias: P2-002, P2-008, P2-010.
+Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10).
 
-- [ ] Ocho celdas visibles corresponden exactamente a ocho bytes reservados en RAM con conversión de caracteres documentada.
-- [ ] OUT activa receptor Ld_LCD y actualiza la posición acordada a través del bus; sin Load no cambia el display.
-- [ ] Probar escritura de 1/8/9 caracteres según política de cursor, reset y sincronía RAM↔LCD en Step/Run.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-024] Hacer funcionar IN y OUT dentro del ciclo de la CPU
 
-## [P2-024][IO] Integrar IN/OUT con CPU, MMU y bypass de caché
+[Ver tarea #24](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/24) · **Responsable: Joseph** · 5 puntos relativos.
 
-[Abrir issue #24](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/24)
+IN toma un carácter del teclado y lo coloca en un registro; OUT manda un registro al LCD. Ambas instrucciones deben usar la CPU, el mapa de memoria y los buffers tri-estado, igual que las demás instrucciones usan sus caminos definidos.
 
-Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/io-in-out`. Rúbrica: G1,G2,G3,G4,G5 + I1/I2.
-Dependencias: P2-005, P2-014, P2-019, P2-022, P2-023.
+Antes de empezar: [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14), [#19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19), [#22](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/22), [#23](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/23).
 
-- [ ] Ensamblado de operandos KBD/LCD y ejecución IN/OUT respetan mapa de memoria y señales IO.
-- [ ] E/S utiliza buffers tri-estado y modifica cola/video reales de RAM; no deja líneas de caché inconsistentes.
-- [ ] Probar eco byte a byte, entrada vacía y pausas durante E/S; traza identifica registro, dirección y En_KBD/Ld_LCD.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-025] Leer el código ensamblador y explicar sus errores
 
-## [P2-025][ASM] Implementar parser, símbolos y diagnósticos del ensamblador
+[Ver tarea #25](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/25) · **Responsable: Cristian** · 5 puntos relativos.
 
-[Abrir issue #25](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/25)
+El ensamblador convierte el texto del programa en instrucciones que la CPU puede ejecutar. Primero debe reconocer instrucciones, registros, números y etiquetas. Una etiqueta es un nombre que permite saltar a una posición sin escribir a mano su dirección.
 
-Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/asm-parser`. Rúbrica: G5 + I1/I2.
-Dependencias: P2-001, P2-002.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2).
 
-- [ ] Analizar registros AX..DX, inmediatos, etiquetas, saltos y operandos [KBD]/[LCD] según ISA documentada.
-- [ ] Resolver etiquetas y validar rangos/operandos; errores indican línea y motivo sin cargar programa parcial.
-- [ ] Probar programa válido, etiqueta duplicada/ausente, instrucción desconocida, overflow y sintaxis IN/OUT.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-026] Convertir instrucciones a bytes y cargarlas en memoria virtual
 
-## [P2-026][LOADER] Implementar codificador y cargador a memoria virtual
+[Ver tarea #26](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/26) · **Responsable: Marcelo** · 5 puntos relativos.
 
-[Abrir issue #26](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/26)
+Después de validar el ensamblador, hay que generar sus bytes y guardarlos en las páginas virtuales. El cargador prepara también el inicio del programa para que CPU, tabla de páginas y cachés no conserven datos de la ejecución anterior.
 
-Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/asm-cargador`. Rúbrica: G2,G3,G5 + I1/I2.
-Dependencias: P2-002, P2-012, P2-015, P2-025.
+Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12), [#15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15), [#25](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/25).
 
-- [ ] Codificar ISA y producir mapa fuente↔bytes; cargar en páginas virtuales respetando tamaño y zona E/S.
-- [ ] Cargar valida todo antes de mutar estado; reinicia PC, tabla, FIFO y cachés de modo reproducible conforme al contrato.
-- [ ] Probar carga multípágina, frontera 31/32 y programa demasiado grande; comparar bytes cargados y primer fetch.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-027] Crear el catálogo de programas y el editor en celdas
 
-## [P2-027][EDITOR] Crear catálogo de programas y editor ASM en celdas
+[Ver tarea #27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27) · **Responsable: Joseph** · 5 puntos relativos.
 
-[Abrir issue #27](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/27)
+El equipo necesita elegir y modificar programas sin cambiar el código del simulador. El catálogo guardará al menos tres fuentes ASM y el editor permitirá escribirlas en celdas, verificarlas y enviarlas al cargador.
 
-Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/asm-editor`. Rúbrica: G5,G7 + I1/I2.
-Dependencias: P2-001, P2-002, P2-025.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#25](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/25).
 
-- [ ] Catálogo conserva al menos tres fuentes independientes y permite seleccionar, editar y guardar sin código hardcodeado.
-- [ ] Botones Verificar y Cargar muestran diagnósticos del ensamblador y solo cargan fuente válida.
-- [ ] Probar modificación, error de sintaxis, retorno al catálogo y persistencia entre ejecuciones; separar fuente de estado de CPU.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-028] Preparar un programa de operaciones y bucles con AX, BX, CX y DX
 
-## [P2-028][DEMO] Crear demo aritmética con bucles AX/BX/CX/DX y flags
+[Ver tarea #28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28) · **Responsable: Cristian** · 3 puntos relativos.
 
-[Abrir issue #28](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/28)
+La primera demo debe demostrar que funcionan los cuatro registros, las operaciones, los indicadores y los saltos. Su resultado tiene que poder calcularse a mano para comprobar el simulador y explicarlo durante la defensa.
 
-Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/demo-aritmetica`. Rúbrica: G5,I4 + I1/I2.
-Dependencias: P2-004, P2-005, P2-026, P2-027.
+Antes de empezar: [#4](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/4), [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#26](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/26), [#27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27).
 
-- [ ] Fuente ASM utiliza sustancialmente los cuatro registros y un bucle/salto condicional con resultado calculado a mano.
-- [ ] Catálogo permite editar y cargar; ejecución termina en HALT y conserva resultado esperado en registros/memoria.
-- [ ] Adjuntar pasos/flags esperados y variante de una instrucción para defensa; repetir tras reset produce mismo resultado.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-029] Preparar un programa que copie el teclado al LCD
 
-## [P2-029][DEMO] Crear demo de eco interactivo teclado→LCD
+[Ver tarea #29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29) · **Responsable: Marcelo** · 3 puntos relativos.
 
-[Abrir issue #29](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/29)
+La segunda demo será un eco: el usuario escribe y el programa mueve cada carácter del teclado al LCD usando IN y OUT. Deben verse la cola, los bytes de video y las señales que mueven el dato.
 
-Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/demo-eco`. Rúbrica: G1,G4,G5,I4 + I1/I2.
-Dependencias: P2-024, P2-026, P2-027.
+Antes de empezar: [#24](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/24), [#26](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/26), [#27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27).
 
-- [ ] Programa lee con IN y escribe con OUT usando DX y demás registros cuando corresponde; espera entrada sin bloquear la interfaz.
-- [ ] Texto de hasta ocho caracteres aparece progresivamente en LCD y se observan cola, video RAM y señales tri-estado.
-- [ ] Adjuntar recorrido de prueba con entrada vacía, ocho bytes y reinicio; no sustituir eco por actualización directa de UI.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-030] Preparar un programa que provoque fallos de página y de caché
 
-## [P2-030][DEMO] Crear demo de accesos dispersos, Page Fault y misses
+[Ver tarea #30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30) · **Responsable: Joseph** · 3 puntos relativos.
 
-[Abrir issue #30](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/30)
+La tercera demo usará direcciones separadas para obligar a cambiar líneas de caché y páginas de RAM. También modificará una página y la volverá a cargar para demostrar que Swap guardó sus cambios.
 
-Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/demo-memoria`. Rúbrica: G1,G2,G3,G5,I4 + I1/I2.
-Dependencias: P2-014, P2-019, P2-020, P2-026, P2-027.
+Antes de empezar: [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14), [#19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19), [#20](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/20), [#26](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/26), [#27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27).
 
-- [ ] Fuente accede a más páginas que marcos elegibles y más líneas que capacidad de caché; explicar secuencia prevista.
-- [ ] Incluye escritura que ensucia una página, desalojo FIFO, guardado Swap y recarga con byte preservado.
-- [ ] Registrar víctimas, conteos hit/miss esperados y traza paso a paso; resultado es determinista con reset y direcciones respetan E/S.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-031] Organizar la hoja, elegir el nombre del equipo y añadir el logo
 
-## [P2-031][UI] Diseñar panel Sheets, identidad del equipo y controles
+[Ver tarea #31](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/31) · **Responsable: Cristian** · 3 puntos relativos.
 
-[Abrir issue #31](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/31)
+La hoja debe ser fácil de recorrer durante una demo: CPU, buses, memorias, cachés, teclado, LCD y editor tendrán zonas claras. El nombre y logo oficiales del equipo deben aparecer también en la documentación y en la presentación.
 
-Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P1. Esfuerzo: 3 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/ui-panel-identidad`. Rúbrica: G7 + I1/I2.
-Dependencias: P2-001, P2-002, P2-006.
+Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#6](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/6).
 
-- [ ] Acordar nombre/logotipo oficiales con los tres; integrarlos en hoja, documentación y material de presentación.
-- [ ] Organizar CPU, buses, memorias, cachés, E/S y editor con leyenda accesible y formatos legibles.
-- [ ] Step/Run/Pause/Reset muestran modo actual y evitan acciones incompatibles; walkthrough en pantalla de tamaño habitual.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-032] Mostrar visualmente cómo se resuelve un Page Fault
 
-## [P2-032][UI] Animar Page Fault, tabla interactiva y transferencia de 32 B
+[Ver tarea #32](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/32) · **Responsable: Marcelo** · 3 puntos relativos.
 
-[Abrir issue #32](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/32)
+Cuando falta una página, la interfaz debe enseñar por qué se detuvo la CPU y qué hace para continuar. Se verá la dirección solicitada, la página que sale, el respaldo en Swap, los 32 bytes que llegan y el cambio de la tabla.
 
-Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P1. Esfuerzo: 3 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/ui-page-fault`. Rúbrica: G3,G7 + I1/I2.
-Dependencias: P2-011, P2-013, P2-014, P2-015.
+Antes de empezar: [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#13](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/13), [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14), [#15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15).
 
-- [ ] Page Fault se resalta rojo y muestra VPN/offset/PFN, víctima, Dirty, Swap y cola FIFO en secuencia real.
-- [ ] Tabla permite inspeccionar entradas y editar valores solo mediante acciones validadas que preserven contratos y coherencia.
-- [ ] Mostrar transferencia completa de 32 B y reanudación; Step permite pausar en cada fase sin perder estado.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-033] Animar los buses y distinguir buffers activos y High-Z
 
-## [P2-033][UI] Animar cables, buffers High-Z y señales por micro-paso
+[Ver tarea #33](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/33) · **Responsable: Joseph** · 3 puntos relativos.
 
-[Abrir issue #33](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/33)
+Los cables deben indicar qué camino usa cada transferencia. Un buffer activo transmite; uno en High-Z está desconectado. La animación debe ayudar a ver quién envía, quién recibe y qué señales lo permiten.
 
-Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P1. Esfuerzo: 3 puntos.
-Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/ui-buses`. Rúbrica: G1,G7 + I1/I2.
-Dependencias: P2-007, P2-008, P2-009, P2-031.
+Antes de empezar: [#7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9), [#31](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/31).
 
-- [ ] Representar caminos internos/externos y distinguir emisor Enable, receptores Load y buffers en Z.
-- [ ] Cada cable activo coincide con la traza del motor y micro-palabra, incluyendo KBD/LCD y acceso a caché.
-- [ ] Modo lento/Step conserva legibilidad; contención se muestra como error y no como transferencia válida.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-034] Probar registros, instrucciones y buses con resultados conocidos
 
-## [P2-034][TEST] Validar CPU, ISA y buses con casos límite
+[Ver tarea #34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34) · **Responsable: Cristian** · 3 puntos relativos.
 
-[Abrir issue #34](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/34)
+Estas pruebas comprobarán CPU y buses sin depender solo de que una animación se vea bien. Para cada caso se anotará el resultado esperado antes de ejecutar y luego se comparará con lo que ocurrió.
 
-Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F4 · Validación (6-7 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/test-cpu-buses`. Rúbrica: G1,G5 + I1/I2.
-Dependencias: P2-004, P2-005, P2-007, P2-008, P2-009, P2-028.
+Antes de empezar: [#4](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/4), [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9), [#28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28).
 
-- [ ] Suite comprueba flags, salto tomado/no tomado, bucle, HALT y cuatro registros con valores esperados independientes.
-- [ ] Incluye sin emisor, un emisor, dos emisores y Load deshabilitado en cada segmento representativo.
-- [ ] Relacionar fallos con issue/PR y adjuntar traza; no dar por válido un test que solo replica implementación.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-035] Probar traducción de direcciones, FIFO y conservación en Swap
 
-## [P2-035][TEST] Validar MMU/FIFO/Swap y reservas de RAM
+[Ver tarea #35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35) · **Responsable: Marcelo** · 3 puntos relativos.
 
-[Abrir issue #35](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/35)
+Las pruebas deben demostrar que las direcciones se traducen correctamente y que sacar una página de RAM no hace perder sus datos. También comprobarán las reservas del teclado y del LCD dentro de la RAM.
 
-Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F4 · Validación (6-7 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/test-memoria`. Rúbrica: G3,G4 + I1/I2.
-Dependencias: P2-010, P2-011, P2-012, P2-013, P2-014, P2-015, P2-030.
+Antes de empezar: [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12), [#13](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/13), [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14), [#15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30).
 
-- [ ] Casos frontera VA/PA, P=0, marcos libres/llenos y exclusión de reservas verifican tabla y FIFO esperados.
-- [ ] Víctima limpia/sucia, recuperación de Swap y reintento comprueban 32 bytes completos y ausencia de efectos duplicados.
-- [ ] Ejecutar demo dispersa desde estado limpio, conservar evidencia y documentar cada discrepancia corregida.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-036] Probar cachés, teclado y LCD trabajando juntos
 
-## [P2-036][TEST] Validar cachés, coherencia y E/S de extremo a extremo
+[Ver tarea #36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36) · **Responsable: Joseph** · 3 puntos relativos.
 
-[Abrir issue #36](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/36)
+Aquí se comprueba el recorrido completo, no cada módulo aislado. Los hits y misses deben coincidir con un cálculo previo y los caracteres deben recorrer cola, bus y video sin quedar guardados en caché.
 
-Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 3 puntos.
-Fase: F4 · Validación (6-7 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/test-cache-io`. Rúbrica: G1,G2,G4 + I1/I2.
-Dependencias: P2-019, P2-020, P2-021, P2-022, P2-023, P2-024, P2-029.
+Antes de empezar: [#19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19), [#20](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/20), [#21](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/21), [#22](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/22), [#23](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/23), [#24](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/24), [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29).
 
-- [ ] Secuencia de accesos conocida produce contadores L1I/L1D/L2 exactos y conserva datos tras escritura/invalidate.
-- [ ] Verificar que KBD/LCD no alteran caché y que cola/video de ocho bytes coinciden con bus y display.
-- [ ] Cubrir reset, carga de programa, repetición y reemplazo de marco; adjuntar traza y resultado observado.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-037] Explicar la arquitectura, las instrucciones y la micro-palabra en español e inglés
 
-## [P2-037][DOC] Documentar arquitectura, ISA y micro-palabra en ES/EN
+[Ver tarea #37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37) · **Responsable: Cristian** · 3 puntos relativos.
 
-[Abrir issue #37](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/37)
+La documentación técnica debe permitir que otro estudiante entienda cómo está construido el simulador. Ambos idiomas deben explicar el mismo funcionamiento real, con diagramas y ejemplos que coincidan con la implementación.
 
-Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P1. Esfuerzo: 3 puntos.
-Fase: F4 · Documentación (6-7 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/docs-arquitectura`. Rúbrica: G1,G2,G3,G5,G6 + I1/I2.
-Dependencias: P2-002, P2-003, P2-005, P2-009, P2-019.
+Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9), [#19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19).
 
-- [ ] Completar documentos en docs/es y docs/en con mismos contenidos y términos revisados por otra persona.
-- [ ] Diagramas Mermaid incluyen buses internos/externos, jerarquía, MMU/Swap y periféricos con flujos reales.
-- [ ] Tabla ISA especifica opcode/bytes/operandos/flags y control word explica cada bit con ejemplo de microsecuencia real.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-038] Escribir una guía de instalación y uso en ambos idiomas
 
-## [P2-038][DOC] Escribir manual bilingüe de instalación y uso en Sheets
+[Ver tarea #38](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/38) · **Responsable: Marcelo** · 3 puntos relativos.
 
-[Abrir issue #38](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/38)
+El manual debe permitir que alguien use el proyecto desde otra computadora sin ayuda del autor. Explicará cómo preparar Sheets y Apps Script, cómo cargar los programas y cómo interpretar los controles y paneles.
 
-Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P1. Esfuerzo: 3 puntos.
-Fase: F4 · Documentación (6-7 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/docs-manual`. Rúbrica: G6,G7 + I1/I2.
-Dependencias: P2-006, P2-027, P2-028, P2-029, P2-030, P2-031, P2-032, P2-033.
+Antes de empezar: [#6](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/6), [#27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27), [#28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28), [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#31](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/31), [#32](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/32), [#33](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/33).
 
-- [ ] Guía ES/EN reproduce copia/configuración Apps Script desde repo sin credenciales y con pasos verificables.
-- [ ] Explica editor, carga, Step/Run/Reset, métricas, fallos y KBD/LCD con capturas de producto real.
-- [ ] Otra persona sigue guía en su computadora y registra resultado; incluir enlace directo verificado cuando exista planilla.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-039] Relacionar cada punto de la rúbrica con una prueba real
 
-## [P2-039][DOC] Construir matriz final de evidencia G1-G7 e I1-I4
+[Ver tarea #39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39) · **Responsable: Joseph** · 3 puntos relativos.
 
-[Abrir issue #39](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/39)
+La rúbrica debe tener evidencia fácil de encontrar. Esta tarea reunirá, para cada criterio, el enlace a la tarea, el PR y la prueba, captura o traza que demuestre que se cumple. No se marcará como logrado lo que siga pendiente.
 
-Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P1. Esfuerzo: 3 puntos.
-Fase: F4 · Documentación (6-7 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/docs-evidencia`. Rúbrica: G6,I1,I2,I3,I4 + I1/I2.
-Dependencias: P2-034, P2-035, P2-036, P2-037, P2-038.
+Antes de empezar: [#34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34), [#35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35), [#36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36), [#37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37), [#38](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/38).
 
-- [ ] README.md y README_EN.md enlazan arquitectura, ISA, micro-palabra, manual, Project y planilla verificada.
-- [ ] Cada criterio tiene issues/PRs, prueba o captura reproducible y estado real, sin afirmar cumplimiento pendiente.
-- [ ] Auditar contribuciones por alumno y revisiones; diferencias entre idiomas y enlaces rotos corregidas.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-040] Preparar la explicación de Cristian y practicar cambios en vivo
 
-## [P2-040][DEFENSA] Preparar exposición de CPU/buses y ejercicio cruzado de memoria
+[Ver tarea #40](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/40) · **Responsable: Cristian** · 3 puntos relativos.
 
-[Abrir issue #40](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/40)
+Cristian explicará CPU y buses, pero también deberá resolver preguntas de memoria de otra parte del proyecto. El objetivo es demostrar comprensión del sistema y poder cambiar una instrucción o un dato sin ayuda.
 
-Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P1. Esfuerzo: 3 puntos.
-Fase: F5 · Defensa (8 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/defensa-cristian`. Rúbrica: I2,I3,I4 + I1/I2.
-Dependencias: P2-028, P2-030, P2-034, P2-035, P2-037.
+Antes de empezar: [#28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34), [#35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35), [#37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37).
 
-- [ ] Cristian explica buses/High-Z/micro-palabra con traza propia y también traduce VA→PA/FIFO de un módulo ajeno.
-- [ ] Ensaya modificar instrucción o byte en vivo y verifica efecto en caché/memoria sin romper integración.
-- [ ] Parte técnica ~6 min 40 s coordinada con compañeros; adjuntar guion, preguntas/respuestas y enlaces a PR personales.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-041] Preparar la explicación de Marcelo y practicar cambios en vivo
 
-## [P2-041][DEFENSA] Preparar exposición de MMU/Swap y ejercicio cruzado de caché
+[Ver tarea #41](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/41) · **Responsable: Marcelo** · 3 puntos relativos.
 
-[Abrir issue #41](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/41)
+Marcelo explicará memoria virtual, tabla de páginas, FIFO y Swap. También deberá predecir un acceso de caché de otra parte del proyecto y demostrar que sabe modificar el programa o la memoria durante la defensa.
 
-Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P1. Esfuerzo: 3 puntos.
-Fase: F5 · Defensa (8 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/defensa-marcelo`. Rúbrica: I2,I3,I4 + I1/I2.
-Dependencias: P2-029, P2-030, P2-035, P2-036, P2-037.
+Antes de empezar: [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35), [#36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36), [#37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37).
 
-- [ ] Marcelo explica tabla, FIFO, víctima sucia y Page Fault; también predice hit/miss y control de un acceso ajeno.
-- [ ] Ensaya modificación de código/memoria en vivo y muestra persistencia tras desalojo/recarga.
-- [ ] Parte técnica ~6 min 40 s coordinada; adjuntar guion, preguntas/respuestas y ramas/PR personales verificables.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-042] Preparar la explicación de Joseph y practicar cambios en vivo
 
-## [P2-042][DEFENSA] Preparar exposición de caché/E/S y ejercicio cruzado de buses
+[Ver tarea #42](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/42) · **Responsable: Joseph** · 3 puntos relativos.
 
-[Abrir issue #42](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/42)
+Joseph explicará cachés y E/S y deberá interpretar también los bits de una micro-palabra de otro módulo. Practicará un cambio de código o memoria y comprobará qué ocurre en los datos, las cachés o el LCD.
 
-Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P1. Esfuerzo: 3 puntos.
-Fase: F5 · Defensa (8 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/defensa-joshep`. Rúbrica: I2,I3,I4 + I1/I2.
-Dependencias: P2-021, P2-024, P2-029, P2-030, P2-034, P2-036.
+Antes de empezar: [#21](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/21), [#24](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/24), [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34), [#36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36).
 
-- [ ] Joshep explica L1I/L1D/L2, métricas y eco KBD/LCD; también interpreta cada bit de una micro-palabra ajena.
-- [ ] Ensaya cambio de instrucción/valor y demuestra invalidación o resultado de E/S con una traza real.
-- [ ] Parte técnica ~6 min 40 s coordinada; adjuntar preguntas/respuestas, guion y evidencia de contribuciones personales.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-043] Ejecutar las tres demos completas en la misma planilla
 
-## [P2-043][INTEGRACION] Ejecutar regresión de las tres demos en planilla compartida
+[Ver tarea #43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43) · **Responsable: Cristian** · 2 puntos relativos.
 
-[Abrir issue #43](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/43)
+La integración final debe demostrar que todas las partes funcionan juntas en una sola versión del simulador. Cada demo se ejecutará desde reset y se comparará con los resultados esperados, tanto paso a paso como con Run.
 
-Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 2 puntos.
-Fase: F5 · Entrega (8 nov). Estado inicial: Backlog.
-Rama: `feature/cristian/integracion-regresion`. Rúbrica: G1,G2,G3,G4,G5,G7 + I1/I2.
-Dependencias: P2-028, P2-029, P2-030, P2-034, P2-035, P2-036, P2-038.
+Antes de empezar: [#28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28), [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34), [#35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35), [#36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36), [#38](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/38).
 
-- [ ] Desde reset ejecutar las tres demos en Step y Run en la misma planilla candidata, registrando resultados esperados/obtenidos.
-- [ ] Comprobar eventos, registros, buses, tabla, cachés, E/S y animación sincronizados; no aceptar módulos probados solo por separado.
-- [ ] Resolver bloqueos con issues y PR revisados y repetir casos afectados; enlazar evidencia de la ejecución final.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-044] Preparar la versión final y comprobar el enlace de Google Sheets
 
-## [P2-044][ENTREGA] Verificar acceso a Sheets y preparar candidata develop→main
+[Ver tarea #44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44) · **Responsable: Marcelo** · 2 puntos relativos.
 
-[Abrir issue #44](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/44)
+La entrega estable irá en main después de integrar el trabajo en develop. Debe poder identificarse exactamente qué versión se presenta y abrir la planilla desde otra cuenta con los permisos acordados para la evaluación.
 
-Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 2 puntos.
-Fase: F5 · Entrega (8 nov). Estado inicial: Backlog.
-Rama: `feature/marcelo/entrega-candidata`. Rúbrica: G6,I2 + I1/I2.
-Dependencias: P2-037, P2-038, P2-039, P2-043.
+Antes de empezar: [#37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37), [#38](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/38), [#39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43).
 
-- [ ] Enlace directo de planilla funciona desde cuenta de otro integrante, con acceso de evaluación acordado sin publicar datos privados innecesarios.
-- [ ] PR develop→main revisado incluye regresión y documentación ES/EN; congelar versión candidata antes del cierre.
-- [ ] Anotar versión/commit y procedimiento de restauración; no integrar defectos conocidos críticos ni afirmar despliegue antes de verificarlo.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-045] Ensayar la defensa completa y preparar la presentación
 
-## [P2-045][DEFENSA] Coordinar ensayo TFG 20+10 min y logística del equipo
+[Ver tarea #45](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/45) · **Responsable: Joseph** · 2 puntos relativos.
 
-[Abrir issue #45](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/45)
+El equipo dispone de 20 minutos para exponer y demostrar los tres programas, más 10 minutos de preguntas individuales. Este ensayo debe comprobar los tiempos, las transiciones y que todos expliquen una parte técnica sustancial.
 
-Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 2 puntos.
-Fase: F5 · Entrega (8 nov). Estado inicial: Backlog.
-Rama: `feature/joshep/defensa-ensayo`. Rúbrica: I3,I4,G7 + I1/I2.
-Dependencias: P2-031, P2-040, P2-041, P2-042, P2-043, P2-044.
+Antes de empezar: [#31](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/31), [#40](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/40), [#41](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/41), [#42](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/42), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43), [#44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44).
 
-- [ ] Ensayo cronometrado: 20 min exposición/demo de los tres programas y 10 min preguntas individuales de código/memoria.
-- [ ] Cada integrante tiene tiempo y contenido sustancial; practicar cambio en vivo y transición de pantallas sin leer diapositivas.
-- [ ] Confirmar nombre/logo, indumentaria formal del equipo, equipos, conectividad y alternativa local de evidencia; registrar mejoras.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-046] Comprobar las tareas y aportes de Cristian antes del cierre
 
-## [P2-046][GITFLOW] Auditar trazabilidad y aportes técnicos de Cristian
+[Ver tarea #46](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/46) · **Responsable: Cristian** · 2 puntos relativos.
 
-[Abrir issue #46](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/46)
+Cristian debe poder mostrar qué hizo durante el proyecto y explicarlo. Se revisarán sus tarjetas, ramas personales, commits, PR y pruebas, sin crear historial artificial ni dejar cambios para después de la fecha límite.
 
-Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P1. Esfuerzo: 2 puntos.
-Fase: F5 · Auditoría (antes del 9 nov 10:00). Estado inicial: Backlog.
-Rama: `feature/cristian/auditoria-cristian`. Rúbrica: I1,I2,I3,I4 + I1/I2.
-Dependencias: P2-039, P2-040, P2-043, P2-044, P2-045.
+Antes de empezar: [#39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39), [#40](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/40), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43), [#44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44), [#45](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/45).
 
-- [ ] Verificar issues movidas durante trabajo real, ramas feature/cristian/*, commits semánticos y PR revisados.
-- [ ] Contrastar carga técnica con aportes reales y dominio cruzado; documentar brechas sin fabricar historial.
-- [ ] Antes del cierre comprobar enlaces finales y evidencias individuales; no hacer commits ni movimientos posteriores al 9/11 10:00.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-047] Comprobar las tareas y aportes de Marcelo antes del cierre
 
-## [P2-047][GITFLOW] Auditar trazabilidad y aportes técnicos de Marcelo
+[Ver tarea #47](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/47) · **Responsable: Marcelo** · 2 puntos relativos.
 
-[Abrir issue #47](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/47)
+Marcelo debe poder mostrar sus aportes en implementación, pruebas y documentación, además de explicar cómo se conectan con los módulos de sus compañeros. La revisión será sobre evidencia real del trabajo realizado.
 
-Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P1. Esfuerzo: 2 puntos.
-Fase: F5 · Auditoría (antes del 9 nov 10:00). Estado inicial: Backlog.
-Rama: `feature/marcelo/auditoria-marcelo`. Rúbrica: I1,I2,I3,I4 + I1/I2.
-Dependencias: P2-039, P2-041, P2-043, P2-044, P2-045.
+Antes de empezar: [#39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39), [#41](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/41), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43), [#44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44), [#45](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/45).
 
-- [ ] Verificar issues movidas durante trabajo real, ramas feature/marcelo/*, commits semánticos y PR revisados.
-- [ ] Contrastar implementación/pruebas/documentación con aportes de compañeros y registrar brechas reales.
-- [ ] Confirmar preparación para preguntas y código en vivo; auditoría y correcciones deben ocurrir antes del cierre oficial.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+## [P2-048] Comprobar las tareas y aportes de Joseph antes del cierre
 
-## [P2-048][GITFLOW] Auditar trazabilidad y aportes técnicos de Joshep
+[Ver tarea #48](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/48) · **Responsable: Joseph** · 2 puntos relativos.
 
-[Abrir issue #48](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/48)
+Joseph debe poder mostrar sus tareas, sus cambios de código y las pruebas que hizo. También se comprobará que entiende la relación con otros módulos y que su material de defensa permite localizar sus aportes.
 
-Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P1. Esfuerzo: 2 puntos.
-Fase: F5 · Auditoría (antes del 9 nov 10:00). Estado inicial: Backlog.
-Rama: `feature/joshep/auditoria-joshep`. Rúbrica: I1,I2,I3,I4 + I1/I2.
-Dependencias: P2-039, P2-042, P2-043, P2-044, P2-045.
-
-- [ ] Verificar issues movidas durante trabajo real, ramas feature/joshep/*, commits semánticos y PR revisados.
-- [ ] Contrastar implementación/pruebas/documentación con reparto previsto y verificar revisión de módulos ajenos.
-- [ ] Comprobar enlaces de evidencia, defensa ensayada y estado final del tablero antes del cierre; sin inventar aprobaciones.
-- [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
+Antes de empezar: [#39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39), [#42](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/42), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43), [#44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44), [#45](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/45).

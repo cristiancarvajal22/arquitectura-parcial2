@@ -1,16 +1,26 @@
-# Flujo Gitflow personal y revisión
+# Cómo trabajar con GitHub
 
-1. Elegir una issue en To Do con responsable y reviewer confirmados.
-2. Actualizar develop y crear `feature/<nombre>/<modulo>` desde develop. Nombres: cristian, marcelo, joshep; módulo específico en kebab-case, por ejemplo `feature/cristian/bus-arbitraje`.
-3. Mover a In Progress y enlazar rama. Cada integrante usa su propia cuenta y autoría real.
-4. Commits pequeños: `feat(cpu): ...`, `fix(mmu): ...`, `test(cache): ...`, `docs(isa): ...`, `chore(repo): ...`. No fabricar historial ni usar commits vacíos.
-5. Abrir PR a develop usando la plantilla, referenciar la issue y solicitar al reviewer indicado. Mover a In Review.
-6. Reviewer verifica criterios, pruebas, integración y explicación del autor. Registrar aprobación o cambios requeridos; nunca autoaprobar.
-7. Integrar solo con aprobación ajena. Preservar autoría individual. Cerrar issue explícitamente si corresponde y mover a Done.
-8. Entregas: PR de develop a main, revisión de otro integrante y evidencia de regresión. No mezclar features directamente en main.
-9. Conflictos: resolver en la rama personal, repetir las pruebas afectadas y obtener nueva revisión.
-10. Antes del cierre del 9/11/2026 10:00 America/La_Paz, dejar main y la planilla enlazada verificadas. No modificar historial ni tablero después del cierre.
+## Una tarea, una rama, un PR
+1. Elegir una tarea cuyo trabajo previo ya esté terminado. La tarjeta dice quién es responsable y qué debe entregar.
+2. Actualizar `develop` y crear una rama personal desde ella: `feature/<nombre>/<modulo>`.
+   Nombres permitidos: `cristian`, `marcelo`, `joseph`. Ejemplo: `feature/joseph/cache-l2`.
+3. Mover la tarjeta a **In Progress** cuando se empiece. Enlazar la rama. Trabajar en una implementación activa por persona.
+4. Guardar cambios pequeños con mensajes claros. Ejemplos: `feat(cpu): agregar suma`, `fix(mmu): corregir dirección`, `test(cache): comprobar hit`, `docs(isa): explicar saltos`.
+5. Abrir un **Pull Request (PR) hacia develop**. Un PR permite ver y comprobar los cambios antes de unirlos al trabajo del equipo. Enlazar la tarea y sus pruebas; moverla a **In Review**.
+6. Otro compañero comprueba que se cumplan los criterios y registra su aprobación o los cambios necesarios. No hay asignaciones fijas de esta función y nadie aprueba su propio PR.
+7. Integrar el PR, cerrar la tarea y moverla a **Done** cuando esté comprobada. Si GitHub no la cierra al integrar en develop, cerrarla manualmente.
+8. Para la entrega estable, abrir un PR de develop a main y repetir la comprobación entre compañeros.
 
-## Reglas previstas y límites actuales
-La política es revisión obligatoria de al menos otro integrante y ausencia de pushes directos durante desarrollo. La creación administrativa inicial es la única excepción de arranque. Estas reglas de equipo no equivalen a protección técnica de ramas: no se afirma que haya reglas de protección activas. Confirmar disponibilidad de GitHub según plan y permisos antes de configurarlas.
-No incluir credenciales, .clasprc.json, tokens, IDs privados innecesarios ni datos personales en el repo. No se ha creado un proyecto Apps Script ni una planilla en este arranque.
+## Para qué sirve cada rama
+- `main`: versión estable que se presentará.
+- `develop`: trabajo integrado que se está preparando.
+- `feature/<nombre>/<modulo>`: trabajo de una tarea concreta.
+
+Si hay un conflicto, resolverlo en la rama personal y volver a ejecutar las pruebas afectadas. Cada alumno debe usar su propia cuenta y autoría real. No crear commits vacíos ni historial artificial.
+
+## Antes de terminar
+Adjuntar una prueba, traza, captura o documento que demuestre el resultado. Actualizar la documentación en ambos idiomas si cambia el funcionamiento.
+
+No subir contraseñas, tokens, `.clasprc.json` ni otros datos de acceso. El cierre comunicado es el **9 de noviembre de 2026 a las 10:00 (America/La_Paz)**: no se admiten commits ni movimientos de tablero posteriores.
+
+Las reglas anteriores son acuerdos del equipo. No se afirma que haya protección técnica de ramas activa. Los commits administrativos de organización inicial no sustituyen las contribuciones de implementación de los alumnos.

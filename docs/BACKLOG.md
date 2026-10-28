@@ -8,6 +8,8 @@ El cuerpo de cada issue conserva responsable, reviewer, rama, fase, dependencias
 
 ## [P2-001][CORE] Acordar estado serializable y contrato de eventos
 
+[Abrir issue #1](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/1)
+
 Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 2 puntos.
 Fase: F1 · Contratos (27-29 oct). Estado inicial: To Do.
 Rama: `feature/cristian/core-contratos`. Rúbrica: G1,G2,G3,G4,G5,I1 + I1/I2.
@@ -19,6 +21,8 @@ Dependencias: ninguna; revisar el contrato con todo el equipo.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-002][ISA] Cerrar ISA, anchuras de registros y mapa de RAM/E/S
+
+[Abrir issue #2](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/2)
 
 Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 2 puntos.
 Fase: F1 · Contratos (27-29 oct). Estado inicial: To Do.
@@ -32,6 +36,8 @@ Dependencias: ninguna; revisar el contrato con todo el equipo.
 
 ## [P2-003][CACHE] Cerrar políticas de caché, coherencia y micro-palabra
 
+[Abrir issue #3](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/3)
+
 Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 2 puntos.
 Fase: F1 · Contratos (27-29 oct). Estado inicial: To Do.
 Rama: `feature/joshep/cache-contratos`. Rúbrica: G1,G2,G3,G4 + I1/I2.
@@ -43,6 +49,8 @@ Dependencias: ninguna; revisar el contrato con todo el equipo.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-004][CPU] Implementar registros AX..DX y ALU de 8 bits
+
+[Abrir issue #4](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/4)
 
 Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
@@ -56,6 +64,8 @@ Dependencias: P2-001, P2-002.
 
 ## [P2-005][CPU] Implementar fetch/decode/execute y secuencias de control
 
+[Abrir issue #5](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/5)
+
 Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
 Rama: `feature/marcelo/cpu-microsecuencias`. Rúbrica: G1,G5 + I1/I2.
@@ -67,6 +77,8 @@ Dependencias: P2-001, P2-002, P2-003.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-006][CORE] Implementar reloj, snapshots y ciclo seguro en Apps Script
+
+[Abrir issue #6](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/6)
 
 Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
@@ -80,6 +92,8 @@ Dependencias: P2-001, P2-002, P2-003.
 
 ## [P2-007][BUS] Implementar arbitraje, High-Z y detección de contención
 
+[Abrir issue #7](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/7)
+
 Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
 Rama: `feature/cristian/bus-arbitraje`. Rúbrica: G1 + I1/I2.
@@ -91,6 +105,8 @@ Dependencias: P2-001, P2-003.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-008][BUS] Integrar transacciones de lectura, escritura y E/S por bus
+
+[Abrir issue #8](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/8)
 
 Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
@@ -104,6 +120,8 @@ Dependencias: P2-002, P2-003, P2-007.
 
 ## [P2-009][BUS] Implementar micro-palabra visible y decodificador de señales
 
+[Abrir issue #9](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/9)
+
 Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
 Rama: `feature/joshep/bus-micropalabra`. Rúbrica: G1,G7 + I1/I2.
@@ -115,6 +133,8 @@ Dependencias: P2-003, P2-007.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-010][RAM] Implementar 8 marcos de 32 B y reserva de E/S
+
+[Abrir issue #10](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/10)
 
 Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
@@ -128,6 +148,8 @@ Dependencias: P2-001, P2-002.
 
 ## [P2-011][MMU] Implementar traducción VPN/PFN/offset y tabla de 16 entradas
 
+[Abrir issue #11](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/11)
+
 Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
 Rama: `feature/marcelo/mmu-traduccion`. Rúbrica: G3 + I1/I2.
@@ -139,6 +161,8 @@ Dependencias: P2-001, P2-002, P2-010.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-012][SWAP] Implementar respaldo por páginas y persistencia de 32 bytes
+
+[Abrir issue #12](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/12)
 
 Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
@@ -152,6 +176,8 @@ Dependencias: P2-001, P2-002, P2-010.
 
 ## [P2-013][FIFO] Implementar cola FIFO y elección de víctima elegible
 
+[Abrir issue #13](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/13)
+
 Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
 Rama: `feature/cristian/mmu-fifo`. Rúbrica: G3 + I1/I2.
@@ -163,6 +189,8 @@ Dependencias: P2-002, P2-011, P2-012.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-014][MMU] Implementar Page Fault con Swap y reintento atómico
+
+[Abrir issue #14](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/14)
 
 Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
@@ -176,6 +204,8 @@ Dependencias: P2-005, P2-008, P2-011, P2-012, P2-013.
 
 ## [P2-015][MMU] Implementar bits Dirty/Reference e invalidación al reutilizar marcos
 
+[Abrir issue #15](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/15)
+
 Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
 Rama: `feature/joshep/mmu-coherencia`. Rúbrica: G2,G3 + I1/I2.
@@ -187,6 +217,8 @@ Dependencias: P2-003, P2-011, P2-014.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-016][L1I] Implementar L1I de 8 B para fetch exclusivo
+
+[Abrir issue #16](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/16)
 
 Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
@@ -200,6 +232,8 @@ Dependencias: P2-003, P2-008, P2-011.
 
 ## [P2-017][L1D] Implementar L1D de 8 B para operandos
 
+[Abrir issue #17](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/17)
+
 Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
 Rama: `feature/marcelo/cache-l1d`. Rúbrica: G1,G2 + I1/I2.
@@ -211,6 +245,8 @@ Dependencias: P2-003, P2-008, P2-011.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-018][L2] Implementar L2 unificada de 32 B y reemplazo FIFO
+
+[Abrir issue #18](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/18)
 
 Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F2 · Núcleo (30 oct-2 nov). Estado inicial: Backlog.
@@ -224,6 +260,8 @@ Dependencias: P2-003, P2-008, P2-010, P2-011.
 
 ## [P2-019][CACHE] Integrar escrituras, bypass E/S e invalidación multinivel
 
+[Abrir issue #19](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/19)
+
 Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
 Rama: `feature/cristian/cache-coherencia`. Rúbrica: G2,G3,G4 + I1/I2.
@@ -235,6 +273,8 @@ Dependencias: P2-015, P2-016, P2-017, P2-018.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-020][CACHE] Implementar métricas Hit/Miss y tasa por nivel
+
+[Abrir issue #20](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/20)
 
 Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
@@ -248,6 +288,8 @@ Dependencias: P2-016, P2-017, P2-018.
 
 ## [P2-021][CACHE] Animar flujo L1I/L1D↔L2↔RAM e indicadores
 
+[Abrir issue #21](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/21)
+
 Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
 Rama: `feature/joshep/cache-animacion`. Rúbrica: G1,G2,G7 + I1/I2.
@@ -259,6 +301,8 @@ Dependencias: P2-009, P2-016, P2-017, P2-018, P2-020.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-022][KBD] Implementar cola circular KBD de 8 B y entrada interactiva
+
+[Abrir issue #22](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/22)
 
 Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
@@ -272,6 +316,8 @@ Dependencias: P2-002, P2-008, P2-010.
 
 ## [P2-023][LCD] Implementar LCD 8×1 y video buffer de 8 B
 
+[Abrir issue #23](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/23)
+
 Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
 Rama: `feature/marcelo/io-lcd`. Rúbrica: G1,G4 + I1/I2.
@@ -283,6 +329,8 @@ Dependencias: P2-002, P2-008, P2-010.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-024][IO] Integrar IN/OUT con CPU, MMU y bypass de caché
+
+[Abrir issue #24](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/24)
 
 Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
@@ -296,6 +344,8 @@ Dependencias: P2-005, P2-014, P2-019, P2-022, P2-023.
 
 ## [P2-025][ASM] Implementar parser, símbolos y diagnósticos del ensamblador
 
+[Abrir issue #25](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/25)
+
 Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
 Rama: `feature/cristian/asm-parser`. Rúbrica: G5 + I1/I2.
@@ -307,6 +357,8 @@ Dependencias: P2-001, P2-002.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-026][LOADER] Implementar codificador y cargador a memoria virtual
+
+[Abrir issue #26](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/26)
 
 Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
@@ -320,6 +372,8 @@ Dependencias: P2-002, P2-012, P2-015, P2-025.
 
 ## [P2-027][EDITOR] Crear catálogo de programas y editor ASM en celdas
 
+[Abrir issue #27](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/27)
+
 Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 5 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
 Rama: `feature/joshep/asm-editor`. Rúbrica: G5,G7 + I1/I2.
@@ -331,6 +385,8 @@ Dependencias: P2-001, P2-002, P2-025.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-028][DEMO] Crear demo aritmética con bucles AX/BX/CX/DX y flags
+
+[Abrir issue #28](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/28)
 
 Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
@@ -344,6 +400,8 @@ Dependencias: P2-004, P2-005, P2-026, P2-027.
 
 ## [P2-029][DEMO] Crear demo de eco interactivo teclado→LCD
 
+[Abrir issue #29](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/29)
+
 Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
 Rama: `feature/marcelo/demo-eco`. Rúbrica: G1,G4,G5,I4 + I1/I2.
@@ -355,6 +413,8 @@ Dependencias: P2-024, P2-026, P2-027.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-030][DEMO] Crear demo de accesos dispersos, Page Fault y misses
+
+[Abrir issue #30](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/30)
 
 Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
@@ -368,6 +428,8 @@ Dependencias: P2-014, P2-019, P2-020, P2-026, P2-027.
 
 ## [P2-031][UI] Diseñar panel Sheets, identidad del equipo y controles
 
+[Abrir issue #31](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/31)
+
 Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P1. Esfuerzo: 3 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
 Rama: `feature/cristian/ui-panel-identidad`. Rúbrica: G7 + I1/I2.
@@ -379,6 +441,8 @@ Dependencias: P2-001, P2-002, P2-006.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-032][UI] Animar Page Fault, tabla interactiva y transferencia de 32 B
+
+[Abrir issue #32](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/32)
 
 Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P1. Esfuerzo: 3 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
@@ -392,6 +456,8 @@ Dependencias: P2-011, P2-013, P2-014, P2-015.
 
 ## [P2-033][UI] Animar cables, buffers High-Z y señales por micro-paso
 
+[Abrir issue #33](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/33)
+
 Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P1. Esfuerzo: 3 puntos.
 Fase: F3 · Integración (3-5 nov). Estado inicial: Backlog.
 Rama: `feature/joshep/ui-buses`. Rúbrica: G1,G7 + I1/I2.
@@ -403,6 +469,8 @@ Dependencias: P2-007, P2-008, P2-009, P2-031.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-034][TEST] Validar CPU, ISA y buses con casos límite
+
+[Abrir issue #34](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/34)
 
 Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F4 · Validación (6-7 nov). Estado inicial: Backlog.
@@ -416,6 +484,8 @@ Dependencias: P2-004, P2-005, P2-007, P2-008, P2-009, P2-028.
 
 ## [P2-035][TEST] Validar MMU/FIFO/Swap y reservas de RAM
 
+[Abrir issue #35](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/35)
+
 Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F4 · Validación (6-7 nov). Estado inicial: Backlog.
 Rama: `feature/marcelo/test-memoria`. Rúbrica: G3,G4 + I1/I2.
@@ -427,6 +497,8 @@ Dependencias: P2-010, P2-011, P2-012, P2-013, P2-014, P2-015, P2-030.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-036][TEST] Validar cachés, coherencia y E/S de extremo a extremo
+
+[Abrir issue #36](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/36)
 
 Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 3 puntos.
 Fase: F4 · Validación (6-7 nov). Estado inicial: Backlog.
@@ -440,6 +512,8 @@ Dependencias: P2-019, P2-020, P2-021, P2-022, P2-023, P2-024, P2-029.
 
 ## [P2-037][DOC] Documentar arquitectura, ISA y micro-palabra en ES/EN
 
+[Abrir issue #37](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/37)
+
 Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P1. Esfuerzo: 3 puntos.
 Fase: F4 · Documentación (6-7 nov). Estado inicial: Backlog.
 Rama: `feature/cristian/docs-arquitectura`. Rúbrica: G1,G2,G3,G5,G6 + I1/I2.
@@ -451,6 +525,8 @@ Dependencias: P2-002, P2-003, P2-005, P2-009, P2-019.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-038][DOC] Escribir manual bilingüe de instalación y uso en Sheets
+
+[Abrir issue #38](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/38)
 
 Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P1. Esfuerzo: 3 puntos.
 Fase: F4 · Documentación (6-7 nov). Estado inicial: Backlog.
@@ -464,6 +540,8 @@ Dependencias: P2-006, P2-027, P2-028, P2-029, P2-030, P2-031, P2-032, P2-033.
 
 ## [P2-039][DOC] Construir matriz final de evidencia G1-G7 e I1-I4
 
+[Abrir issue #39](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/39)
+
 Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P1. Esfuerzo: 3 puntos.
 Fase: F4 · Documentación (6-7 nov). Estado inicial: Backlog.
 Rama: `feature/joshep/docs-evidencia`. Rúbrica: G6,I1,I2,I3,I4 + I1/I2.
@@ -475,6 +553,8 @@ Dependencias: P2-034, P2-035, P2-036, P2-037, P2-038.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-040][DEFENSA] Preparar exposición de CPU/buses y ejercicio cruzado de memoria
+
+[Abrir issue #40](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/40)
 
 Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P1. Esfuerzo: 3 puntos.
 Fase: F5 · Defensa (8 nov). Estado inicial: Backlog.
@@ -488,6 +568,8 @@ Dependencias: P2-028, P2-030, P2-034, P2-035, P2-037.
 
 ## [P2-041][DEFENSA] Preparar exposición de MMU/Swap y ejercicio cruzado de caché
 
+[Abrir issue #41](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/41)
+
 Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P1. Esfuerzo: 3 puntos.
 Fase: F5 · Defensa (8 nov). Estado inicial: Backlog.
 Rama: `feature/marcelo/defensa-marcelo`. Rúbrica: I2,I3,I4 + I1/I2.
@@ -499,6 +581,8 @@ Dependencias: P2-029, P2-030, P2-035, P2-036, P2-037.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-042][DEFENSA] Preparar exposición de caché/E/S y ejercicio cruzado de buses
+
+[Abrir issue #42](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/42)
 
 Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P1. Esfuerzo: 3 puntos.
 Fase: F5 · Defensa (8 nov). Estado inicial: Backlog.
@@ -512,6 +596,8 @@ Dependencias: P2-021, P2-024, P2-029, P2-030, P2-034, P2-036.
 
 ## [P2-043][INTEGRACION] Ejecutar regresión de las tres demos en planilla compartida
 
+[Abrir issue #43](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/43)
+
 Responsable: **Cristian**. Reviewer: **Marcelo**. Prioridad: P0. Esfuerzo: 2 puntos.
 Fase: F5 · Entrega (8 nov). Estado inicial: Backlog.
 Rama: `feature/cristian/integracion-regresion`. Rúbrica: G1,G2,G3,G4,G5,G7 + I1/I2.
@@ -523,6 +609,8 @@ Dependencias: P2-028, P2-029, P2-030, P2-034, P2-035, P2-036, P2-038.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-044][ENTREGA] Verificar acceso a Sheets y preparar candidata develop→main
+
+[Abrir issue #44](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/44)
 
 Responsable: **Marcelo**. Reviewer: **Joshep**. Prioridad: P0. Esfuerzo: 2 puntos.
 Fase: F5 · Entrega (8 nov). Estado inicial: Backlog.
@@ -536,6 +624,8 @@ Dependencias: P2-037, P2-038, P2-039, P2-043.
 
 ## [P2-045][DEFENSA] Coordinar ensayo TFG 20+10 min y logística del equipo
 
+[Abrir issue #45](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/45)
+
 Responsable: **Joshep**. Reviewer: **Cristian**. Prioridad: P0. Esfuerzo: 2 puntos.
 Fase: F5 · Entrega (8 nov). Estado inicial: Backlog.
 Rama: `feature/joshep/defensa-ensayo`. Rúbrica: I3,I4,G7 + I1/I2.
@@ -547,6 +637,8 @@ Dependencias: P2-031, P2-040, P2-041, P2-042, P2-043, P2-044.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-046][GITFLOW] Auditar trazabilidad y aportes técnicos de Cristian
+
+[Abrir issue #46](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/46)
 
 Responsable: **Cristian**. Reviewer: **Joshep**. Prioridad: P1. Esfuerzo: 2 puntos.
 Fase: F5 · Auditoría (antes del 9 nov 10:00). Estado inicial: Backlog.
@@ -560,6 +652,8 @@ Dependencias: P2-039, P2-040, P2-043, P2-044, P2-045.
 
 ## [P2-047][GITFLOW] Auditar trazabilidad y aportes técnicos de Marcelo
 
+[Abrir issue #47](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/47)
+
 Responsable: **Marcelo**. Reviewer: **Cristian**. Prioridad: P1. Esfuerzo: 2 puntos.
 Fase: F5 · Auditoría (antes del 9 nov 10:00). Estado inicial: Backlog.
 Rama: `feature/marcelo/auditoria-marcelo`. Rúbrica: I1,I2,I3,I4 + I1/I2.
@@ -571,6 +665,8 @@ Dependencias: P2-039, P2-041, P2-043, P2-044, P2-045.
 - [ ] PR y evidencia enlazados, revisión ajena completada; cerrar y mover a Done solo después de validación.
 
 ## [P2-048][GITFLOW] Auditar trazabilidad y aportes técnicos de Joshep
+
+[Abrir issue #48](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues/48)
 
 Responsable: **Joshep**. Reviewer: **Marcelo**. Prioridad: P1. Esfuerzo: 2 puntos.
 Fase: F5 · Auditoría (antes del 9 nov 10:00). Estado inicial: Backlog.

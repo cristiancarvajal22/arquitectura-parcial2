@@ -12,12 +12,12 @@ Cristian coordina CPU y buses; Marcelo, memoria virtual; Joseph, cachés. Coordi
 Cada tarea tiene un responsable. La comprobación de un PR la hace otro compañero disponible; no se asigna una persona fija de antemano. La rúbrica exige PR revisados y contribuciones reales.
 
 ## Acuerdos iniciales
-En las primeras tres tareas definiremos:
+Las primeras tres tareas definen:
 1. Qué datos guarda el simulador y cómo se comunican los módulos.
 2. Qué instrucciones admite la CPU y cómo se distribuyen las direcciones de memoria.
 3. Cómo se mantienen las cachés y qué señales permiten mover los datos.
 
-Usaremos estos acuerdos para mantener compatibles los módulos durante la integración. La estructura inicial y los valores obligatorios están en [ARQUITECTURA.md](ARQUITECTURA.md).
+Estos acuerdos permiten mantener compatibles los módulos durante la integración. La estructura inicial y los valores obligatorios están en [ARQUITECTURA.md](ARQUITECTURA.md).
 
 ## Tablero
 [GitHub Project](https://github.com/users/cristiancarvajal22/projects/6)

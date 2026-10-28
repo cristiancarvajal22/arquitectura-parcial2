@@ -6,8 +6,8 @@ A computer simulator built with **Google Sheets + JavaScript/Google Apps Script*
 **Reported deadline:** Monday, November 9, 2026, 10:00 (America/La_Paz).
 **Status:** organization and planning only. Simulator implementation has not started.
 
-## Our work
-We track our tasks and progress on the [Project board](https://github.com/users/cristiancarvajal22/projects/6). Each issue includes a description, planned work, acceptance criteria and deliverables. Our first three tasks define the shared state, instruction set, memory map, cache rules and control signals that we will use to integrate the simulator.
+## Work organization
+Tasks and progress are recorded on the [Project board](https://github.com/users/cristiancarvajal22/projects/6). Each issue includes a description, planned work, acceptance criteria and deliverables. The first three tasks define the shared state, instruction set, memory map, cache rules and control signals used to integrate the simulator.
 
 The [task index](docs/BACKLOG.md) lists all 48 issues. The [Spanish glossary](docs/GLOSARIO.md) explains the project's technical terms.
 

@@ -5,19 +5,19 @@
 - **Marcelo:** `marceloaguilera777`.
 - **Joseph:** `JosephPerez725`.
 
-Cada integrante tiene **16 tareas**. La suma de esfuerzo previsto es igual: **57 puntos relativos por persona**. Los puntos no son horas ni nota. El [índice](BACKLOG.md) enlaza cada tarjeta; la tarjeta explica qué hacer, los pasos sugeridos y cómo comprobarlo.
+Cada integrante tiene **16 tareas**. La suma de esfuerzo previsto es igual: **57 puntos relativos por persona**. Los puntos no son horas ni nota. El [índice](BACKLOG.md) enlaza cada tarjeta; la tarjeta recoge la descripción, el trabajo a realizar y los criterios de aceptación.
 
 Cristian coordina CPU y buses; Marcelo, memoria virtual; Joseph, cachés. Coordinar significa ayudar a mantener los acuerdos y la integración. Los tres programan, prueban, documentan y aprenden los módulos ajenos para la defensa.
 
 Cada tarea tiene un responsable. La comprobación de un PR la hace otro compañero disponible; no se asigna una persona fija de antemano. La rúbrica exige PR revisados y contribuciones reales.
 
-## Antes de programar
-Las primeras tres tareas deben acordar:
+## Acuerdos iniciales
+En las primeras tres tareas definiremos:
 1. Qué datos guarda el simulador y cómo se comunican los módulos.
 2. Qué instrucciones admite la CPU y cómo se distribuyen las direcciones de memoria.
 3. Cómo se mantienen las cachés y qué señales permiten mover los datos.
 
-Eso evita que cada persona programe una parte incompatible con las demás. La estructura inicial y los valores obligatorios están en [ARQUITECTURA.md](ARQUITECTURA.md).
+Usaremos estos acuerdos para mantener compatibles los módulos durante la integración. La estructura inicial y los valores obligatorios están en [ARQUITECTURA.md](ARQUITECTURA.md).
 
 ## Tablero
 [GitHub Project](https://github.com/users/cristiancarvajal22/projects/6)

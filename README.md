@@ -6,13 +6,12 @@ Simulador de una computadora en **Google Sheets + JavaScript/Google Apps Script*
 **Cierre comunicado:** lunes 9 de noviembre de 2026 a las 10:00, hora de Bolivia (America/La_Paz).
 **Estado:** organización y planificación. Todavía no se ha programado el simulador.
 
-## Por dónde empezar
-1. Abrir el [tablero](https://github.com/users/cristiancarvajal22/projects/6) y buscar la tarea de cada persona.
-2. Leer sus secciones **Qué vas a hacer**, **Paso a paso** y **Cómo saber que está listo**.
-3. Consultar el [glosario](docs/GLOSARIO.md) si aparece un término desconocido.
-4. Antes de programar, terminar entre los tres las primeras decisiones: [datos y comunicación](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [instrucciones y memoria](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2) y [cachés y señales](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3).
+## Trabajo del equipo
+Llevaremos las tareas y su avance en el [tablero](https://github.com/users/cristiancarvajal22/projects/6). Cada tarjeta reúne la descripción, el trabajo a realizar, los criterios de aceptación y el entregable.
 
-Los enlaces a las primeras tareas están también en el [índice de las 48 tareas](docs/BACKLOG.md).
+En las primeras tres tareas definiremos los [datos y la comunicación](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), las [instrucciones y el mapa de memoria](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2) y las [cachés y señales](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3). Estos acuerdos serán la base para integrar los módulos.
+
+El [índice de tareas](docs/BACKLOG.md) reúne las 48 tarjetas y el [glosario](docs/GLOSARIO.md) explica los términos del proyecto.
 
 ## Cómo se reparte el trabajo
 Cada integrante tiene **16 tareas** y **57 puntos relativos de esfuerzo**. Los puntos sirven para comparar la carga; no son horas ni calificación. Las tareas combinan programación, pruebas, documentación y preparación de la defensa. Cada tarjeta tiene un responsable y criterios de finalización; no hay una persona fija asignada para revisar cada tarea. Los PR se comprueban entre compañeros, como pide la rúbrica.

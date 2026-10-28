@@ -1,28 +1,25 @@
 ---
-name: Tarea explicada
-about: Qué hacer, pasos sugeridos y cómo comprobar el resultado
-title: "Resultado concreto que queremos conseguir"
+name: Tarea del proyecto
+about: Descripción, trabajo a realizar y criterios de aceptación
+title: "Nombre de la tarea"
 ---
 **Responsable:** nombre y usuario de GitHub.
 
-## Qué vas a hacer
-Explica el objetivo y para qué sirve. Define las palabras técnicas necesarias.
+## Descripción
+Objetivo de la tarea y su relación con el simulador.
 
-## Paso a paso
-1. Primer paso.
-2. Segundo paso.
-3. Comprobación del resultado.
+## Trabajo a realizar
+1. Actividad principal.
+2. Integración con el resto del proyecto.
+3. Prueba del resultado.
 
-## Cómo saber que está listo
-- [ ] Resultado observable.
-- [ ] Caso normal y caso límite comprobados.
-- [ ] Evidencia enlazada.
+## Criterios de aceptación
+- [ ] Funcionalidad acordada.
+- [ ] Casos normales y límites comprobados.
+- [ ] Prueba o documentación enlazada en el PR.
 
-## Qué debes entregar
-PR, prueba, captura, traza o documento según la tarea.
-
-## Antes de empezar
-Enlaza las tareas que deben estar terminadas.
+## Entregable
+Cambios y evidencia correspondientes a la tarea.
 
 ## Datos de trabajo
 Rama: feature/<nombre>/<modulo>, desde develop.

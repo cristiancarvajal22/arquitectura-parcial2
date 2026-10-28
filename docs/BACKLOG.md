@@ -1,389 +1,293 @@
-# Índice de las 48 tareas
+# Tareas del proyecto
 
-Equipo: Cristian, Marcelo y Joseph. Hay **16 tareas y 57 puntos relativos por persona**. Cada tarjeta enlazada contiene una explicación, pasos sugeridos, criterios de finalización y lo que debe entregarse.
+Repartimos el proyecto en **48 tareas: 16 por persona y 57 puntos relativos de esfuerzo para cada integrante**. En las tarjetas dejamos la descripción del trabajo, sus pasos, los criterios de aceptación y el entregable.
 
-Consulta el estado actual en el [tablero](https://github.com/users/cristiancarvajal22/projects/6). Antes de empezar una tarjeta, termina sus dependencias. No hay personas fijas asignadas para comprobar PR; el equipo realiza esa comprobación entre compañeros.
+Llevaremos el avance en el [tablero](https://github.com/users/cristiancarvajal22/projects/6). Los PR se comprobarán entre compañeros.
 
 ## [P2-001] Definir qué datos guarda el simulador y cómo se comunican sus partes
 
 [Ver tarea #1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1) · **Responsable: Cristian** · 2 puntos relativos.
 
-Antes de programar, acuerden qué información necesita cada parte: registros de la CPU, memoria, cachés, teclado y pantalla. Un evento será un registro de lo que ocurrió en un paso del reloj, para que todos los módulos y las animaciones cuenten la misma historia.
-
-Antes de empezar: puede empezar ahora; acordar las decisiones entre los tres.
+Vamos a definir cómo se guarda el estado del simulador y qué información comparte cada módulo. Incluiremos los registros de la CPU, la memoria, las cachés, el teclado y el LCD. También definiremos los eventos de cada paso del reloj para que la ejecución y las animaciones trabajen con los mismos datos.
 
 ## [P2-002] Definir las instrucciones y las direcciones de memoria
 
 [Ver tarea #2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2) · **Responsable: Marcelo** · 2 puntos relativos.
 
-La ISA es la lista de instrucciones que entenderá la CPU, como sumar, saltar, leer el teclado o escribir en el LCD. También deben acordar en qué direcciones vivirán los programas, los datos y los dos dispositivos, para que ningún módulo use un mapa distinto.
-
-Antes de empezar: puede empezar ahora; acordar las decisiones entre los tres.
+Definiremos las instrucciones que va a reconocer la CPU, sus operandos y la forma de convertirlas a bytes. También dejaremos definido el mapa de memoria: dónde van los programas, los datos, el teclado y el LCD. Con esto podremos conectar CPU, ensamblador y memoria sin usar reglas distintas.
 
 ## [P2-003] Decidir cómo funcionarán las cachés y las señales de control
 
 [Ver tarea #3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3) · **Responsable: Joseph** · 2 puntos relativos.
 
-Las cachés guardan copias de datos usados recientemente para evitar leer la RAM cada vez. Aquí se decide qué hacer al leer, escribir o reemplazar una copia, y qué señales binarias permiten moverla por los buses. Este acuerdo evita que una parte muestre datos diferentes de otra.
-
-Antes de empezar: puede empezar ahora; acordar las decisiones entre los tres.
+En esta tarea dejaremos definidas las reglas de L1I, L1D y L2: qué guardan, cómo responden a una lectura o escritura y qué reemplazan cuando se llenan. También especificaremos las señales que permiten mover los datos por los buses y cómo se actualizan las copias al cambiar una página.
 
 ## [P2-004] Crear los cuatro registros y las operaciones de 8 bits
 
 [Ver tarea #4](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/4) · **Responsable: Cristian** · 5 puntos relativos.
 
-Los registros AX, BX, CX y DX son pequeñas casillas donde la CPU guarda números mientras trabaja. La ALU hace las operaciones aritméticas. Los indicadores ZF, CF y SF avisan si el resultado es cero, hubo acarreo o el número tiene signo.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2).
+Implementaremos AX, BX, CX y DX como registros de 8 bits, junto con los registros de control de la CPU. La ALU realizará las operaciones de nuestra ISA y actualizará ZF, CF y SF según el resultado. Vamos a comprobar tanto las operaciones normales como los casos de desbordamiento.
 
 ## [P2-005] Hacer que la CPU busque, entienda y ejecute instrucciones
 
 [Ver tarea #5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5) · **Responsable: Marcelo** · 5 puntos relativos.
 
-La CPU debe repetir tres etapas: buscar una instrucción en memoria, identificar qué significa y ejecutarla. Cada etapa se divide en pequeños pasos visibles, sin saltarse los buses ni los controles definidos.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3).
+Vamos a conectar las etapas de búsqueda, decodificación y ejecución de instrucciones. Cada instrucción tendrá una secuencia de micro-pasos visible, usando PC, MAR, MDR, IR y las señales de los buses. La CPU también tendrá que esperar y continuar correctamente cuando necesite memoria o entrada del teclado.
 
 ## [P2-006] Crear el reloj y guardar el estado entre pasos en Apps Script
 
 [Ver tarea #6](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/6) · **Responsable: Joseph** · 5 puntos relativos.
 
-El reloj indica cuándo avanza el simulador. Cada paso debe terminar guardando un estado completo y coherente. Al usar Run se ejecutarán grupos pequeños de pasos para que Google Sheets siga respondiendo y pueda mostrar las animaciones.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3).
+Implementaremos el reloj del simulador y la forma de guardar su estado entre ejecuciones de Apps Script. Step avanzará un micro-paso y Run ejecutará grupos pequeños de pasos sin dejar bloqueada la hoja. También controlaremos las pausas, el reinicio y los clics repetidos para evitar cambios simultáneos.
 
 ## [P2-007] Controlar quién puede transmitir por cada bus
 
 [Ver tarea #7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7) · **Responsable: Cristian** · 5 puntos relativos.
 
-Un bus es un camino compartido para mover información. En cada momento debe hablar un solo componente. Los demás quedan en High-Z, que significa que su salida está desconectada y no interfiere con el camino.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3).
+Vamos a controlar qué componente transmite por cada bus. Solo podrá haber un emisor activo por segmento; las demás salidas permanecerán en High-Z. Si aparecen dos emisores al mismo tiempo, el simulador deberá detectar la contención y detener el paso sin alterar los datos.
 
 ## [P2-008] Mover lecturas, escrituras y E/S a través de los buses
 
 [Ver tarea #8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8) · **Responsable: Marcelo** · 5 puntos relativos.
 
-Una lectura, una escritura y una operación con teclado o LCD deben recorrer los buses de verdad dentro del modelo. Las señales Read, Write, Clock e IO indicarán qué está ocurriendo y qué componente puede actuar.
-
-Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7).
+Conectaremos las lecturas, escrituras y operaciones de E/S con los buses del simulador. Cada transferencia mostrará su dirección, el componente que envía, el que recibe y las señales Read, Write, Clock e IO. El acceso a memoria y periféricos tendrá que seguir este recorrido.
 
 ## [P2-009] Mostrar la micro-palabra y qué hace cada señal
 
 [Ver tarea #9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9) · **Responsable: Joseph** · 5 puntos relativos.
 
-La micro-palabra es una fila de bits de control. Cada bit enciende o apaga una acción, como poner el PC en el bus o cargar un valor en MAR. Debe verse en pantalla y coincidir con lo que realmente ocurre en ese paso.
-
-Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7).
+Implementaremos la micro-palabra de control y su representación en la hoja. Cada bit mostrará qué salida o carga está habilitada en el micro-paso actual. Vamos a relacionar esas señales con los buffers para poder explicar por qué se mueve cada dato.
 
 ## [P2-010] Crear la RAM de 256 bytes y reservar teclado y LCD
 
 [Ver tarea #10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10) · **Responsable: Cristian** · 3 puntos relativos.
 
-La RAM física tendrá exactamente 256 bytes, repartidos en ocho marcos de 32 bytes. Un marco es un espacio donde puede cargarse una página. Los buffers de teclado y pantalla ocuparán 16 bytes de esa misma RAM, sin añadir memoria extra.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2).
+La RAM tendrá 256 bytes distribuidos en ocho marcos de 32 bytes. Dentro de esa capacidad reservaremos los ocho bytes de la cola del teclado y los ocho del video del LCD. Implementaremos las lecturas y escrituras respetando los límites de los marcos y las zonas reservadas.
 
 ## [P2-011] Traducir direcciones virtuales a direcciones de RAM
 
 [Ver tarea #11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11) · **Responsable: Marcelo** · 3 puntos relativos.
 
-El programa podrá usar 512 direcciones virtuales aunque la RAM solo tenga 256 bytes. La MMU busca en una tabla qué página virtual está cargada en qué marco y calcula la dirección física. La tabla también indica si la página está presente, fue modificada o fue consultada.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10).
+Implementaremos la traducción entre las 512 direcciones virtuales y los 256 bytes de RAM. La tabla tendrá una entrada por página virtual, con su presencia, marco, Dirty y Reference. Vamos a separar página y desplazamiento para calcular la dirección física de cada acceso.
 
 ## [P2-012] Guardar y recuperar páginas en Swap
 
 [Ver tarea #12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12) · **Responsable: Joseph** · 3 puntos relativos.
 
-Swap será el respaldo de las páginas que no caben en la RAM. Se guarda una página completa de 32 bytes, de forma que, al volver a cargarla, sus cambios no se pierdan.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10).
+Prepararemos Swap como respaldo de las páginas que no están cargadas en RAM. Las transferencias serán de 32 bytes completos y deberán conservar los cambios hechos durante la ejecución. También separaremos el programa inicial de las versiones actualizadas de sus páginas.
 
 ## [P2-013] Elegir qué página sale de RAM usando FIFO
 
 [Ver tarea #13](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/13) · **Responsable: Cristian** · 5 puntos relativos.
 
-FIFO significa que sale primero la página que entró primero. Solo se reemplaza una página cuando no quedan marcos libres utilizables. Los marcos reservados para E/S deben respetarse según el contrato inicial.
-
-Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12).
+Usaremos FIFO para decidir qué página sale cuando ya no quedan marcos utilizables. Mantendremos una cola con el orden de entrada y respetaremos los marcos reservados en el mapa de E/S. La cola y la víctima elegida quedarán visibles para poder seguir el reemplazo.
 
 ## [P2-014] Atender un fallo de página y continuar la instrucción
 
 [Ver tarea #14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14) · **Responsable: Marcelo** · 5 puntos relativos.
 
-Un Page Fault ocurre cuando el programa pide una página que no está cargada en RAM. La CPU debe esperar, conseguir un marco, guardar la página que sale si fue modificada, traer los 32 bytes solicitados y continuar exactamente donde quedó.
-
-Antes de empezar: [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12), [#13](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/13).
+Vamos a implementar la atención de un Page Fault. La CPU suspenderá el acceso, conseguirá un marco, guardará la víctima en Swap si fue modificada y cargará la página solicitada. Después actualizará la tabla y continuará la instrucción sin repetir sus efectos.
 
 ## [P2-015] Actualizar Dirty y Reference y evitar copias viejas al cambiar páginas
 
 [Ver tarea #15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15) · **Responsable: Joseph** · 5 puntos relativos.
 
-Dirty indica que una página fue escrita; Reference indica que fue consultada. Cuando se reutiliza un marco, las cachés no deben seguir entregando bytes de la página anterior. Aquí se conectan esas actualizaciones para no perder cambios ni leer copias viejas.
-
-Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14).
+Conectaremos los bits Dirty y Reference con todos los accesos a memoria, incluidos los que resuelve la caché. También retiraremos las copias que dejen de ser válidas al reutilizar un marco. Vamos a comprobar que una página escrita conserve sus datos después de salir de RAM y volver a cargarse.
 
 ## [P2-016] Crear la caché L1I para las instrucciones
 
 [Ver tarea #16](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/16) · **Responsable: Cristian** · 5 puntos relativos.
 
-L1I guarda únicamente los bytes de las instrucciones que busca el PC. Tiene una sola línea de ocho bytes. Si la instrucción ya está allí es un hit; si no está, es un miss y debe pedirse al siguiente nivel.
-
-Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11).
+Implementaremos L1I con una línea de ocho bytes dedicada a las instrucciones del programa. Cada búsqueda del PC comprobará si los bytes están en esa línea y consultará L2 cuando no estén. Incluiremos saltos y búsquedas que crucen una línea o una página.
 
 ## [P2-017] Crear la caché L1D para los datos
 
 [Ver tarea #17](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/17) · **Responsable: Marcelo** · 5 puntos relativos.
 
-L1D guarda una línea de ocho bytes de datos u operandos. Debe funcionar tanto cuando la CPU lee como cuando escribe, siguiendo las reglas acordadas para mantener las copias actualizadas.
-
-Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11).
+L1D guardará una línea de ocho bytes para las lecturas y escrituras de datos. La conectaremos con L2 siguiendo las políticas que definimos para mantener las copias actualizadas. Los accesos al teclado y al LCD pasarán por el camino de E/S sin quedar almacenados en esta caché.
 
 ## [P2-018] Crear la caché L2 de 32 bytes y su reemplazo FIFO
 
 [Ver tarea #18](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/18) · **Responsable: Joseph** · 5 puntos relativos.
 
-L2 es el nivel compartido entre las cachés pequeñas y la RAM. Tendrá cuatro líneas de ocho bytes. Su propia cola FIFO decidirá qué línea sale cuando se necesita una quinta; esta cola es distinta del FIFO de páginas.
-
-Antes de empezar: [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11).
+Construiremos L2 como una caché unificada de cuatro líneas de ocho bytes. Atenderá las peticiones de L1I y L1D y consultará RAM cuando no encuentre el bloque solicitado. Tendrá su propia cola FIFO para reemplazar líneas cuando se llene.
 
 ## [P2-019] Mantener actualizadas las copias de caché y memoria
 
 [Ver tarea #19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19) · **Responsable: Cristian** · 3 puntos relativos.
 
-Un mismo dato puede estar copiado en L1, L2 y RAM. Esta tarea conecta las reglas necesarias para que una escritura, una carga de programa o un cambio de página no deje una copia antigua que luego se use por error.
-
-Antes de empezar: [#15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15), [#16](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/16), [#17](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/17), [#18](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/18).
+Vamos a conectar las actualizaciones de L1I, L1D, L2 y RAM para que no queden copias viejas. Cubriremos las escrituras, la carga de un programa, la edición de memoria y el reemplazo de páginas. Los cambios deberán afectar solo a las líneas correspondientes.
 
 ## [P2-020] Contar los hits y misses de cada caché
 
 [Ver tarea #20](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/20) · **Responsable: Marcelo** · 3 puntos relativos.
 
-Los contadores deben explicar cuántas consultas resolvió cada caché y cuántas fallaron. La tasa de aciertos es hits dividido entre el total de consultas. No se cuenta una consulta a L2 si L1 ya respondió.
-
-Antes de empezar: [#16](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/16), [#17](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/17), [#18](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/18).
+Agregaremos contadores de hits y misses independientes para L1I, L1D y L2, junto con su porcentaje de aciertos. Cada nivel contará únicamente las consultas que realmente recibe. Vamos a comparar una secuencia calculada a mano con los valores de la hoja y comprobar su reinicio.
 
 ## [P2-021] Animar los aciertos, fallos y movimientos entre cachés
 
 [Ver tarea #21](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/21) · **Responsable: Joseph** · 3 puntos relativos.
 
-La animación debe enseñar de dónde salió cada byte: L1I, L1D, L2 o RAM. No basta con encender un cuadro; el movimiento debe corresponder al evento real y coincidir con los contadores.
-
-Antes de empezar: [#9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9), [#16](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/16), [#17](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/17), [#18](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/18), [#20](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/20).
+Animaremos las consultas y transferencias entre L1I, L1D, L2 y RAM. La hoja mostrará la línea consultada, el hit o miss y el movimiento de bytes cuando haya carga o reemplazo. La animación y los contadores tendrán que coincidir con el micro-paso que se está ejecutando.
 
 ## [P2-022] Crear la entrada de teclado y su cola de ocho bytes
 
 [Ver tarea #22](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/22) · **Responsable: Cristian** · 5 puntos relativos.
 
-El teclado necesita una cola: los caracteres esperan su turno hasta que el programa los lee con IN. Deben guardarse en ocho bytes de RAM. Una cola circular vuelve al principio del espacio cuando llega al final, sin alterar el orden.
-
-Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10).
+Implementaremos el panel de entrada y una cola circular de ocho bytes en RAM para el teclado. Los caracteres quedarán en orden hasta que una instrucción IN los lea mediante En_KBD y el bus. Definiremos qué ocurre con una cola vacía, una llena y la entrada de un noveno carácter.
 
 ## [P2-023] Crear el LCD de ocho caracteres y su memoria de video
 
 [Ver tarea #23](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/23) · **Responsable: Marcelo** · 5 puntos relativos.
 
-El LCD mostrará una fila de ocho caracteres. Cada posición representará uno de los ocho bytes reservados en RAM como memoria de video. La pantalla solo cambia cuando la CPU realiza la escritura permitida por Ld_LCD.
-
-Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10).
+El LCD mostrará una fila de ocho caracteres conectada con sus ocho bytes de video en RAM. Implementaremos el cursor y la actualización mediante OUT y Ld_LCD. Vamos a comprobar que pantalla y memoria coincidan y que el reinicio deje ambas en el estado esperado.
 
 ## [P2-024] Hacer funcionar IN y OUT dentro del ciclo de la CPU
 
 [Ver tarea #24](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/24) · **Responsable: Joseph** · 5 puntos relativos.
 
-IN toma un carácter del teclado y lo coloca en un registro; OUT manda un registro al LCD. Ambas instrucciones deben usar la CPU, el mapa de memoria y los buffers tri-estado, igual que las demás instrucciones usan sus caminos definidos.
-
-Antes de empezar: [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14), [#19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19), [#22](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/22), [#23](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/23).
+Integraremos IN y OUT al ciclo de la CPU. IN llevará un byte del teclado a un registro y OUT enviará el contenido de un registro al LCD, usando el mapa de E/S y los buffers tri-estado. Las pausas y los reintentos no deberán consumir un carácter dos veces.
 
 ## [P2-025] Leer el código ensamblador y explicar sus errores
 
 [Ver tarea #25](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/25) · **Responsable: Cristian** · 5 puntos relativos.
 
-El ensamblador convierte el texto del programa en instrucciones que la CPU puede ejecutar. Primero debe reconocer instrucciones, registros, números y etiquetas. Una etiqueta es un nombre que permite saltar a una posición sin escribir a mano su dirección.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2).
+Implementaremos la lectura del código ASM: instrucciones, registros, números, etiquetas y operandos de teclado o LCD. El ensamblador resolverá las etiquetas y comprobará que cada línea respete nuestra ISA. Los errores indicarán la línea y el motivo, sin dejar un programa cargado a medias.
 
 ## [P2-026] Convertir instrucciones a bytes y cargarlas en memoria virtual
 
 [Ver tarea #26](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/26) · **Responsable: Marcelo** · 5 puntos relativos.
 
-Después de validar el ensamblador, hay que generar sus bytes y guardarlos en las páginas virtuales. El cargador prepara también el inicio del programa para que CPU, tabla de páginas y cachés no conserven datos de la ejecución anterior.
-
-Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12), [#15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15), [#25](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/25).
+Convertiremos las instrucciones validadas a sus bytes y las cargaremos en memoria virtual. Conservaremos la relación entre las líneas de código y los bytes generados, y prepararemos PC, tabla de páginas y cachés para la nueva ejecución. También comprobaremos que el programa quepa y respete la zona de E/S.
 
 ## [P2-027] Crear el catálogo de programas y el editor en celdas
 
 [Ver tarea #27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27) · **Responsable: Joseph** · 5 puntos relativos.
 
-El equipo necesita elegir y modificar programas sin cambiar el código del simulador. El catálogo guardará al menos tres fuentes ASM y el editor permitirá escribirlas en celdas, verificarlas y enviarlas al cargador.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#25](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/25).
+Crearemos el catálogo y el editor de programas en celdas. Podremos seleccionar una fuente ASM, modificarla, guardarla, verificarla y cargarla sin cambiar el código del simulador. El catálogo incluirá las tres demos y mantendrá separadas sus fuentes del estado de la CPU.
 
 ## [P2-028] Preparar un programa de operaciones y bucles con AX, BX, CX y DX
 
 [Ver tarea #28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28) · **Responsable: Cristian** · 3 puntos relativos.
 
-La primera demo debe demostrar que funcionan los cuatro registros, las operaciones, los indicadores y los saltos. Su resultado tiene que poder calcularse a mano para comprobar el simulador y explicarlo durante la defensa.
-
-Antes de empezar: [#4](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/4), [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#26](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/26), [#27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27).
+Prepararemos una demo aritmética que use AX, BX, CX y DX, un bucle y un salto condicional. Calcularemos su resultado esperado para contrastarlo con la ejecución hasta HALT. También dejaremos preparada una modificación pequeña para probarla durante la defensa.
 
 ## [P2-029] Preparar un programa que copie el teclado al LCD
 
 [Ver tarea #29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29) · **Responsable: Marcelo** · 3 puntos relativos.
 
-La segunda demo será un eco: el usuario escribe y el programa mueve cada carácter del teclado al LCD usando IN y OUT. Deben verse la cola, los bytes de video y las señales que mueven el dato.
-
-Antes de empezar: [#24](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/24), [#26](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/26), [#27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27).
+Vamos a preparar el programa de eco del teclado al LCD. Leerá cada carácter con IN y lo enviará con OUT, mostrando el cambio en la cola, el bus y la memoria de video. Probaremos la espera sin entrada, un texto de ocho caracteres y el reinicio.
 
 ## [P2-030] Preparar un programa que provoque fallos de página y de caché
 
 [Ver tarea #30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30) · **Responsable: Joseph** · 3 puntos relativos.
 
-La tercera demo usará direcciones separadas para obligar a cambiar líneas de caché y páginas de RAM. También modificará una página y la volverá a cargar para demostrar que Swap guardó sus cambios.
-
-Antes de empezar: [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14), [#19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19), [#20](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/20), [#26](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/26), [#27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27).
+La tercera demo accederá a direcciones dispersas para provocar misses de caché y Page Faults. Usaremos más páginas que marcos disponibles y modificaremos una página para comprobar su recuperación desde Swap. Dejaremos anotados el orden FIFO y los resultados esperados para comparar la ejecución.
 
 ## [P2-031] Organizar la hoja, elegir el nombre del equipo y añadir el logo
 
 [Ver tarea #31](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/31) · **Responsable: Cristian** · 3 puntos relativos.
 
-La hoja debe ser fácil de recorrer durante una demo: CPU, buses, memorias, cachés, teclado, LCD y editor tendrán zonas claras. El nombre y logo oficiales del equipo deben aparecer también en la documentación y en la presentación.
-
-Antes de empezar: [#1](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/1), [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#6](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/6).
+Organizaremos los paneles de la hoja para poder seguir CPU, buses, memorias, cachés y E/S durante las demos. Elegiremos el nombre y el logo del equipo y los incorporaremos también a la documentación y la presentación. Los controles Step, Run, Pause y Reset mostrarán el modo actual de ejecución.
 
 ## [P2-032] Mostrar visualmente cómo se resuelve un Page Fault
 
 [Ver tarea #32](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/32) · **Responsable: Marcelo** · 3 puntos relativos.
 
-Cuando falta una página, la interfaz debe enseñar por qué se detuvo la CPU y qué hace para continuar. Se verá la dirección solicitada, la página que sale, el respaldo en Swap, los 32 bytes que llegan y el cambio de la tabla.
-
-Antes de empezar: [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#13](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/13), [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14), [#15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15).
+Vamos a mostrar las etapas de un Page Fault en la hoja: dirección solicitada, página ausente, víctima, paso por Swap, carga de los 32 bytes y actualización de la tabla. La animación seguirá el orden del motor y permitirá detenerse en cada fase con Step.
 
 ## [P2-033] Animar los buses y distinguir buffers activos y High-Z
 
 [Ver tarea #33](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/33) · **Responsable: Joseph** · 3 puntos relativos.
 
-Los cables deben indicar qué camino usa cada transferencia. Un buffer activo transmite; uno en High-Z está desconectado. La animación debe ayudar a ver quién envía, quién recibe y qué señales lo permiten.
-
-Antes de empezar: [#7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9), [#31](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/31).
+Animaremos los caminos internos y externos de los datos, distinguiendo el emisor activo, los receptores habilitados y los buffers en High-Z. Cada cable y señal deberán coincidir con la micro-palabra actual. Incluiremos los recorridos de registros, memoria, caché, teclado y LCD.
 
 ## [P2-034] Probar registros, instrucciones y buses con resultados conocidos
 
 [Ver tarea #34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34) · **Responsable: Cristian** · 3 puntos relativos.
 
-Estas pruebas comprobarán CPU y buses sin depender solo de que una animación se vea bien. Para cada caso se anotará el resultado esperado antes de ejecutar y luego se comparará con lo que ocurrió.
-
-Antes de empezar: [#4](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/4), [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#7](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/7), [#8](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/8), [#9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9), [#28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28).
+Prepararemos pruebas de CPU y buses con resultados esperados definidos de antemano. Cubriremos registros, operaciones, flags, saltos, bucles y HALT, además de los casos de bus sin emisor, con uno y con contención. Guardaremos las trazas para localizar y corregir cualquier diferencia.
 
 ## [P2-035] Probar traducción de direcciones, FIFO y conservación en Swap
 
 [Ver tarea #35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35) · **Responsable: Marcelo** · 3 puntos relativos.
 
-Las pruebas deben demostrar que las direcciones se traducen correctamente y que sacar una página de RAM no hace perder sus datos. También comprobarán las reservas del teclado y del LCD dentro de la RAM.
-
-Antes de empezar: [#10](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/10), [#11](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/11), [#12](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/12), [#13](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/13), [#14](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/14), [#15](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/15), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30).
+Comprobaremos la traducción de direcciones, la tabla de páginas, FIFO y la conservación de los datos en Swap. Las pruebas incluirán direcciones frontera, páginas ausentes, marcos llenos y víctimas limpias o modificadas. También revisaremos que se respeten las reservas de RAM para teclado y LCD.
 
 ## [P2-036] Probar cachés, teclado y LCD trabajando juntos
 
 [Ver tarea #36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36) · **Responsable: Joseph** · 3 puntos relativos.
 
-Aquí se comprueba el recorrido completo, no cada módulo aislado. Los hits y misses deben coincidir con un cálculo previo y los caracteres deben recorrer cola, bus y video sin quedar guardados en caché.
-
-Antes de empezar: [#19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19), [#20](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/20), [#21](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/21), [#22](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/22), [#23](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/23), [#24](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/24), [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29).
+Vamos a probar cachés y E/S trabajando dentro del sistema completo. Compararemos los hits y misses con una secuencia conocida y seguiremos los caracteres desde la cola hasta el LCD. Repetiremos los casos después de reset, de cargar un programa y de reemplazar una página.
 
 ## [P2-037] Explicar la arquitectura, las instrucciones y la micro-palabra en español e inglés
 
 [Ver tarea #37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37) · **Responsable: Cristian** · 3 puntos relativos.
 
-La documentación técnica debe permitir que otro estudiante entienda cómo está construido el simulador. Ambos idiomas deben explicar el mismo funcionamiento real, con diagramas y ejemplos que coincidan con la implementación.
-
-Antes de empezar: [#2](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/2), [#3](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/3), [#5](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/5), [#9](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/9), [#19](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/19).
+Documentaremos la arquitectura, la ISA y la micro-palabra en español e inglés. Los diagramas mostrarán los recorridos reales entre CPU, buses, cachés, MMU, Swap y periféricos. Las tablas y los ejemplos tendrán que coincidir con la versión implementada.
 
 ## [P2-038] Escribir una guía de instalación y uso en ambos idiomas
 
 [Ver tarea #38](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/38) · **Responsable: Marcelo** · 3 puntos relativos.
 
-El manual debe permitir que alguien use el proyecto desde otra computadora sin ayuda del autor. Explicará cómo preparar Sheets y Apps Script, cómo cargar los programas y cómo interpretar los controles y paneles.
-
-Antes de empezar: [#6](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/6), [#27](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/27), [#28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28), [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#31](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/31), [#32](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/32), [#33](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/33).
+Escribiremos el manual de instalación y uso de Sheets y Apps Script en los dos idiomas. Incluiremos la preparación de la planilla, el editor, la carga de programas, los controles y la lectura de los paneles. Lo comprobaremos desde otra computadora y añadiremos el enlace directo de la planilla.
 
 ## [P2-039] Relacionar cada punto de la rúbrica con una prueba real
 
 [Ver tarea #39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39) · **Responsable: Joseph** · 3 puntos relativos.
 
-La rúbrica debe tener evidencia fácil de encontrar. Esta tarea reunirá, para cada criterio, el enlace a la tarea, el PR y la prueba, captura o traza que demuestre que se cumple. No se marcará como logrado lo que siga pendiente.
-
-Antes de empezar: [#34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34), [#35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35), [#36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36), [#37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37), [#38](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/38).
+Reuniremos la evidencia de cada criterio de la rúbrica: tareas, PR, pruebas, capturas y trazas. El índice permitirá localizar tanto el funcionamiento de los módulos como los aportes de cada integrante. Revisaremos los enlaces y la correspondencia entre las versiones en español e inglés.
 
 ## [P2-040] Preparar la explicación de Cristian y practicar cambios en vivo
 
 [Ver tarea #40](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/40) · **Responsable: Cristian** · 3 puntos relativos.
 
-Cristian explicará CPU y buses, pero también deberá resolver preguntas de memoria de otra parte del proyecto. El objetivo es demostrar comprensión del sistema y poder cambiar una instrucción o un dato sin ayuda.
-
-Antes de empezar: [#28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34), [#35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35), [#37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37).
+Cristian preparará la explicación de CPU, buses y micro-palabra con una traza de su trabajo. También practicará traducción de direcciones y FIFO para poder responder sobre otros módulos. El ensayo incluirá una modificación de código o memoria en vivo y una intervención de unos 6 minutos y 40 segundos.
 
 ## [P2-041] Preparar la explicación de Marcelo y practicar cambios en vivo
 
 [Ver tarea #41](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/41) · **Responsable: Marcelo** · 3 puntos relativos.
 
-Marcelo explicará memoria virtual, tabla de páginas, FIFO y Swap. También deberá predecir un acceso de caché de otra parte del proyecto y demostrar que sabe modificar el programa o la memoria durante la defensa.
-
-Antes de empezar: [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35), [#36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36), [#37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37).
+Marcelo preparará la explicación de memoria virtual, tabla de páginas, FIFO y Swap. Practicará también la predicción de hits y misses y las señales de un acceso. El ensayo incluirá una modificación en vivo y una intervención de unos 6 minutos y 40 segundos.
 
 ## [P2-042] Preparar la explicación de Joseph y practicar cambios en vivo
 
 [Ver tarea #42](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/42) · **Responsable: Joseph** · 3 puntos relativos.
 
-Joseph explicará cachés y E/S y deberá interpretar también los bits de una micro-palabra de otro módulo. Practicará un cambio de código o memoria y comprobará qué ocurre en los datos, las cachés o el LCD.
-
-Antes de empezar: [#21](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/21), [#24](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/24), [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34), [#36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36).
+Joseph preparará la explicación de L1I, L1D, L2 y el recorrido del teclado al LCD. También practicará la lectura de una micro-palabra de CPU o buses. El ensayo incluirá un cambio de código o memoria y una intervención de unos 6 minutos y 40 segundos.
 
 ## [P2-043] Ejecutar las tres demos completas en la misma planilla
 
 [Ver tarea #43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43) · **Responsable: Cristian** · 2 puntos relativos.
 
-La integración final debe demostrar que todas las partes funcionan juntas en una sola versión del simulador. Cada demo se ejecutará desde reset y se comparará con los resultados esperados, tanto paso a paso como con Run.
-
-Antes de empezar: [#28](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/28), [#29](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/29), [#30](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/30), [#34](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/34), [#35](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/35), [#36](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/36), [#38](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/38).
+Ejecutaremos las tres demos completas en una misma versión de la planilla, desde reset y usando Step y Run. Compararemos sus resultados con los previstos y revisaremos la sincronización de registros, buses, memoria, cachés, E/S y animaciones. Los fallos quedarán registrados y se volverán a probar después de corregirlos.
 
 ## [P2-044] Preparar la versión final y comprobar el enlace de Google Sheets
 
 [Ver tarea #44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44) · **Responsable: Marcelo** · 2 puntos relativos.
 
-La entrega estable irá en main después de integrar el trabajo en develop. Debe poder identificarse exactamente qué versión se presenta y abrir la planilla desde otra cuenta con los permisos acordados para la evaluación.
-
-Antes de empezar: [#37](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/37), [#38](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/38), [#39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43).
+Prepararemos la versión estable de entrega a partir del trabajo integrado en develop. Comprobaremos el enlace de Sheets desde otra cuenta, la documentación bilingüe y los resultados de las tres demos. El PR hacia main dejará identificado el commit de la versión que vamos a presentar.
 
 ## [P2-045] Ensayar la defensa completa y preparar la presentación
 
 [Ver tarea #45](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/45) · **Responsable: Joseph** · 2 puntos relativos.
 
-El equipo dispone de 20 minutos para exponer y demostrar los tres programas, más 10 minutos de preguntas individuales. Este ensayo debe comprobar los tiempos, las transiciones y que todos expliquen una parte técnica sustancial.
-
-Antes de empezar: [#31](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/31), [#40](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/40), [#41](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/41), [#42](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/42), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43), [#44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44).
+Haremos un ensayo completo con 20 minutos de exposición y demos, más 10 minutos de preguntas individuales. Ajustaremos los tiempos y las transiciones para que los tres expliquemos una parte técnica sustancial. También confirmaremos logo, indumentaria, equipos y conexión para la defensa.
 
 ## [P2-046] Comprobar las tareas y aportes de Cristian antes del cierre
 
 [Ver tarea #46](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/46) · **Responsable: Cristian** · 2 puntos relativos.
 
-Cristian debe poder mostrar qué hizo durante el proyecto y explicarlo. Se revisarán sus tarjetas, ramas personales, commits, PR y pruebas, sin crear historial artificial ni dejar cambios para después de la fecha límite.
-
-Antes de empezar: [#39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39), [#40](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/40), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43), [#44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44), [#45](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/45).
+Revisaremos las tareas y aportes de Cristian: ramas personales, commits, PR y pruebas. Comprobaremos que los enlaces funcionen y que pueda explicar sus cambios y su relación con el resto del simulador. Las evidencias pendientes deberán quedar resueltas antes del cierre oficial.
 
 ## [P2-047] Comprobar las tareas y aportes de Marcelo antes del cierre
 
 [Ver tarea #47](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/47) · **Responsable: Marcelo** · 2 puntos relativos.
 
-Marcelo debe poder mostrar sus aportes en implementación, pruebas y documentación, además de explicar cómo se conectan con los módulos de sus compañeros. La revisión será sobre evidencia real del trabajo realizado.
-
-Antes de empezar: [#39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39), [#41](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/41), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43), [#44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44), [#45](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/45).
+Revisaremos las tareas y aportes de Marcelo en código, pruebas y documentación. Comprobaremos sus ramas, commits y PR, además de la preparación para explicar otros módulos y modificar código o memoria en vivo. Resolveremos lo que falte antes del cierre oficial.
 
 ## [P2-048] Comprobar las tareas y aportes de Joseph antes del cierre
 
 [Ver tarea #48](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/48) · **Responsable: Joseph** · 2 puntos relativos.
 
-Joseph debe poder mostrar sus tareas, sus cambios de código y las pruebas que hizo. También se comprobará que entiende la relación con otros módulos y que su material de defensa permite localizar sus aportes.
-
-Antes de empezar: [#39](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/39), [#42](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/42), [#43](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/43), [#44](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/44), [#45](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues/45).
+Revisaremos las tareas y aportes de Joseph, junto con sus ramas, commits, PR y pruebas. Comprobaremos que pueda explicar los cambios y localizar su evidencia durante la defensa. Los enlaces y el material pendiente quedarán listos antes del cierre oficial.

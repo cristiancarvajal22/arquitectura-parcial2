@@ -15,3 +15,8 @@ The Project workflow is **Backlog → To Do → In Progress → In Review → Do
 
 ## Spreadsheet and documentation
 The spreadsheet does not exist yet. A verified direct link and reproducible installation instructions will be added during the publishing task. Final ISA, complete diagrams, control-word specification and the full bilingual user manual remain explicit backlog deliverables. See the Spanish planning documents for current task details; bilingual parity is an acceptance criterion of the documentation milestone.
+
+## Project
+[Team Kanban](https://github.com/users/cristiancarvajal22/projects/6) · [Issues](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues)
+
+48 tasks: 16 tasks, 57 relative effort points and 16 reviews per member. The three initial contracts are To Do; the remaining 45 tasks start in Backlog.

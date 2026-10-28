@@ -18,6 +18,11 @@ CPU mononúcleo, un programa/proceso/hilo; AX/BX/CX/DX de 8 bits, PC/IR/MAR/MDR 
 - Consultar [plan de tareas](docs/BACKLOG.md) y dependencias antes de empezar.
 - Usuarios confirmados: Cristian = `cristiancarvajal22`; Marcelo y Joshep pendientes de confirmar. Los nombres en las issues definen responsabilidad; no implican asignación GitHub hasta verificar sus cuentas y acceso.
 
+## Tablero
+[GitHub Project del equipo](https://github.com/users/cristiancarvajal22/projects/6) · [Issues](https://github.com/cristiancarvajal22/arquitectura-computadoras-parcial2/issues)
+
+48 tareas técnicas: 16 por integrante, 57 puntos relativos y 16 revisiones por persona. Tres contratos iniciales en To Do; 45 tareas futuras en Backlog.
+
 ## Planilla y ejecución
 La planilla todavía no se ha creado: el enlace directo verificado se incorporará en la tarea de publicación. La guía de instalación, ISA definitiva, diagramas de micro-operaciones y manual completo se producirán y probarán con la implementación. No se presentan ejemplos de código inexistente.
 

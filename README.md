@@ -4,7 +4,7 @@ Simulador de una computadora en **Google Sheets + JavaScript/Google Apps Script*
 
 **Equipo:** Cristian, Marcelo y Joseph.
 **Cierre comunicado:** lunes 9 de noviembre de 2026 a las 10:00, hora de Bolivia (America/La_Paz).
-**Estado:** organización y planificación. Todavía no se ha programado el simulador.
+**Estado:** módulos implementados y probados en ramas de trabajo; integración y validación de la planilla pendientes. Consulta la [matriz de evidencias](docs/es/EVIDENCIAS.md).
 
 ## Trabajo del equipo
 Las tareas y su avance se registran en el [tablero](https://github.com/users/cristiancarvajal22/projects/6). Cada tarjeta reúne la descripción, el trabajo a realizar, los criterios de aceptación y el entregable.
@@ -17,7 +17,7 @@ El [índice de tareas](docs/BACKLOG.md) reúne las 48 tarjetas y el [glosario](d
 Cada integrante tiene **16 tareas** y **57 puntos relativos de esfuerzo**. Los puntos sirven para comparar la carga; no son horas ni calificación. Las tareas combinan programación, pruebas, documentación y preparación de la defensa. Cada tarjeta tiene un responsable y criterios de finalización; no hay una persona fija asignada para revisar cada tarea. Los PR se comprueban entre compañeros, como pide la rúbrica.
 
 Cuentas: Cristian = `cristiancarvajal22`; Marcelo = `marceloaguilera777`; Joseph = `JosephPerez725`.
-Marcelo ya tiene acceso al repositorio y sus 16 asignaciones de GitHub. Joseph tiene permiso de escritura en el tablero; su invitación de escritura al repositorio está enviada y debe aceptarla para completar sus asignaciones allí.
+Marcelo ya tiene acceso al repositorio y sus 16 asignaciones de GitHub. Joseph ya publica commits y PR desde `JosephPerez725` y sus tareas están asignadas en GitHub.
 
 ## Alcance
 - CPU con cuatro registros, operaciones e instrucciones; buses y señales que muestran cómo se mueve cada dato.
@@ -34,4 +34,12 @@ Los detalles obligatorios están en la [arquitectura](docs/ARQUITECTURA.md) y la
 - [Cómo usar ramas, commits y PR](CONTRIBUTING.md)
 - [English documentation](README_EN.md)
 
-La planilla de Google Sheets todavía no existe. Se añadirá su enlace directo verificado y el manual cuando se implemente el simulador.
+El enlace de la planilla final y el manual de uso siguen pendientes de verificación. No se declara un simulador integrado con base únicamente en pruebas de módulos.
+
+## Evidencias y especificaciones
+
+- [Matriz G1–G7 e I1–I4](docs/es/EVIDENCIAS.md)
+- [ISA y mapa de memoria](docs/ISA_MAPA_MEMORIA.md)
+- [Micro-palabra y pruebas (PR #62)](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/62)
+- [Contrato de cachés y señales (PR #60)](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/60)
+- [Planilla y manual: estado de verificación](docs/es/EVIDENCIAS.md#pendientes-de-entrega)

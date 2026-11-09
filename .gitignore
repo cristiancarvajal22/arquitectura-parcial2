@@ -7,3 +7,7 @@ work/
 Thumbs.db
 .test-deps/
 
+
+# Local runner output
+baseline.tap
+integration.tap

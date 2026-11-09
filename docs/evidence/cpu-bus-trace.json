@@ -1,0 +1,70 @@
+{
+  "moduleCommit": "650a31c42fdd20bc866f8ef37eb1f40cba030a1b",
+  "before": {
+    "revision": 0,
+    "buses": {},
+    "cpu": {
+      "pc": 300,
+      "mar": 0
+    }
+  },
+  "status": "completed",
+  "state": {
+    "revision": 1,
+    "buses": {
+      "internalAddress": {
+        "widthBits": 9,
+        "domain": "virtual",
+        "level": "driven",
+        "value": 300,
+        "drivers": [
+          "PC"
+        ],
+        "receivers": [
+          "MAR"
+        ]
+      }
+    },
+    "cpu": {
+      "pc": 300,
+      "mar": 300
+    }
+  },
+  "event": {
+    "kind": "bus-transfer",
+    "revisionBefore": 0,
+    "revisionAfter": 1,
+    "signals": {
+      "En_PC": true,
+      "Ld_PC": false,
+      "En_MAR": false,
+      "Ld_MAR": true
+    },
+    "segments": {
+      "internalAddress": {
+        "widthBits": 9,
+        "domain": "virtual",
+        "level": "driven",
+        "value": 300,
+        "drivers": [
+          "PC"
+        ],
+        "receivers": [
+          "MAR"
+        ]
+      }
+    },
+    "captures": [
+      {
+        "port": "MAR",
+        "segment": "internalAddress",
+        "path": [
+          "cpu",
+          "mar"
+        ],
+        "before": 0,
+        "after": 300
+      }
+    ]
+  }
+}

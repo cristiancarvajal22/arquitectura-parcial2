@@ -1,0 +1,145 @@
+# Arbitraje de buses · primera entrega de #7
+
+[English](../en/BUSES.md) · [Código](../../src/buses/arbiter.js) ·
+[Demo ejecutable](../../examples/buses/pc-to-mar.cjs) · [Evidencia](../evidence/P2-007.md).
+
+## Qué está implementado
+
+`BusArbiter.transfer(state, wiring, signals, expectedRevision)` calcula una
+transacción completa sobre una copia del estado recibido. No escribe en Sheets
+ni conserva un segundo banco de registros. Los puertos señalan rutas existentes
+del estado compartido: por ejemplo `['cpu', 'registers', 'AX']` o
+`['ram', 'bytes', 232]`. Un receptor actualiza esa ubicación en el nuevo estado.
+
+Un resultado `completed` contiene `state` y `event`. El coordinador puede
+sustituir el estado anterior una sola vez después de validar el resto del
+micro-paso. Un resultado `rejected` contiene únicamente un diagnóstico
+`error`; no expone estado ni eventos parcialmente confirmados.
+Los argumentos de entrada nunca se modifican, incluso cuando hay éxito.
+
+## Configuración explícita
+
+`wiring.segments` asigna un nombre a `{widthBits, domain}`. Los anchos son
+enteros de 1 a 32 bits; no hay anchos implícitos. Los dominios permitidos son
+`virtual`, `physical`, `data` y `control`. El ejemplo define seis segmentos:
+
+- `internalAddress`: 9 bits virtuales, permite 0..511.
+- `externalAddress`: 8 bits físicos, permite 0..255.
+- `internalData` y `externalData`: 8 bits.
+- `internalControl` y `externalControl`: **16 bits solo para las pruebas**;
+  Joseph debe fijar los anchos reales en #3 antes de la integración.
+
+`wiring.ports` contiene `{name, segment, path, widthBits}` por puerto. El nombre
+debe ser único y la ruta debe existir. Dentro de un arreglo se exige un índice
+entero existente; nunca se admite `length` como puerto, para no redimensionar
+RAM o IR accidentalmente. Los valores son enteros sin signo.
+Un bus más ancho puede alimentar un receptor estrecho únicamente si el valor
+cabe en él. Se rechaza overflow; nunca se truncan bits ni se convierten cadenas.
+Dos receptores activos no pueden escribir la misma ruta en una transacción.
+Los puertos no pueden apuntar a `revision` o `buses`, reservados al resultado.
+
+La demo conecta PC/MAR al segmento de direcciones y los demás puertos al
+segmento de datos para comprobar Enable/Load. Usa IR como un byte recibido
+en una de las cuatro posiciones de `cpu.ir.bytes`, siguiendo la ISA integrada
+en [PR #51](../ISA_MAPA_MEMORIA.md). RAM[224] y RAM[232] son las primeras
+posiciones de KBD/LCD; LCD inicia con ocho espacios ASCII (32).
+La conexión de ambos periféricos al bus interno sigue siendo un montaje de
+prueba; el recorrido externo definitivo y sus puentes pertenecen a #3.
+
+## Reglas del paso
+
+`signals` admite `En_<nombre>` y `Ld_<nombre>` booleanos. Una señal omitida
+equivale a false; una desconocida o un valor como 1 se rechaza.
+Read/Write/Clock/IO y la codificación de la micro-palabra corresponden al
+coordinador, que debe pasar aquí solo las señales Enable/Load pertinentes.
+
+1. Validar revisión, configuración, rutas y rangos antes de trabajar.
+2. Muestrear todos los valores emisores del mismo estado anterior.
+3. Sin emisor: nivel `Z`, valor null. Un receptor activo sobre Z es error.
+4. Un emisor: propaga su valor a los receptores con Load=true; los demás
+   conservan su valor. Puede haber varios receptores.
+5. Dos o más emisores: `BUS_CONTENTION`, aunque transmitan el mismo valor.
+   Se rechaza **todo** el paso, no solo el segmento conflictivo.
+6. Validar todos los destinos y confirmar sus capturas juntas en una copia;
+   incrementar `revision` una vez y producir un evento del módulo.
+
+El resultado incluye los buses resueltos (`level`, `value`, `drivers`,
+`receivers`, dominio y ancho). El evento registra revisión anterior/posterior,
+señales normalizadas, segmentos y capturas con ruta, valor anterior y nuevo.
+Un segmento sin receptores puede estar conducido; no altera registros.
+La copia devuelta y el evento no comparten objetos modificables entre sí.
+
+Errores: `INVALID_STATE`, `INVALID_WIRING`, `INVALID_SIGNALS`, `OUT_OF_RANGE`,
+`STALE_REVISION`, `BUS_CONTENTION`, `NO_BUS_DRIVER` y `MULTIPLE_LOADS`.
+La revisión evita aceptar un estado observado antiguo, pero **no reemplaza
+el bloqueo de concurrencia** que deberá implementar el coordinador en Apps Script.
+
+## Comprobar
+
+Requiere Node.js con `node:test`; se comprobó con v24.18.0, sin dependencias:
+
+```sh
+node --test tests/unit/bus-arbiter.test.cjs tests/unit/bus-ports.test.cjs
+node --test tests/contracts/core.test.mjs tests/integration/bus-state.test.cjs
+node examples/buses/pc-to-mar.cjs
+```
+
+Resultado de la demo: MAR pasa de 0 a 300, revisión 0 → 1; el intento con
+En_PC y En_MAR simultáneos devuelve `BUS_CONTENTION`, con estado original
+intacto. La salida guardada está en la evidencia.
+
+## Coordinación de pasos internos
+
+[`BusMicroStep.execute`](../../src/core/bus-step.js) envuelve el núcleo para
+transferencias internas entre registros. Recibe snapshot, cableado y
+`{requestId, expectedRevision, phase, va, signals}`. Solo acepta perfiles
+`ready` sin decisiones pendientes; el perfil del repositorio sigue siendo
+`proposal` y se rechaza. Las pruebas usan una configuración sintética explícita,
+sin declarar aprobación del equipo ni modificar el perfil real.
+
+Un paso correcto confirma capturas, revisión, reloj, señales, contador de
+micro-pasos y `lastEvent` juntos. El evento global incluye ID, petición,
+ciclo, fase, segmentos, VA/null, PA=null, bytes vacíos y cambios antes/después.
+IR recibe un byte por vez en orden, incrementa `loadedBytes` y rechaza un
+quinto byte; el decodificador todavía no está implementado.
+
+Un fallo no confirma ninguno de esos cambios. HALT y las peticiones antiguas
+se rechazan sin alterar el estado. Repetir la última petición idéntica devuelve
+su resultado sin aumentar contadores; reutilizar el ID para otro trabajo es
+error. La deduplicación cubre el último recibo; no es un historial persistente
+ni sustituye el bloqueo de concurrencia de Apps Script.
+
+El paso admite solo señales Enable/Load sobre rutas internas de CPU. Activa
+Clock y apaga las señales anteriores. Rechaza RAM, KBD, LCD, puertos externos,
+Read/Write y peticiones de memoria pendientes: requieren su coordinación de
+memoria/E/S. La micro-palabra numérica continúa null hasta cerrar #3.
+
+```sh
+node --test tests/integration/bus-step.test.cjs
+node examples/buses/micro-step.cjs
+```
+
+La demo muestra primero el rechazo del perfil real incompleto y luego la
+transferencia, repetición y contención con un perfil sintético de validación.
+
+## Integración pendiente
+
+Esta entrega prueba un núcleo independiente. Antes de cerrar #7 hacen falta:
+
+- Completar la compatibilidad entre #1/#2/#3 y fijar cableado, anchos de
+  control y señales legales. El mapa y el formato IR ya siguen el PR #51.
+- Conectar el núcleo al estado aprobado, reloj, control y snapshot completo.
+  El coordinador debe validar ISA, E/S y coherencia **antes de publicar** el
+  resultado; este módulo no autoriza por sí mismo una escritura de memoria.
+- Extender la coordinación global a memoria/E/S y fijar la micro-palabra
+  numérica de #3. Los pasos internos ya incluyen reloj y `lastEvent`.
+- Implementar transacciones periféricas: En_KBD no consume un carácter por
+  sí solo; LCD no avanza el cursor; RAM no actualiza cachés ni Dirty/Reference.
+- Probar los módulos reales juntos y su visualización High-Z en Sheets,
+  obtener revisión de otro compañero e integrar a develop.
+
+El archivo se carga como `BusArbiter` global sin CommonJS; se verificó esa
+forma de carga en Node VM. **No se desplegó ni ejecutó en Google Apps Script**.
+La tarjeta permanece In Progress con un PR en borrador hasta la integración.
+Las pruebas de integración comprueban el núcleo contra el snapshot completo
+de #1 y el mapa/IR de #2; no ejecutan una CPU ni una planilla completa.

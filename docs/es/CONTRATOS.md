@@ -203,3 +203,5 @@ ilustrativos del contrato, no evidencia de una CPU ni de una planilla funcional.
 Para cerrar #1: comprobar los ejemplos, resolver decisiones cruzadas,
 registrar revisión real de Marcelo y Joseph, e integrar el PR a develop.
 Mientras falte revisión o integración, la tarjeta no debe figurar Done.
+
+[Evidencia y pasos de comprobación](../evidence/P2-001.md).

@@ -191,3 +191,5 @@ illustrative contract data, not evidence of a running CPU or working sheet.
 To close #1: verify examples, settle shared decisions, obtain actual reviews
 from Marcelo and Joseph, and merge into develop. Until review and integration
 are complete, the card must not be marked Done.
+
+[Evidence and verification steps](../evidence/P2-001.md).

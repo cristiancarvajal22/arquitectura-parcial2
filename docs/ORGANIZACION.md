@@ -57,9 +57,6 @@ Los directorios de código se crearán cuando se implementen sus tareas; todaví
 - 3-5 de noviembre: ensamblador, cargador, demos, interfaz e integración.
 - 6-7 de noviembre: pruebas finales, documentación bilingüe y enlace a la planilla.
 - 8 de noviembre: ensayo completo y versión candidata en main.
-- Antes del 9 de noviembre a las 10:00 (America/La_Paz): verificar la entrega. Después del cierre no subir commits ni mover tarjetas.
 
-Las fechas son una propuesta y deben ajustarse a la disponibilidad real. Para la defensa, repartir los 20 minutos grupales de forma equilibrada (~6 min 40 s por persona) y ensayar 10 minutos de preguntas y cambios de código o memoria.
 
-## Acceso a GitHub
-Marcelo aceptó su invitación al repositorio y tiene sus 16 tareas asignadas. Joseph tiene permiso Write en el tablero; su invitación de escritura al repositorio está enviada y pendiente de aceptación. Al aceptarla, completar sus 16 asignaciones de GitHub. Sus responsabilidades ya figuran con su cuenta en las tarjetas.
+

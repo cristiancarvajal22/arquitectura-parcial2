@@ -1,0 +1,17 @@
+{
+  "origin": 0,
+  "loopPc": 16,
+  "haltPc": 40,
+  "iterations": [
+    {"AX":1,"BX":2,"CX":5,"DX":1,"ZF":false,"CF":true,"SF":true,"jumpTaken":true},
+    {"AX":3,"BX":3,"CX":5,"DX":2,"ZF":false,"CF":true,"SF":true,"jumpTaken":true},
+    {"AX":6,"BX":4,"CX":5,"DX":3,"ZF":false,"CF":true,"SF":true,"jumpTaken":true},
+    {"AX":10,"BX":5,"CX":5,"DX":4,"ZF":false,"CF":true,"SF":true,"jumpTaken":true},
+    {"AX":15,"BX":6,"CX":5,"DX":5,"ZF":true,"CF":false,"SF":false,"jumpTaken":false}
+  ],
+  "final": {"AX":15,"BX":6,"CX":5,"DX":5,"memory300":15,"pc":40},
+  "variantFinal": {"AX":21,"BX":7,"CX":6,"DX":6,"memory300":21,"pc":40},
+  "instructionCount": 31,
+  "variantInstructionCount": 36,
+  "status": "hand-calculated oracle; not a simulator execution trace"
+}

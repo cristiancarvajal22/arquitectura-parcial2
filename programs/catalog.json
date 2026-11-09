@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "programs": [
+    {"id":"arithmetic","source":"programs/arithmetic.asm","expected":"programs/arithmetic.expected.json","entry":0,"codeBytes":44,"dataRanges":[{"start":300,"length":1}]},
+    {"id":"arithmetic-variant","source":"programs/arithmetic-variant.asm","expected":"programs/arithmetic.expected.json","entry":0,"codeBytes":44,"dataRanges":[{"start":300,"length":1}]}
+  ]
+}

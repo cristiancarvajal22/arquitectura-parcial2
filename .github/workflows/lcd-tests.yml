@@ -1,0 +1,27 @@
+name: Pruebas LCD
+
+on:
+  push:
+    branches:
+      - feature/marcelo/io-lcd
+  pull_request:
+    branches:
+      - develop
+
+permissions:
+  contents: read
+
+jobs:
+  lcd:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Probar LCD
+        run: node --test tests/unit/lcd.test.mjs

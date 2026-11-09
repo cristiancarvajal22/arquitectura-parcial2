@@ -74,3 +74,24 @@ test('demonstration produces verified transfer and contention output', () => {
   assert.equal(result.rejected.code, 'BUS_CONTENTION');
   assert.equal(result.originalUnchanged, true);
 });
+
+test('a miswired receiver cannot resize RAM through the array length property', () => {
+  const f = scenario();
+  f.wiring.ports.push({ name: 'BadRAM', segment: 'internalAddress', widthBits: 9,
+    path: ['ram', 'bytes', 'length'] });
+  const saved = JSON.stringify(f.state);
+  const result = transfer(f.state, f.wiring, { En_PC: true, Ld_BadRAM: true }, 0);
+  assert.equal(result.status, 'rejected');
+  assert.equal(result.error.code, 'INVALID_WIRING');
+  assert.equal(JSON.stringify(f.state), saved);
+});
+
+test('array metadata cannot be used as a driver either', () => {
+  const f = scenario();
+  f.wiring.ports.push({ name: 'BadIR', segment: 'internalData', widthBits: 8,
+    path: ['cpu', 'ir', 'bytes', 'length'] });
+  const result = transfer(f.state, f.wiring, { En_BadIR: true, Ld_AX: true }, 0);
+  assert.equal(result.status, 'rejected');
+  assert.equal(result.error.code, 'INVALID_WIRING');
+  assert.equal(f.state.cpu.registers.AX, 0);
+});

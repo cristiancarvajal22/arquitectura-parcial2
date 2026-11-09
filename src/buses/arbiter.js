@@ -64,6 +64,9 @@ var BusArbiter = (function () {
     }
     var value = state;
     path.forEach(function (key) {
+      if (Array.isArray(value) && (!Number.isInteger(key) || key < 0 || key >= value.length)) {
+        fail('INVALID_WIRING', 'An array port must address an existing element, not array metadata.', { path: path });
+      }
       if (!(name(key) || (Number.isInteger(key) && key >= 0))
         || value === null || typeof value !== 'object'
         || !Object.prototype.hasOwnProperty.call(value, key)) {

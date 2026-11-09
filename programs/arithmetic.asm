@@ -1,0 +1,11 @@
+MOV AX, 0
+MOV BX, 7
+MOV CX, 5
+MOV DX, 0
+loop: ADD AX, BX
+INC DX
+DEC CX
+CMP CX, 0
+JNZ loop
+STORE [300], AX
+HALT

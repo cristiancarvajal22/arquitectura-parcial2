@@ -1,0 +1,7 @@
+MOV CX, 8
+loop: IN DX, [KBD]
+OUT [LCD], DX
+DEC CX
+CMP CX, 0
+JNZ loop
+HALT

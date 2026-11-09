@@ -4,7 +4,7 @@ Simulador de una computadora en **Google Sheets + JavaScript/Google Apps Script*
 
 **Equipo:** Cristian, Marcelo y Joseph.
 **Cierre comunicado:** lunes 9 de noviembre de 2026 a las 10:00, hora de Bolivia (America/La_Paz).
-**Estado:** organización y planificación. Todavía no se ha programado el simulador.
+**Estado:** núcleo integrado y probado; instalación y validación de la hoja pendientes.
 
 ## Trabajo del equipo
 Las tareas y su avance se registran en el [tablero](https://github.com/users/cristiancarvajal22/projects/6). Cada tarjeta reúne la descripción, el trabajo a realizar, los criterios de aceptación y el entregable.
@@ -31,7 +31,14 @@ Los detalles obligatorios están en la [arquitectura](docs/ARQUITECTURA.md) y la
 - [GitHub Project](https://github.com/users/cristiancarvajal22/projects/6)
 - [Todas las issues](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues)
 - [Organización y estructura](docs/ORGANIZACION.md)
-- [Cómo usar ramas, commits y PR](CONTRIBUTING.md)
 - [English documentation](README_EN.md)
 
 La planilla de Google Sheets todavía no existe. Se añadirá su enlace directo verificado y el manual cuando se implemente el simulador.
+
+## Entrega integrada — 9 de noviembre
+
+El núcleo integrado ejecuta las tres demos; **352 pruebas locales aprobadas**. Aritmética: AX=15; eco: ABCDEFGH; memoria: DX=42 tras desalojo Dirty y recarga.
+
+Para instalar: crear una hoja de Google, abrir **Extensiones → Apps Script**, pegar [dist/Simulador.gs](dist/Simulador.gs), guardar y ejecutar `simSetup` una vez. Autorizar el acceso a la hoja y recargarla. Menú **Simulador**: seleccionar programa, cargar, Step o Run. El catálogo conserva las fuentes editables. Para Eco, ingresar ABCDEFGH desde el menú Teclado.
+
+**Alcance de entrega:** Step ejecuta una instrucción completa y muestra su traza ordenada; Run ejecuta ocho instrucciones. El traslado de páginas se confirma por bloque de 32 bytes. La prueba real en Google Sheets, animación por micro-paso y enlace compartido siguen pendientes. [Evidencia final](docs/evidence/INTEGRACION_FINAL.md).

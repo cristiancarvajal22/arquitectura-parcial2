@@ -1,0 +1,20 @@
+[
+  {
+    "file": "arbiter.js",
+    "path": "src/buses/arbiter.js",
+    "ref": "650a31c42fdd20bc866f8ef37eb1f40cba030a1b",
+    "blob": "074a57c32107fdfed774f62f687836ab08ede5df"
+  },
+  {
+    "file": "l1i.js",
+    "path": "src/cache/l1i.js",
+    "ref": "9f3f54868f16bdd8c82fce644fcbe87069060102",
+    "blob": "80309e9d4588a66072ebd6b50e0ea3215572794e"
+  },
+  {
+    "file": "ram.js",
+    "path": "src/memory/ram.js",
+    "ref": "92f48cbecd1bdc9f161b18638392ada7eb2fc36a",
+    "blob": "5730a3c22e6faa237a9d9d02cb922b2b4415d7c4"
+  }
+]

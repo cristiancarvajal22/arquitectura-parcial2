@@ -4,7 +4,7 @@ A computer simulator built with **Google Sheets + JavaScript/Google Apps Script*
 
 **Team:** Cristian, Marcelo and Joseph.
 **Reported deadline:** Monday, November 9, 2026, 10:00 (America/La_Paz).
-**Status:** organization and planning only. Simulator implementation has not started.
+**Status:** integrated and tested core; spreadsheet installation and validation pending.
 
 ## Work organization
 Tasks and progress are recorded on the [Project board](https://github.com/users/cristiancarvajal22/projects/6). Each issue includes a description, planned work, acceptance criteria and deliverables. The first three tasks define the shared state, instruction set, memory map, cache rules and control signals used to integrate the simulator.
@@ -23,6 +23,14 @@ Four-register CPU and ALU; internal/external tri-state buses and a visible contr
 The target is Excellent across 100 group points and 60 individual points per student. The planning documents do not certify a grade. Final architecture, ISA, control-word specification, installation guide and user manual must describe the implemented simulator in both languages.
 
 ## Links
-[Español](README.md) · [Team organization](docs/ORGANIZACION.md) · [Contribution steps](CONTRIBUTING.md) · [Architecture](docs/ARQUITECTURA.md) · [Rubric](docs/RUBRICA.md) · [Issues](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues)
+[Español](README.md) · [Team organization](docs/ORGANIZACION.md) · [Architecture](docs/ARQUITECTURA.md) · [Rubric](docs/RUBRICA.md) · [Issues](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues)
 
 The spreadsheet does not exist yet. Its verified direct link will be added with the implementation and complete bilingual user manual.
+
+## Integrated delivery — November 9
+
+The integrated core executes all three demos; **352 local tests passed**. Arithmetic: AX=15; echo: ABCDEFGH; memory: DX=42 after dirty eviction and reload.
+
+Installation: create a Google spreadsheet, open **Extensions → Apps Script**, paste [dist/Simulador.gs](dist/Simulador.gs), save and run `simSetup` once. Authorize spreadsheet access and reload the sheet. Use the **Simulador** menu to select, load, Step or Run. Sources remain editable in the catalog. For Echo, enter ABCDEFGH through the keyboard menu.
+
+**Delivery scope:** Step executes one complete instruction and exposes its ordered trace; Run executes eight instructions. Page transfers commit a complete 32-byte block. Live Google Sheets validation, per-micro-step animation and the shared URL remain pending. [Final evidence](docs/evidence/INTEGRACION_FINAL.md).

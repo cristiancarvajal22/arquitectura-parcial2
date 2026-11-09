@@ -24,16 +24,13 @@ function l1dValidate(line) {
 
   for (var i = 0; i < 8; i++) {
     var value = line.bytes[i];
+
     if (!Number.isInteger(value) || value < 0 || value > 255) {
       throw new Error("Byte de caché inválido.");
     }
   }
 }
 
-/**
- * Recibe el resultado de mmuResolveAccess.
- * Una página ausente se resuelve antes de consultar L1D.
- */
 function l1dValidateTranslation(translation, kind) {
   if (!translation || translation.ok !== true ||
       translation.status !== "translated" ||
@@ -48,10 +45,6 @@ function l1dValidateTranslation(translation, kind) {
   }
 }
 
-/**
- * Consulta local. No modifica registros ni consulta L2 directamente.
- * El coordinador realiza por buses las transferencias necesarias.
- */
 function l1dRead(line, translation) {
   l1dValidate(line);
   l1dValidateTranslation(translation, "read");
@@ -84,8 +77,7 @@ function l1dRead(line, translation) {
 
 /**
  * Preparar la línea recibida desde L2.
- * bytes debe contener los ocho bytes transferidos por el bus.
- * El coordinador confirma el resultado junto con esos eventos.
+ * El coordinador confirma los ocho bytes transferidos por el bus.
  */
 function l1dFill(translation, bytes) {
   l1dValidateTranslation(translation, "read");
@@ -107,8 +99,7 @@ function l1dFill(translation, bytes) {
 
 /**
  * Write-through / no-write-allocate.
- * Solo aplicar lineAfterCommit cuando RAM confirme la escritura.
- * L2 y la invalidación de L1I corresponden al coordinador.
+ * Aplicar lineAfterCommit solo cuando RAM confirme la escritura.
  */
 function l1dPlanWrite(line, translation, value) {
   l1dValidate(line);

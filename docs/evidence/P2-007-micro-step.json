@@ -1,0 +1,212 @@
+{
+  "validationOnly": true,
+  "productionProposalResult": "INVALID_PROFILE",
+  "accepted": {
+    "mar": 300,
+    "revision": 1,
+    "clock": {
+      "cycle": 1,
+      "microStep": 1,
+      "phase": "fetch-address"
+    },
+    "committedMicroSteps": 1,
+    "event": {
+      "schemaVersion": 1,
+      "id": 1,
+      "requestId": "validation-step-1",
+      "revisionBefore": 0,
+      "revisionAfter": 1,
+      "cycle": 1,
+      "microStep": 1,
+      "phase": "fetch-address",
+      "kind": "bus-transfer",
+      "signals": {
+        "En_AX": false,
+        "Ld_AX": false,
+        "En_BX": false,
+        "Ld_BX": false,
+        "En_CX": false,
+        "Ld_CX": false,
+        "En_DX": false,
+        "Ld_DX": false,
+        "En_PC": true,
+        "Ld_PC": false,
+        "En_IR": false,
+        "Ld_IR": false,
+        "En_MAR": false,
+        "Ld_MAR": true,
+        "En_MDR": false,
+        "Ld_MDR": false,
+        "En_ALU": false,
+        "Ld_ALU": false,
+        "En_RAM": false,
+        "Ld_RAM": false,
+        "En_KBD": false,
+        "Ld_KBD": false,
+        "En_LCD": false,
+        "Ld_LCD": false,
+        "Read": false,
+        "Write": false,
+        "Clock": true,
+        "IO": false,
+        "Mem_R": false,
+        "Mem_W": false
+      },
+      "controlWord": null,
+      "segments": [
+        {
+          "name": "internalAddress",
+          "widthBits": 9,
+          "level": "driven",
+          "value": 300,
+          "driver": "PC",
+          "receivers": [
+            "MAR"
+          ]
+        },
+        {
+          "name": "internalData",
+          "widthBits": 8,
+          "level": "Z",
+          "value": null,
+          "driver": null,
+          "receivers": []
+        },
+        {
+          "name": "internalControl",
+          "widthBits": 16,
+          "level": "Z",
+          "value": null,
+          "driver": null,
+          "receivers": []
+        },
+        {
+          "name": "externalAddress",
+          "widthBits": 8,
+          "level": "Z",
+          "value": null,
+          "driver": null,
+          "receivers": []
+        },
+        {
+          "name": "externalData",
+          "widthBits": 8,
+          "level": "Z",
+          "value": null,
+          "driver": null,
+          "receivers": []
+        },
+        {
+          "name": "externalControl",
+          "widthBits": 16,
+          "level": "Z",
+          "value": null,
+          "driver": null,
+          "receivers": []
+        }
+      ],
+      "va": 300,
+      "pa": null,
+      "bytes": [],
+      "changes": [
+        {
+          "path": "revision",
+          "before": 0,
+          "after": 1
+        },
+        {
+          "path": "cpu.mar",
+          "before": 0,
+          "after": 300
+        },
+        {
+          "path": "cpu.control.phase",
+          "before": "idle",
+          "after": "fetch-address"
+        },
+        {
+          "path": "cpu.control.microStep",
+          "before": 0,
+          "after": 1
+        },
+        {
+          "path": "cpu.control.signals.En_PC",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "cpu.control.signals.Ld_MAR",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "cpu.control.signals.Clock",
+          "before": false,
+          "after": true
+        },
+        {
+          "path": "buses.internalAddress.level",
+          "before": "Z",
+          "after": "driven"
+        },
+        {
+          "path": "buses.internalAddress.value",
+          "before": null,
+          "after": 300
+        },
+        {
+          "path": "buses.internalAddress.drivers",
+          "before": [],
+          "after": [
+            "PC"
+          ]
+        },
+        {
+          "path": "buses.internalAddress.receivers",
+          "before": [],
+          "after": [
+            "MAR"
+          ]
+        },
+        {
+          "path": "clock.cycle",
+          "before": 0,
+          "after": 1
+        },
+        {
+          "path": "clock.microStep",
+          "before": 0,
+          "after": 1
+        },
+        {
+          "path": "clock.phase",
+          "before": "idle",
+          "after": "fetch-address"
+        },
+        {
+          "path": "metrics.committedMicroSteps",
+          "before": 0,
+          "after": 1
+        }
+      ],
+      "result": "committed"
+    }
+  },
+  "retry": {
+    "replayed": true,
+    "revision": 1,
+    "cycle": 1
+  },
+  "rejected": {
+    "code": "BUS_CONTENTION",
+    "message": "More than one driver is enabled.",
+    "details": {
+      "segment": "internalAddress",
+      "drivers": [
+        "PC",
+        "MAR"
+      ]
+    }
+  },
+  "statePreserved": true
+}

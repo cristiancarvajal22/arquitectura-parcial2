@@ -1,0 +1,44 @@
+[
+  {
+    "file": "mmu.js",
+    "path": "src/memory/mmu.js",
+    "ref": "26185682ddc6ea6e8771772bfdaf5a4317498712",
+    "blob": "bc102bbc01d7686164cafb9bdb64d74cda0ee40a"
+  },
+  {
+    "file": "mmu-state.js",
+    "path": "src/memory/mmu-state.js",
+    "ref": "26185682ddc6ea6e8771772bfdaf5a4317498712",
+    "blob": "a6e60e5a850e8925597b8f03ce92fdff865e73b3"
+  },
+  {
+    "file": "mmu-access.js",
+    "path": "src/memory/mmu-access.js",
+    "ref": "26185682ddc6ea6e8771772bfdaf5a4317498712",
+    "blob": "8f624c51088a5c16e7d80ca38dab5d9bd5c3c7f8"
+  },
+  {
+    "file": "fifo.js",
+    "path": "src/memory/fifo.js",
+    "ref": "908738df96e9290c8556247a90201f6aabf3d895",
+    "blob": "8aa8ae81fd2dfe243f1fc23b6e7b4fa86ce95228"
+  },
+  {
+    "file": "coherence.js",
+    "path": "src/cache/coherence.js",
+    "ref": "1352308eb543108e2282b60a90805026c533ef06",
+    "blob": "df2ca007f472399574d4689ab1ad03b541de718a"
+  },
+  {
+    "file": "ram.js",
+    "path": "src/memory/ram.js",
+    "ref": "92f48cbecd1bdc9f161b18638392ada7eb2fc36a",
+    "blob": "5730a3c22e6faa237a9d9d02cb922b2b4415d7c4"
+  },
+  {
+    "file": "swap.js",
+    "path": "src/memory/swap.js",
+    "ref": "ccd7720e2f7d960a80ab62f4bd495bfe6ee16669",
+    "blob": "1940cc38d0e53045c459890fd1c6e463d9eebeb5"
+  }
+]

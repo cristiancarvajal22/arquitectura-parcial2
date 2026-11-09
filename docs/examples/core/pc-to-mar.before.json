@@ -1,0 +1,448 @@
+{
+  "schemaVersion": 1,
+  "profile": {
+    "id": "illustrative-v1",
+    "status": "proposal",
+    "pendingIssues": [2, 3],
+    "sizes": {
+      "ramBytes": 256,
+      "virtualBytes": 512,
+      "pageBytes": 32,
+      "frameCount": 8,
+      "pageCount": 16,
+      "lineBytes": 8,
+      "l2Lines": 4
+    },
+    "widths": {
+      "register": 8,
+      "pc": 9,
+      "mar": 9,
+      "mdr": 8,
+      "irMaxBytes": null,
+      "internalControl": null,
+      "externalControl": null
+    },
+    "ioMap": {
+      "keyboard": {
+        "va": 496,
+        "pa": 240,
+        "length": 8
+      },
+      "lcd": {
+        "va": 504,
+        "pa": 248,
+        "length": 8
+      }
+    },
+    "pinnedMappings": [
+      {
+        "vpn": 15,
+        "pfn": 7
+      }
+    ],
+    "cachePolicy": {
+      "addressing": "physical",
+      "l2Replacement": "FIFO",
+      "write": null,
+      "allocate": null
+    },
+    "controlEncoding": null
+  },
+  "revision": 0,
+  "cpu": {
+    "registers": {
+      "AX": 0,
+      "BX": 0,
+      "CX": 0,
+      "DX": 0
+    },
+    "pc": 300,
+    "mar": 0,
+    "mdr": 0,
+    "ir": {
+      "bytes": [],
+      "decoded": null
+    },
+    "flags": {
+      "ZF": false,
+      "CF": false,
+      "SF": false
+    },
+    "alu": {
+      "a": 0,
+      "b": 0,
+      "result": 0,
+      "operation": null
+    },
+    "control": {
+      "phase": "idle",
+      "microStep": 0,
+      "word": null,
+      "signals": {
+        "En_AX": false,
+        "Ld_AX": false,
+        "En_BX": false,
+        "Ld_BX": false,
+        "En_CX": false,
+        "Ld_CX": false,
+        "En_DX": false,
+        "Ld_DX": false,
+        "En_PC": false,
+        "Ld_PC": false,
+        "En_IR": false,
+        "Ld_IR": false,
+        "En_MAR": false,
+        "Ld_MAR": false,
+        "En_MDR": false,
+        "Ld_MDR": false,
+        "En_ALU": false,
+        "Ld_ALU": false,
+        "En_RAM": false,
+        "Ld_RAM": false,
+        "En_KBD": false,
+        "Ld_KBD": false,
+        "En_LCD": false,
+        "Ld_LCD": false,
+        "Read": false,
+        "Write": false,
+        "Clock": false,
+        "IO": false,
+        "Mem_R": false,
+        "Mem_W": false
+      }
+    }
+  },
+  "buses": {
+    "internalAddress": {
+      "widthBits": 9,
+      "domain": "virtual",
+      "level": "Z",
+      "value": null,
+      "drivers": [],
+      "receivers": []
+    },
+    "internalData": {
+      "widthBits": 8,
+      "domain": "data",
+      "level": "Z",
+      "value": null,
+      "drivers": [],
+      "receivers": []
+    },
+    "internalControl": {
+      "widthBits": null,
+      "domain": "control",
+      "level": "Z",
+      "value": null,
+      "drivers": [],
+      "receivers": []
+    },
+    "externalAddress": {
+      "widthBits": 8,
+      "domain": "physical",
+      "level": "Z",
+      "value": null,
+      "drivers": [],
+      "receivers": []
+    },
+    "externalData": {
+      "widthBits": 8,
+      "domain": "data",
+      "level": "Z",
+      "value": null,
+      "drivers": [],
+      "receivers": []
+    },
+    "externalControl": {
+      "widthBits": null,
+      "domain": "control",
+      "level": "Z",
+      "value": null,
+      "drivers": [],
+      "receivers": []
+    }
+  },
+  "ram": {
+    "bytes": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "frames": [
+      {
+        "pfn": 0,
+        "vpn": null,
+        "pinned": false
+      },
+      {
+        "pfn": 1,
+        "vpn": null,
+        "pinned": false
+      },
+      {
+        "pfn": 2,
+        "vpn": null,
+        "pinned": false
+      },
+      {
+        "pfn": 3,
+        "vpn": null,
+        "pinned": false
+      },
+      {
+        "pfn": 4,
+        "vpn": null,
+        "pinned": false
+      },
+      {
+        "pfn": 5,
+        "vpn": null,
+        "pinned": false
+      },
+      {
+        "pfn": 6,
+        "vpn": null,
+        "pinned": false
+      },
+      {
+        "pfn": 7,
+        "vpn": 15,
+        "pinned": true
+      }
+    ]
+  },
+  "mmu": {
+    "pages": [
+      {
+        "vpn": 0,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 1,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 2,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 3,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 4,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 5,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 6,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 7,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 8,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 9,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 10,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 11,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 12,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 13,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 14,
+        "present": false,
+        "pfn": null,
+        "dirty": false,
+        "referenced": false,
+        "pinned": false
+      },
+      {
+        "vpn": 15,
+        "present": true,
+        "pfn": 7,
+        "dirty": false,
+        "referenced": false,
+        "pinned": true
+      }
+    ],
+    "fifo": [],
+    "fault": null
+  },
+  "swap": {
+    "pages": [
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ]
+  },
+  "caches": {
+    "l1i": {
+      "valid": false,
+      "tag": null,
+      "dirty": false,
+      "bytes": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    "l1d": {
+      "valid": false,
+      "tag": null,
+      "dirty": false,
+      "bytes": [0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    "l2": {
+      "lines": [
+        {
+          "valid": false,
+          "tag": null,
+          "dirty": false,
+          "bytes": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        {
+          "valid": false,
+          "tag": null,
+          "dirty": false,
+          "bytes": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        {
+          "valid": false,
+          "tag": null,
+          "dirty": false,
+          "bytes": [0, 0, 0, 0, 0, 0, 0, 0]
+        },
+        {
+          "valid": false,
+          "tag": null,
+          "dirty": false,
+          "bytes": [0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      ],
+      "fifo": []
+    }
+  },
+  "io": {
+    "keyboard": {
+      "basePa": 240,
+      "capacity": 8,
+      "head": 0,
+      "tail": 0,
+      "count": 0
+    },
+    "lcd": {
+      "basePa": 248,
+      "length": 8,
+      "cursor": 0
+    }
+  },
+  "clock": {
+    "cycle": 0,
+    "microStep": 0,
+    "phase": "idle"
+  },
+  "execution": {
+    "mode": "paused",
+    "pendingRequest": null,
+    "lastError": null
+  },
+  "metrics": {
+    "l1i": {
+      "hits": 0,
+      "misses": 0
+    },
+    "l1d": {
+      "hits": 0,
+      "misses": 0
+    },
+    "l2": {
+      "hits": 0,
+      "misses": 0
+    },
+    "pageFaults": 0,
+    "committedMicroSteps": 0
+  },
+  "lastEvent": null
+}

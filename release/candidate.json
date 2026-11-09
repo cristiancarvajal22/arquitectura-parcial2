@@ -1,13 +1,13 @@
 {
   "kind": "review-candidate-not-main-release",
-  "sourceCommit": "308773398f507462192c8a4f0f4322af5ce472ae",
+  "sourceCommit": "7c61a6ba403f75019ba1ee4160821bd617b104d3",
   "deadline": "2026-11-09T10:00:00-04:00",
   "bundle": "dist/SimuladorP2.gs",
   "bundleSha256LF": "8385db38ebc4b3b13b6c2ea770ced2c10726b21c2e613fdea55c2fd11400518a",
   "node": "v24.11.1",
   "localRegression": {
-    "tests": 324,
-    "passed": 324,
+    "tests": 330,
+    "passed": 330,
     "failed": 0
   },
   "demos": [

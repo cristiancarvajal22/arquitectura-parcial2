@@ -34,7 +34,7 @@ flowchart LR
 
 ## Atomicidad y esperas
 
-`step` devuelve `completed`, `pending` o `rejected`. El candidato se construye sobre una copia. El árbitro valida todos los segmentos de datos/dirección antes de capturar; un rechazo no publica ni reloj, ni contadores, ni bytes parciales del micro-paso. Cada evento confirmado avanza una revisión y un ciclo.
+`step` devuelve `completed`, `pending` o `rejected`. El candidato se construye sobre una copia. El árbitro valida todos los segmentos de datos/dirección antes de capturar; un rechazo no publica ni reloj, ni contadores, ni bytes parciales del micro-paso. Cada micro-paso de motor confirmado avanza una revisión y un ciclo; los eventos de control de ejecución no simulan transferencias ni ciclos de CPU.
 
 La petición de memoria conserva requestId, etapa, índices de transferencia y contabilidad de búsquedas. Page Fault se atiende antes de consultar cachés. Por ello, esperar no repite misses. Una espera de teclado vacío no cambia estado ni consume un byte. La última confirmación de STEP puede reproducirse sin repetir efectos; la capa de reloj también conserva su recibo por época/secuencia.
 

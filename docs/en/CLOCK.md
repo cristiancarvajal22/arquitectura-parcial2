@@ -1,7 +1,7 @@
 # Clock and persistence — P2-006
 
-AI-assisted implementation for Joseph and team review. Node tests pass; full motor
-integration and execution in the real Apps Script spreadsheet remain pending.
+Node tests cover the core and its connection to the actual bus coordinator.
+Full motor integration and execution in the real Apps Script spreadsheet remain pending.
 
 `src/core/clock.js` injects store, lock, motor and resetter. `clock-store.js` supplies
 ScriptProperties/ScriptLock adapters. The motor must be a pure bounded function
@@ -45,3 +45,12 @@ Official references:
 - https://developers.google.com/apps-script/guides/services/quotas
 - https://developers.google.com/apps-script/reference/lock/lock-service
 - https://developers.google.com/apps-script/reference/properties/properties
+
+## Bus and micro-word integration
+
+`python3 scripts/fetch-test-deps.py clock-bus` fetches five pinned dependencies.
+`node --test tests/unit/clock.test.cjs tests/integration/clock-bus.test.cjs`: 16 passed.
+Uses BusMicroStep/BusArbiter from #52 and the viewer from #62. Covers PC→MAR,
+eight-step Run, pause, retry after reopening, contention, reset and publication failure.
+Ready profile and wiring are test configuration, not production approval.
+Properties/Lock remain local doubles; live spreadsheet and memory/I/O are pending.

@@ -1,7 +1,7 @@
 # Reloj y persistencia — P2-006
 
-Implementación asistida por IA para revisión de Joseph y el equipo. Núcleo probado
-en Node; integración con motor completo y ejecución real en Apps Script pendientes.
+Núcleo probado en Node y conectado en pruebas al coordinador real de buses.
+Integración con motor completo y ejecución real en Apps Script pendientes.
 
 ## Archivos y uso
 
@@ -71,3 +71,12 @@ Fuentes oficiales:
 - https://developers.google.com/apps-script/reference/properties/properties
 
 Prueba: `node --test tests/unit/clock.test.cjs`.
+
+## Integración con buses y micro-palabra
+
+`python3 scripts/fetch-test-deps.py clock-bus` descarga cinco dependencias fijadas.
+`node --test tests/unit/clock.test.cjs tests/integration/clock-bus.test.cjs`: 16 aprobadas.
+Se utiliza BusMicroStep/BusArbiter de #52 y el visor de #62. Se comprueban PC→MAR,
+Run de ocho pasos, pausa, reintento tras reapertura, contención, reset y fallo de publicación.
+El perfil ready y el cableado son configuración de prueba; no aprueban el perfil de producción.
+Properties/Lock siguen siendo dobles locales. Falta probar la hoja real y memoria/E/S.

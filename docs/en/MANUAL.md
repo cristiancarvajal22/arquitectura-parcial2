@@ -63,3 +63,5 @@ Local tests execute all three demos through the real motor. Sheets adapter tests
 Record actual results for installation, integrated screenshots, and a second person's installation from another computer. Earlier standalone MMU/LCD screenshots are not substitutes.
 
 For `STALE_REVISION`, refresh and retry against the current state. `BUSY` means another action holds the lock. `INVALID_PROFILE` requires checking configuration, not concealing unresolved contract decisions.
+
+Use only `SimuladorP2.gs` for this guide; the alternative team package has different controls. Do not activate both motors.

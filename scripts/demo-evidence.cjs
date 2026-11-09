@@ -21,8 +21,8 @@ for(const demo of c.P2Catalog.list()){
   registers:run.state.cpu.registers,metrics:run.state.metrics,lcd:lcd,keyboardCount:run.state.io.keyboard.count,
   haltedAt:run.state.cpu.pc,expected:demo.expected};
  if(!process.argv.includes('--check')){
-  fs.writeFileSync(path.join(programs,demo.id+'.asm'),demo.source+'\n');
-  fs.writeFileSync(path.join(programs,demo.id+'.bytes.json'),JSON.stringify(loaded.state.program.sourceMap,null,2)+'\n');
+  fs.writeFileSync(path.join(programs,demo.id+'-integrated.asm'),demo.source+'\n');
+  fs.writeFileSync(path.join(programs,demo.id+'-integrated.bytes.json'),JSON.stringify(loaded.state.program.sourceMap,null,2)+'\n');
   fs.writeFileSync(path.join(output,demo.id+'.trace.json'),JSON.stringify(trace)+'\n');
   fs.writeFileSync(path.join(output,demo.id+'.final.json'),JSON.stringify(run.state,null,2)+'\n');
  }

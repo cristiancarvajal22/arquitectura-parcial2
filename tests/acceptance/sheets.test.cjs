@@ -18,7 +18,7 @@ function environment(){
  const ui={createMenu(){return {addItem(){return this;},addToUi(){}};},showSidebar(){}};
  const c=vm.createContext({console,SpreadsheetApp:{getActiveSpreadsheet:()=>spreadsheet,getUi:()=>ui,flush(){}},
   PropertiesService:{getScriptProperties:()=>props},LockService:{getScriptLock:()=>({tryLock(){if(held)return false;held=true;return true;},releaseLock(){held=false;}})},HtmlService:{createHtmlOutput:html=>({setTitle(){return this;}})}});
- for(const file of files.concat(['assembler/catalog.js','core/clock.js','core/clock-store.js','sheets/lcd-view.js','sheets/app.js']))vm.runInContext(fs.readFileSync(path.join(root,'src',file),'utf8'),c,{filename:file});
+ for(const file of files.concat(['assembler/catalog.js','core/clock.js','core/clock-store.js','sheets/lcd-view.js','sheets/marcelo-app.js']))vm.runInContext(fs.readFileSync(path.join(root,'src',file),'utf8'),c,{filename:file});
  return {c,sheets,properties};
 }
 test('Sheets setup, persistent load, actual OUT, render and coherent reset',()=>{

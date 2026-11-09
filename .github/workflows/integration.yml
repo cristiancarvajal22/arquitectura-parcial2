@@ -18,6 +18,6 @@ jobs:
         with:
           node-version: '24'
       - run: node scripts/prepare-test-deps.cjs
-      - run: node scripts/build-app.cjs --check
+      - run: node scripts/build-marcelo.cjs --check
       - run: node --test tests/contracts/*.mjs tests/unit/*.mjs tests/unit/*.cjs tests/integration/*.cjs tests/acceptance/*.cjs
       - run: node scripts/demo-evidence.cjs --check

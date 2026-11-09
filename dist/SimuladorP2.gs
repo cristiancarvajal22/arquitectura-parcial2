@@ -1,4 +1,4 @@
-/** Generated from src by scripts/build-app.cjs. No credentials. */
+/** Generated from src by scripts/build-marcelo.cjs. No credentials. */
 
 // ===== buses/arbiter.js =====
 'use strict';
@@ -2504,7 +2504,7 @@ function lcdRenderSnapshot(state) {
 }
 
 
-// ===== sheets/app.js =====
+// ===== sheets/marcelo-app.js =====
 /** Shared bound-sheet application. State is stored once, under the clock lock. */
 function P2_Clock() {
   return clockAppsScript(P2Machine.step,function(){
@@ -2512,11 +2512,11 @@ function P2_Clock() {
     return P2Machine.create(previous?previous.state.profile:P2Machine.profile(false));
   });
 }
-function onOpen(){SpreadsheetApp.getUi().createMenu('Simulador P2')
+function P2_InstallMenu(){SpreadsheetApp.getUi().createMenu('Simulador P2')
   .addItem('Preparar y abrir controles','P2_Setup').addItem('Abrir controles','P2_OpenControls').addToUi();}
 function P2_Setup(){var record=P2_Clock().initialize();P2_Render(record.state);P2_EnsureSheet('Traza');
   var editor=P2_EnsureSheet('Editor');if(!editor.getRange('A2').getValue())P2_WriteEditor(P2Catalog.get('arithmetic').source);
-  onOpen();P2_OpenControls();}
+  P2_InstallMenu();P2_OpenControls();}
 function P2_EnsureSheet(name){var ss=SpreadsheetApp.getActiveSpreadsheet();return ss.getSheetByName(name)||ss.insertSheet(name);}
 function P2_Read(){return P2_Clock().read();}
 function P2_Change(action,payload){
@@ -2594,3 +2594,5 @@ function P2_AppendEvents(events,epoch){if(!events.length)return;var sheet=P2_Ens
 }
 function P2_OpenControls(){SpreadsheetApp.getUi().showSidebar(HtmlService.createHtmlOutput(P2_Sidebar()).setTitle('Simulador · controles'));}
 function P2_Sidebar(){return '<!doctype html><html><head><base target="_top"><style>body{font:14px Arial;padding:12px;color:#243746}button,select,input{padding:9px;margin:4px 0;width:100%;box-sizing:border-box}button{cursor:pointer}pre{white-space:pre-wrap;font-size:12px}.row{display:flex;gap:6px}.row button{width:50%}#lcd{font:24px monospace;letter-spacing:3px;background:#d9ead3;padding:12px;white-space:pre}#error{color:#a31515}</style></head><body><h3>CPU de 8 bits</h3><div id="status">Conectando…</div><pre id="lcd">        </pre><button onclick="change(\'activate\',{})">Activar configuración del equipo</button><select id="demo"><option value="arithmetic">Aritmética 7 × 5</option><option value="echo">Eco de ocho caracteres</option><option value="scattered">Fallos de página y caché</option></select><button onclick="loadDemo()">Cargar demo</button><button onclick="loadEditor()">Cargar código de la hoja Editor</button><div class="row"><button onclick="dispatch(\'step\')">STEP</button><button onclick="startRun()">RUN</button></div><div class="row"><button onclick="pause()">PAUSA</button><button onclick="reset()">RESET</button></div><input id="kbd" maxlength="8" placeholder="Teclado: hasta 8 caracteres"><button onclick="typeText()">Enviar al teclado</button><hr><label>Página a inspeccionar</label><input id="vpn" type="number" min="0" max="15" value="0"><button onclick="editReference()">Alternar Reference (en pausa)</button><pre id="details"></pre><p id="error"></p><script>let record=null,busy=false,running=false,pendingAction=null;function error(e){busy=false;running=false;document.getElementById("error").textContent=e.message||String(e);google.script.run.withSuccessHandler(r=>{show(r);document.getElementById("error").textContent=e.message||String(e);}).P2_Read();}function show(r){record=r;busy=false;if(!r)return;if(pendingAction){let action=pendingAction;pendingAction=null;dispatch(action);return;}let s=r.state;document.getElementById("error").textContent="";document.getElementById("status").textContent=s.execution.mode+" · "+s.profile.status+" · ciclo "+s.clock.cycle;document.getElementById("lcd").textContent=s.ram.bytes.slice(s.io.lcd.basePa,s.io.lcd.basePa+8).map(b=>b>=32&&b<=126?String.fromCharCode(b):" ").join("");document.getElementById("details").textContent=JSON.stringify(s.cpu.registers)+"\\n"+s.clock.phase+"\\nFIFO: "+s.mmu.fifo.join(",")+(s.mmu.fault?"\\nPAGE FAULT: "+JSON.stringify(s.mmu.fault):"");if(running&&s.execution.mode!=="halted"){if(s.execution.pendingRequest&&s.execution.pendingRequest.stage==="io"&&s.execution.pendingRequest.consume&&s.io.keyboard.count===0){running=false;return;}setTimeout(()=>dispatch("run"),150);}else running=false;}function dispatch(action){if(busy||!record)return;busy=true;google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_Dispatch({action:action,epoch:record.epoch,sequence:record.sequence+1,expectedRevision:record.state.revision,limit:8});}function startRun(){running=true;dispatch("run");}function pause(){running=false;if(busy){pendingAction="pause";return;}dispatch("pause");}function reset(){running=false;if(busy){pendingAction="reset";return;}dispatch("reset");}function change(action,payload){if(busy||!record)return;running=false;busy=true;payload.expectedRevision=record.state.revision;google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_Change(action,payload);}function loadDemo(){if(busy||!record)return;running=false;busy=true;google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_LoadDemo(document.getElementById("demo").value,record.state.revision);}function loadEditor(){if(busy||!record)return;running=false;busy=true;google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_LoadEditor(record.state.revision);}function typeText(){change("type",{text:document.getElementById("kbd").value});}function editReference(){if(!record)return;let vpn=Number(document.getElementById("vpn").value);if(!Number.isInteger(vpn)||vpn<0||vpn>15)return;change("editPage",{vpn:vpn,referenced:!record.state.mmu.pages[vpn].referenced});}google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_Read();</script></body></html>';}
+
+function onOpen(){P2_InstallMenu();}

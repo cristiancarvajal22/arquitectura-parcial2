@@ -23,7 +23,7 @@ Four-register CPU and ALU; internal/external tri-state buses and a visible contr
 The target is Excellent across 100 group points and 60 individual points per student. The planning documents do not certify a grade. Final architecture, ISA, control-word specification, installation guide and user manual must describe the implemented simulator in both languages.
 
 ## Links
-[Español](README.md) · [Team organization](docs/ORGANIZACION.md) · [Contribution steps](CONTRIBUTING.md) · [Architecture](docs/ARQUITECTURA.md) · [Rubric](docs/RUBRICA.md) · [Issues](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues)
+[Español](README.md) · [Team organization](docs/ORGANIZACION.md) · [Architecture](docs/ARQUITECTURA.md) · [Rubric](docs/RUBRICA.md) · [Issues](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues)
 
 [Team spreadsheet](https://docs.google.com/spreadsheets/d/1VhOJ5jGlvC1rMByyLyrB1OWXCSWokwGDJDajLnvnqLE/edit). Earlier standalone views were checked; the integrated build and evaluator access still require live verification.
 
@@ -42,3 +42,7 @@ Install the bundle in the bound Apps Script project and run `P2_Setup`. Local re
 - [Cache and signal contract (PR #60)](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/60)
 - [Project board](https://github.com/users/cristiancarvajal22/projects/6)
 - [Spreadsheet and manual verification status](docs/en/EVIDENCE.md#delivery-pending)
+
+## Preserved alternative adapter
+
+Joseph's instruction-level adapter remains in `src/core/simulator.js`, `src/sheets/app.js` and `dist/Simulador.gs` (built with `scripts/build-app.cjs`). Marcelo's microstep bundle is `dist/SimuladorP2.gs` (built with `scripts/build-marcelo.cjs`, initialized with `P2_Setup`). Use one package/motor per execution. Both adapters retain their authorship and have separate entry points.

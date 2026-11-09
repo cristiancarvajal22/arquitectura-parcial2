@@ -70,3 +70,5 @@ Las pruebas locales verifican las tres demos mediante el motor real y comprueban
 La validación desde otra computadora, la instalación de este paquete en la planilla y las capturas de la versión integrada deben registrarse con resultados reales. La vista aislada anterior de MMU/LCD no sustituye esa validación.
 
 Si una acción informa `STALE_REVISION`, actualizar el panel y repetir sobre el estado actual. `BUSY` significa que otra acción conserva el bloqueo. `INVALID_PROFILE` exige revisar la configuración; no se corrige ocultando decisiones pendientes en el contrato.
+
+Usar únicamente el paquete `SimuladorP2.gs` para esta guía; el paquete alternativo `Simulador.gs` del equipo tiene otros controles. No instalar ambos como motores activos.

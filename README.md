@@ -31,7 +31,6 @@ Los detalles obligatorios están en la [arquitectura](docs/ARQUITECTURA.md) y la
 - [GitHub Project](https://github.com/users/cristiancarvajal22/projects/6)
 - [Todas las issues](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues)
 - [Organización y estructura](docs/ORGANIZACION.md)
-- [Cómo usar ramas, commits y PR](CONTRIBUTING.md)
 - [English documentation](README_EN.md)
 
 [Planilla del equipo](https://docs.google.com/spreadsheets/d/1VhOJ5jGlvC1rMByyLyrB1OWXCSWokwGDJDajLnvnqLE/edit). Existe y se comprobaron previamente vistas aisladas; la versión integrada y el acceso de evaluación requieren comprobación real.
@@ -47,7 +46,7 @@ Pruebas sin dependencias npm:
 
 ```sh
 node scripts/prepare-test-deps.cjs
-node scripts/build-app.cjs --check
+node scripts/build-marcelo.cjs --check
 node --test tests/contracts/*.mjs tests/unit/*.mjs tests/unit/*.cjs tests/integration/*.cjs tests/acceptance/*.cjs
 node scripts/demo-evidence.cjs --check
 ```
@@ -62,3 +61,7 @@ Las ramas originales de los compañeros se integraron preservando sus commits. L
 - [Micro-palabra y pruebas (PR #62)](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/62)
 - [Contrato de cachés y señales (PR #60)](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/60)
 - [Planilla y manual: estado de verificación](docs/es/EVIDENCIAS.md#pendientes-de-entrega)
+
+## Adaptador alternativo del equipo
+
+Se conserva el coordinador por instrucción de Joseph: `src/core/simulator.js`, `src/sheets/app.js` y `dist/Simulador.gs`, generado con `scripts/build-app.cjs`. El paquete de micro-pasos de Marcelo es `dist/SimuladorP2.gs`, generado con `scripts/build-marcelo.cjs`, y se instala con `P2_Setup`. Usar un solo paquete/motor por ejecución. La diferencia entre STEP por instrucción y STEP por micro-paso se documenta en [la evidencia de Joseph](docs/evidence/INTEGRACION_FINAL.md) y [la integración de Marcelo](docs/es/INTEGRACION.md).

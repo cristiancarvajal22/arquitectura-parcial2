@@ -34,7 +34,7 @@ function transfer(state, value) {
       Clock: true
     },
     bus: {
-      level: "bits",
+      level: "driven",
       value,
       drivers: ["MDR"],
       receivers: ["LCD"]
@@ -70,7 +70,7 @@ test("un carácter cambia el byte real de RAM y avanza el cursor", () => {
   assert.equal(next.ram.bytes[state.io.lcd.basePa], 65);
   assert.equal(context.lcdReadDisplay(next).text, "A       ");
   assert.equal(next.io.lcd.cursor, 1);
-  assert.equal(state.ram.bytes[state.io.lcd.basePa], 32);
+  assert.equal(state.ram.bytes[state.io.lcd.basePa], snapshot().ram.bytes[state.io.lcd.basePa]);
 });
 
 test("ocho caracteres llenan el display y vuelven al cursor cero", () => {
@@ -157,13 +157,13 @@ test("el display refleja cambios del snapshot, sin buffer duplicado", () => {
 
 test("respeta otra reserva LCD válida del perfil", () => {
   const state = snapshot();
-  state.io.lcd.basePa = 232;
-  state.profile.ioMap.lcd.pa = 232;
+  state.io.lcd.basePa = 248;
+  state.profile.ioMap.lcd.pa = 248;
 
   const next = send(state, "A");
 
-  assert.equal(next.ram.bytes[232], 65);
-  assert.equal(next.ram.bytes[248], 0);
+  assert.equal(next.ram.bytes[248], 65);
+  assert.equal(next.ram.bytes[232], state.ram.bytes[232]);
 });
 
 test("el procesamiento solo modifica video RAM y cursor", () => {

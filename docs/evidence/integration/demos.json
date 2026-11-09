@@ -1,0 +1,98 @@
+[
+  {
+    "demo": "arithmetic",
+    "environment": "Node.js local, real integrated motor; not a Google Sheets deployment claim",
+    "programSha256": "af81b5c6f457db37fa2e8ec219b010cb6e95c7643501ad2b27f5efcc24d31c0f",
+    "microSteps": 1353,
+    "registers": {
+      "AX": 35,
+      "BX": 7,
+      "CX": 0,
+      "DX": 5
+    },
+    "metrics": {
+      "l1i": {
+        "hits": 106,
+        "misses": 18
+      },
+      "l1d": {
+        "hits": 0,
+        "misses": 1
+      },
+      "l2": {
+        "hits": 12,
+        "misses": 7
+      },
+      "pageFaults": 3,
+      "committedMicroSteps": 1354
+    },
+    "lcd": "        ",
+    "keyboardCount": 0,
+    "haltedAt": 40,
+    "expected": "AX=35; DX=5; VA 300=35"
+  },
+  {
+    "demo": "echo",
+    "environment": "Node.js local, real integrated motor; not a Google Sheets deployment claim",
+    "programSha256": "6a631ba0897b13fc687a2916fb06a383f4ec29eda3f3c6d634e7285c2f6c70c8",
+    "microSteps": 1697,
+    "registers": {
+      "AX": 0,
+      "BX": 0,
+      "CX": 0,
+      "DX": 72
+    },
+    "metrics": {
+      "l1i": {
+        "hits": 143,
+        "misses": 25
+      },
+      "l1d": {
+        "hits": 0,
+        "misses": 0
+      },
+      "l2": {
+        "hits": 21,
+        "misses": 4
+      },
+      "pageFaults": 1,
+      "committedMicroSteps": 1706
+    },
+    "lcd": "ABCDEFGH",
+    "keyboardCount": 0,
+    "haltedAt": 24,
+    "expected": "LCD=ABCDEFGH; cola vacía; cursor=0"
+  },
+  {
+    "demo": "scattered",
+    "environment": "Node.js local, real integrated motor; not a Google Sheets deployment claim",
+    "programSha256": "5580626fe65d96dbcb6fed9f456b3baedb63c3e3e8658a076d53e0a12748c097",
+    "microSteps": 1904,
+    "registers": {
+      "AX": 71,
+      "BX": 0,
+      "CX": 0,
+      "DX": 71
+    },
+    "metrics": {
+      "l1i": {
+        "hits": 77,
+        "misses": 11
+      },
+      "l1d": {
+        "hits": 0,
+        "misses": 14
+      },
+      "l2": {
+        "hits": 0,
+        "misses": 25
+      },
+      "pageFaults": 17,
+      "committedMicroSteps": 1905
+    },
+    "lcd": "        ",
+    "keyboardCount": 0,
+    "haltedAt": 84,
+    "expected": "DX=71; Page Faults y guardado de páginas Dirty"
+  }
+]

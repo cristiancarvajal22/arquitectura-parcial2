@@ -54,8 +54,9 @@ function lcdReceive(state, transfer) {
 
   var bus = transfer.bus;
 
-  if (!bus || bus.level === "Z" ||
+  if (!bus || bus.level !== "driven" ||
       !Array.isArray(bus.drivers) || bus.drivers.length !== 1 ||
+      typeof bus.drivers[0] !== "string" || !bus.drivers[0].length ||
       !Array.isArray(bus.receivers) ||
       bus.receivers.indexOf("LCD") === -1 ||
       !Number.isInteger(bus.value) ||

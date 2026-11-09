@@ -1,0 +1,23 @@
+name: Integración completa P2
+on:
+  push:
+    branches: ['feature/marcelo/bus-transacciones']
+  pull_request:
+    branches: [develop]
+permissions:
+  contents: read
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - run: node scripts/prepare-test-deps.cjs
+      - run: node scripts/build-marcelo.cjs --check
+      - run: node --test tests/contracts/*.mjs tests/unit/*.mjs tests/unit/*.cjs tests/integration/*.cjs tests/acceptance/*.cjs
+      - run: node scripts/demo-evidence.cjs --check

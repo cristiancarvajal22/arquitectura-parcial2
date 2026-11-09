@@ -6,6 +6,7 @@ function onOpen() {
     .addItem('3. Cargar / Reset','simLoad').addSeparator()
     .addItem('Step (una instrucción)','simStep').addItem('Run (8 instrucciones)','simRun')
     .addItem('Ingresar teclado','simKeyboard').addToUi();
+  if (typeof P2_InstallMenu === 'function') P2_InstallMenu();
 }
 function simSheet(name){var book=SpreadsheetApp.getActiveSpreadsheet();return book.getSheetByName(name)||book.insertSheet(name);}
 function simStore(){var p=PropertiesService.getScriptProperties();

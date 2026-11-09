@@ -1,0 +1,29 @@
+name: Pruebas CPU
+
+on:
+  push:
+    branches:
+      - feature/marcelo/cpu-microsecuencias
+  pull_request:
+    branches:
+      - develop
+
+permissions:
+  contents: read
+
+jobs:
+  decoder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v6
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Probar decodificador
+        run: node --test tests/unit/decoder.test.mjs

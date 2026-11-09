@@ -25,5 +25,5 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Probar decodificador
-        run: node --test tests/unit/decoder.test.mjs
+      - name: Probar módulos de CPU
+        run: node --test tests/unit/decoder.test.mjs tests/unit/microcode.test.mjs

@@ -1,0 +1,58 @@
+{
+  "scope": "origin/develop..HEAD; non-merge commits only",
+  "sourceCommit": "f80bba9ed03eb2cd5bce777d1ff476b76507db47",
+  "authors": {
+    "marceloaguilera777": 8
+  },
+  "marceloCommits": [
+    {
+      "sha": "4fc126883394c11cbbd0b56780fbe390c2563a66",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:57:49-04:00",
+      "subject": "test: registrar regresion de 330 pruebas contra develop actualizado"
+    },
+    {
+      "sha": "549f1e90fd41c1d7352dc518353c13ba440f954f",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:54:01-04:00",
+      "subject": "docs: preparar manuales defensa auditoria y candidata verificable"
+    },
+    {
+      "sha": "308773398f507462192c8a4f0f4322af5ce472ae",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:52:32-04:00",
+      "subject": "fix(build): normalizar paquete Apps Script entre Windows y Linux"
+    },
+    {
+      "sha": "3985ec7e7c240c9cf8a8c353a6f8e7fb5e382f25",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:23-04:00",
+      "subject": "ci: verificar integracion completa y paquete Apps Script"
+    },
+    {
+      "sha": "332763724730a60ceb2bd12aa2c5c36e1dff92ca",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:21-04:00",
+      "subject": "feat(sheets): conectar controles paneles y estado persistente"
+    },
+    {
+      "sha": "482072eecacb0f08843c51cd1190d41654b82d9f",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:19-04:00",
+      "subject": "feat(programs): agregar demos ejecutables y trazas reproducibles"
+    },
+    {
+      "sha": "2f00a90dea5cf05ffaf41a18c62720affa713cb6",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:17-04:00",
+      "subject": "feat(cpu): integrar microsecuencias buses memoria y perifericos"
+    },
+    {
+      "sha": "08bd0ce6e0c8893ffe07b904edf96e59b33da604",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:14-04:00",
+      "subject": "fix(lcd): validar bus driven y respetar el reset compartido"
+    }
+  ],
+  "review": "Peer review, oral rehearsal and actual Sheets deployment are not inferred from commit counts."
+}

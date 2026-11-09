@@ -4,7 +4,7 @@ Simulador de una computadora en **Google Sheets + JavaScript/Google Apps Script*
 
 **Equipo:** Cristian, Marcelo y Joseph.
 **Cierre comunicado:** lunes 9 de noviembre de 2026 a las 10:00, hora de Bolivia (America/La_Paz).
-**Estado:** núcleo integrado y probado; instalación y validación de la hoja pendientes.
+**Estado de esta rama:** motor integrado con pruebas locales y tres demos reproducibles. La instalación integrada en Sheets, la revisión entre compañeros y la comprobación desde otra cuenta deben verificarse antes de declarar la entrega terminada.
 
 ## Trabajo del equipo
 Las tareas y su avance se registran en el [tablero](https://github.com/users/cristiancarvajal22/projects/6). Cada tarjeta reúne la descripción, el trabajo a realizar, los criterios de aceptación y el entregable.
@@ -17,7 +17,7 @@ El [índice de tareas](docs/BACKLOG.md) reúne las 48 tarjetas y el [glosario](d
 Cada integrante tiene **16 tareas** y **57 puntos relativos de esfuerzo**. Los puntos sirven para comparar la carga; no son horas ni calificación. Las tareas combinan programación, pruebas, documentación y preparación de la defensa. Cada tarjeta tiene un responsable y criterios de finalización; no hay una persona fija asignada para revisar cada tarea. Los PR se comprueban entre compañeros, como pide la rúbrica.
 
 Cuentas: Cristian = `cristiancarvajal22`; Marcelo = `marceloaguilera777`; Joseph = `JosephPerez725`.
-Marcelo ya tiene acceso al repositorio y sus 16 asignaciones de GitHub. Joseph tiene permiso de escritura en el tablero; su invitación de escritura al repositorio está enviada y debe aceptarla para completar sus asignaciones allí.
+Marcelo ya tiene acceso al repositorio y sus 16 asignaciones de GitHub. Joseph ya publica commits y PR desde `JosephPerez725` y sus tareas están asignadas en GitHub.
 
 ## Alcance
 - CPU con cuatro registros, operaciones e instrucciones; buses y señales que muestran cómo se mueve cada dato.
@@ -33,12 +33,36 @@ Los detalles obligatorios están en la [arquitectura](docs/ARQUITECTURA.md) y la
 - [Organización y estructura](docs/ORGANIZACION.md)
 - [English documentation](README_EN.md)
 
-La planilla de Google Sheets todavía no existe. Se añadirá su enlace directo verificado y el manual cuando se implemente el simulador.
+[Planilla del equipo](https://docs.google.com/spreadsheets/d/1VhOJ5jGlvC1rMByyLyrB1OWXCSWokwGDJDajLnvnqLE/edit). Existe y se comprobaron previamente vistas aisladas; la versión integrada y el acceso de evaluación requieren comprobación real.
 
-## Entrega integrada — 9 de noviembre
+## Ejecutar esta versión
 
-El núcleo integrado ejecuta las tres demos; **352 pruebas locales aprobadas**. Aritmética: AX=15; eco: ABCDEFGH; memoria: DX=42 tras desalojo Dirty y recarga.
+- [Manual ES](docs/es/MANUAL.md) · [Manual EN](docs/en/MANUAL.md).
+- [Paquete único de Apps Script](dist/SimuladorP2.gs): instalar en el proyecto vinculado y ejecutar `P2_Setup`.
+- [Integración y buses](docs/es/INTEGRACION.md) · [Resultados y trazas de las demos](docs/evidence/integration/demos.json).
+- [Guion de Marcelo](docs/es/DEFENSA_MARCELO.md) · [Auditoría y pendientes](docs/evidence/MARCELO_AUDIT.md).
+- [Guion de Cristian](docs/evidence/P2-040.md) · [Auditoría de sus 16 tareas](docs/evidence/P2-046.md) · [Regresión de los paquetes](docs/evidence/P2-043.md).
 
-Para instalar: crear una hoja de Google, abrir **Extensiones → Apps Script**, pegar [dist/Simulador.gs](dist/Simulador.gs), guardar y ejecutar `simSetup` una vez. Autorizar el acceso a la hoja y recargarla. Menú **Simulador**: seleccionar programa, cargar, Step o Run. El catálogo conserva las fuentes editables. Para Eco, ingresar ABCDEFGH desde el menú Teclado.
+Pruebas sin dependencias npm:
 
-**Alcance de entrega:** Step ejecuta una instrucción completa y muestra su traza ordenada; Run ejecuta ocho instrucciones. El traslado de páginas se confirma por bloque de 32 bytes. La prueba real en Google Sheets, animación por micro-paso y enlace compartido siguen pendientes. [Evidencia final](docs/evidence/INTEGRACION_FINAL.md).
+```sh
+node scripts/prepare-test-deps.cjs
+node scripts/build-marcelo.cjs --check
+node --test tests/contracts/*.mjs tests/unit/*.mjs tests/unit/*.cjs tests/integration/*.cjs tests/acceptance/*.cjs
+node scripts/demo-evidence.cjs --check
+```
+
+Las ramas originales de los compañeros se integraron preservando sus commits. Los módulos de terceros del equipo no se presentan como código original de Marcelo.
+
+## Evidencias y especificaciones
+
+
+- [Matriz G1–G7 e I1–I4](docs/es/EVIDENCIAS.md)
+- [ISA y mapa de memoria](docs/ISA_MAPA_MEMORIA.md)
+- [Micro-palabra y pruebas (PR #62)](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/62)
+- [Contrato de cachés y señales (PR #60)](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/60)
+- [Planilla y manual: estado de verificación](docs/es/EVIDENCIAS.md#pendientes-de-entrega)
+
+## Adaptador alternativo del equipo
+
+Se conserva el coordinador por instrucción de Joseph: `src/core/simulator.js`, `src/sheets/app.js` y `dist/Simulador.gs`, generado con `scripts/build-app.cjs`. El paquete de micro-pasos de Marcelo es `dist/SimuladorP2.gs`, generado con `scripts/build-marcelo.cjs`, y se instala con `P2_Setup`. Usar un solo paquete/motor por ejecución. La diferencia entre STEP por instrucción y STEP por micro-paso se documenta en [la evidencia de Joseph](docs/evidence/INTEGRACION_FINAL.md) y [la integración de Marcelo](docs/es/INTEGRACION.md).

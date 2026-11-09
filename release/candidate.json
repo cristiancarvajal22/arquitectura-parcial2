@@ -1,0 +1,56 @@
+{
+  "kind": "review-candidate-not-main-release",
+  "sourceCommit": "f80bba9ed03eb2cd5bce777d1ff476b76507db47",
+  "deadline": "2026-11-09T10:00:00-04:00",
+  "bundle": "dist/SimuladorP2.gs",
+  "bundleSha256LF": "fa12cc0867fac530edc6c62c9f73f67e4f1b412bd3f651befb5dbfa329314d62",
+  "node": "v24.11.1",
+  "localRegression": {
+    "tests": 366,
+    "passed": 366,
+    "failed": 0
+  },
+  "demos": [
+    {
+      "id": "arithmetic",
+      "microSteps": 1353,
+      "registers": {
+        "AX": 35,
+        "BX": 7,
+        "CX": 0,
+        "DX": 5
+      },
+      "lcd": "        "
+    },
+    {
+      "id": "echo",
+      "microSteps": 1697,
+      "registers": {
+        "AX": 0,
+        "BX": 0,
+        "CX": 0,
+        "DX": 72
+      },
+      "lcd": "ABCDEFGH"
+    },
+    {
+      "id": "scattered",
+      "microSteps": 1904,
+      "registers": {
+        "AX": 71,
+        "BX": 0,
+        "CX": 0,
+        "DX": 71
+      },
+      "lcd": "        "
+    }
+  ],
+  "liveSpreadsheet": "https://docs.google.com/spreadsheets/d/1VhOJ5jGlvC1rMByyLyrB1OWXCSWokwGDJDajLnvnqLE/edit",
+  "pending": [
+    "Verify integrated build in the real spreadsheet",
+    "Peer approval and merge into develop",
+    "Verify access from another account",
+    "Review develop-to-main release",
+    "Marcelo performs oral rehearsal"
+  ]
+}

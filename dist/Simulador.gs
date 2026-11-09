@@ -2,6 +2,22 @@
 var SIM_RESET={"schemaVersion":1,"profile":{"id":"isa51-cache-pending-v1","status":"proposal","pendingIssues":[3],"sizes":{"ramBytes":256,"virtualBytes":512,"pageBytes":32,"frameCount":8,"pageCount":16,"lineBytes":8,"l2Lines":4},"widths":{"register":8,"pc":9,"mar":9,"mdr":8,"irMaxBytes":4,"internalControl":null,"externalControl":null},"ioMap":{"keyboard":{"va":480,"pa":224,"length":8},"lcd":{"va":488,"pa":232,"length":8}},"pinnedMappings":[{"vpn":15,"pfn":7}],"cachePolicy":{"addressing":"physical","l2Replacement":"FIFO","write":null,"allocate":null},"controlEncoding":null},"revision":0,"cpu":{"registers":{"AX":0,"BX":0,"CX":0,"DX":0},"pc":0,"mar":0,"mdr":0,"ir":{"bytes":[0,0,0,0],"decoded":null,"loadedBytes":0},"flags":{"ZF":false,"CF":false,"SF":false},"alu":{"a":0,"b":0,"result":0,"operation":null},"control":{"phase":"idle","microStep":0,"word":null,"signals":{"En_AX":false,"Ld_AX":false,"En_BX":false,"Ld_BX":false,"En_CX":false,"Ld_CX":false,"En_DX":false,"Ld_DX":false,"En_PC":false,"Ld_PC":false,"En_IR":false,"Ld_IR":false,"En_MAR":false,"Ld_MAR":false,"En_MDR":false,"Ld_MDR":false,"En_ALU":false,"Ld_ALU":false,"En_RAM":false,"Ld_RAM":false,"En_KBD":false,"Ld_KBD":false,"En_LCD":false,"Ld_LCD":false,"Read":false,"Write":false,"Clock":false,"IO":false,"Mem_R":false,"Mem_W":false}}},"buses":{"internalAddress":{"widthBits":9,"domain":"virtual","level":"Z","value":null,"drivers":[],"receivers":[]},"internalData":{"widthBits":8,"domain":"data","level":"Z","value":null,"drivers":[],"receivers":[]},"internalControl":{"widthBits":null,"domain":"control","level":"Z","value":null,"drivers":[],"receivers":[]},"externalAddress":{"widthBits":8,"domain":"physical","level":"Z","value":null,"drivers":[],"receivers":[]},"externalData":{"widthBits":8,"domain":"data","level":"Z","value":null,"drivers":[],"receivers":[]},"externalControl":{"widthBits":null,"domain":"control","level":"Z","value":null,"drivers":[],"receivers":[]}},"ram":{"bytes":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,32,32,32,32,32,32,32,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"frames":[{"pfn":0,"vpn":null,"pinned":false},{"pfn":1,"vpn":null,"pinned":false},{"pfn":2,"vpn":null,"pinned":false},{"pfn":3,"vpn":null,"pinned":false},{"pfn":4,"vpn":null,"pinned":false},{"pfn":5,"vpn":null,"pinned":false},{"pfn":6,"vpn":null,"pinned":false},{"pfn":7,"vpn":15,"pinned":true}]},"mmu":{"pages":[{"vpn":0,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":1,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":2,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":3,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":4,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":5,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":6,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":7,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":8,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":9,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":10,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":11,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":12,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":13,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":14,"present":false,"pfn":null,"dirty":false,"referenced":false,"pinned":false},{"vpn":15,"present":true,"pfn":7,"dirty":false,"referenced":false,"pinned":true}],"fifo":[],"fault":null},"swap":{"pages":[[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]]},"caches":{"l1i":{"valid":false,"tag":null,"dirty":false,"bytes":[0,0,0,0,0,0,0,0]},"l1d":{"valid":false,"tag":null,"dirty":false,"bytes":[0,0,0,0,0,0,0,0]},"l2":{"lines":[{"valid":false,"tag":null,"dirty":false,"bytes":[0,0,0,0,0,0,0,0]},{"valid":false,"tag":null,"dirty":false,"bytes":[0,0,0,0,0,0,0,0]},{"valid":false,"tag":null,"dirty":false,"bytes":[0,0,0,0,0,0,0,0]},{"valid":false,"tag":null,"dirty":false,"bytes":[0,0,0,0,0,0,0,0]}],"fifo":[]}},"io":{"keyboard":{"basePa":224,"capacity":8,"head":0,"tail":0,"count":0},"lcd":{"basePa":232,"length":8,"cursor":0}},"clock":{"cycle":0,"microStep":0,"phase":"idle"},"execution":{"mode":"idle","pendingRequest":null,"lastError":null},"metrics":{"l1i":{"hits":0,"misses":0},"l1d":{"hits":0,"misses":0},"l2":{"hits":0,"misses":0},"pageFaults":0,"committedMicroSteps":0},"lastEvent":null};
 var SIM_PROGRAMS=[{"name":"Aritmetica","source":"; Sum 1..5 using all four registers. Expected AX=15, BX=6, CX=5, DX=5.\nMOV AX, 0\nMOV BX, 1\nMOV CX, 5\nMOV DX, 0\nloop: ADD AX, BX\nINC BX\nINC DX\nCMP DX, CX\nJNZ loop\nSTORE [300], AX\nHALT\n"},{"name":"Eco","source":"; Eight input bytes are echoed to the eight-character LCD.\nMOV CX, 8\nloop: IN AX, [KBD]\nOUT [LCD], AX\nDEC CX\nJNZ loop\nHALT\n"},{"name":"Memoria","source":"; Code uses pages 0..1. Data crosses eleven additional pages.\n; VA 128 must retain 42 after dirty eviction and reload.\nMOV AX, 42\nSTORE [128], AX\nLOAD BX, [160]\nLOAD BX, [192]\nLOAD BX, [224]\nLOAD BX, [256]\nLOAD BX, [288]\nLOAD BX, [320]\nLOAD BX, [352]\nLOAD BX, [384]\nLOAD BX, [416]\nLOAD BX, [448]\nLOAD DX, [128]\nHALT\n"}];
 
+// src/assembler/catalog.js
+/** Three reproducible programs; every demo runs through the same CPU motor. */
+var P2Catalog = (function () {
+  var arithmetic='MOV AX, 0\nMOV BX, 7\nMOV CX, 5\nMOV DX, 0\nloop: ADD AX, BX\nINC DX\nDEC CX\nCMP CX, 0\nJNZ loop\nSTORE [300], AX\nHALT';
+  var echo='MOV CX, 8\nloop: IN DX, [KBD]\nOUT [LCD], DX\nDEC CX\nCMP CX, 0\nJNZ loop\nHALT';
+  var scattered=[];
+  [256,288,320,352,384,416,448].forEach(function(address,index){scattered.push('MOV AX, '+(65+index),'STORE ['+address+'], AX');});
+  [256,288,320,352,384,416,448].forEach(function(address){scattered.push('LOAD DX, ['+address+']');});
+  scattered.push('HALT');
+  var entries=[{id:'arithmetic',name:'Aritmética · 7 × 5',source:arithmetic,expected:'AX=35; DX=5; VA 300=35'},
+    {id:'echo',name:'Eco · teclado a LCD',source:echo,input:'ABCDEFGH',expected:'LCD=ABCDEFGH; cola vacía; cursor=0'},
+    {id:'scattered',name:'Accesos dispersos · FIFO y Swap',source:scattered.join('\n'),expected:'DX=71; Page Faults y guardado de páginas Dirty'}];
+  return {list:function(){return JSON.parse(JSON.stringify(entries));},get:function(id){var entry=entries.find(function(e){return e.id===id;});if(!entry)throw new Error('UNKNOWN_PROGRAM');return JSON.parse(JSON.stringify(entry));}};
+}());
+
+
 // src/assembler/parser.js
 'use strict';
 var AsmParser=(function(){
@@ -1014,6 +1030,318 @@ function clockController(store, lock, motor, resetter) {
 }
 
 
+// src/core/machine.js
+/* Integration coordinator, Marcelo: #5 #8 #11 #17 #20 #23 #26 #29 #32 #35.
+ * Pure JSON motor. One step commits at most one physical bus transfer.
+ * Existing team modules retain their authorship in the merged Git history.
+ */
+var P2Machine = (function () {
+  'use strict';
+  var SIGNALS = microWordSignals.concat(['En_L1I','Ld_L1I','En_L1D','Ld_L1D',
+    'En_L2','Ld_L2','En_SWAP','Ld_SWAP','En_MMU','Ld_MMU']);
+  function copy(x) { return JSON.parse(JSON.stringify(x)); }
+  function fail(code, message) { var e = new Error(message || code); e.code = code; throw e; }
+  function byte(v) { if (!Number.isInteger(v) || v < 0 || v > 255) fail('OUT_OF_RANGE'); }
+  function signals(active) { var s={}; SIGNALS.forEach(function(k){s[k]=false;});
+    Object.keys(active||{}).forEach(function(k){if(!Object.prototype.hasOwnProperty.call(s,k)||typeof active[k]!=='boolean')fail('INVALID_SIGNALS',k);s[k]=active[k];});
+    s.Clock=true;if(s.Read&&s.Write||s.Mem_R&&s.Mem_W||s.IO&&(s.Mem_R||s.Mem_W))fail('INVALID_CONTROL');return s; }
+  function buses() { var b={}; [['internalAddress',9,'virtual'],['externalAddress',8,'physical'],
+    ['internalData',8,'data'],['externalData',8,'data'],['internalControl',40,'control'],['externalControl',40,'control']]
+    .forEach(function(x){b[x[0]]={widthBits:x[1],domain:x[2],level:'Z',value:null,drivers:[],receivers:[]};});return b; }
+  function profile(approved) { return {id:'team-integration-40-v1',status:approved===true?'ready':'proposal',pendingIssues:approved===true?[]:[3],
+    sizes:{ramBytes:256,virtualBytes:512,pageBytes:32,frameCount:8,pageCount:16,lineBytes:8,l2Lines:4},
+    widths:{register:8,pc:9,mar:9,mdr:8,irMaxBytes:4,internalControl:40,externalControl:40},
+    ioMap:{keyboard:{va:480,pa:224,length:8},lcd:{va:488,pa:232,length:8}},pinnedMappings:[{vpn:15,pfn:7}],
+    cachePolicy:{addressing:'physical',l2Replacement:'FIFO',write:'write-through',allocate:'no-write-allocate'},
+    controlEncoding:SIGNALS.slice()}; }
+  function create(p) {
+    if(!p||p.id!=='team-integration-40-v1')fail('INVALID_PROFILE');
+    var cpu=CpuAlu.reset(); cpu.alu.addressResult=0;
+    cpu.control={phase:'idle',microStep:0,word:null,signals:signals({}),machine:{phase:'fetch',stage:'address',instructionStart:0,execIndex:0,sequence:0}};
+    SIGNALS.forEach(function(k){cpu.control.signals[k]=false;});
+    var stats=cacheMetricsCreate();stats.pageFaults=0;stats.committedMicroSteps=0;
+    return {schemaVersion:1,profile:copy(p),revision:0,cpu:cpu,buses:buses(),ram:PhysicalRam.reset(),
+      mmu:{pages:mmuCreatePageTable(p.pinnedMappings).pages,fifo:[],fault:null},swap:swapCreate(),
+      caches:{l1i:InstructionCache.reset(),l1d:l1dCreate(),l2:UnifiedL2.reset()},
+      io:{keyboard:KeyboardQueue.resetMetadata(),lcd:{basePa:232,length:8,cursor:0}},
+      clock:{cycle:0,microStep:0,phase:'idle'},execution:{mode:'idle',pendingRequest:null,lastError:null,memoryReceipt:null},
+      metrics:stats,lastEvent:null,program:{source:'',starts:[],sourceMap:[],origin:0}};
+  }
+  function check(s) {
+    var v=mmuValidateIoMap(s); if(!v.ok)fail(v.error.code,v.error.message);
+    if(!Number.isSafeInteger(s.revision)||s.revision<0||s.revision>=Number.MAX_SAFE_INTEGER)fail('INVALID_STATE');
+    if(s.profile.id!=='team-integration-40-v1'||s.profile.ioMap.keyboard.va!==480||s.profile.ioMap.keyboard.pa!==224||s.profile.ioMap.lcd.va!==488||s.profile.ioMap.lcd.pa!==232)fail('INVALID_PROFILE','El coordinador integrado usa el mapa de equipo 224/232.');
+    [s.clock.cycle,s.clock.microStep,s.metrics.committedMicroSteps].forEach(function(v){if(!Number.isSafeInteger(v)||v<0||v>=Number.MAX_SAFE_INTEGER)fail('INVALID_COUNTER');});
+    if(s.lastEvent&&(s.lastEvent.revisionAfter!==s.revision||!Number.isSafeInteger(s.lastEvent.id)||s.lastEvent.id<1))fail('INVALID_EVENT');
+    PageFifo.validate({revision:s.revision,frames:s.ram.frames,queue:s.mmu.fifo});
+    CpuAlu.validate(s.cpu);UnifiedL2.validate(s.caches.l2);InstructionCache.validate(s.caches.l1i);l1dValidate(s.caches.l1d);
+    swapValidate(s.swap);
+  }
+  function set(s,path,value){var t=s;path.slice(0,-1).forEach(function(k){t=t[k];});t[path[path.length-1]]=value;}
+  function changes(a,b,path,out){if(JSON.stringify(a)===JSON.stringify(b))return;
+    if(a!==null&&b!==null&&typeof a==='object'&&typeof b==='object'&&Array.isArray(a)===Array.isArray(b)){
+      var keys=Array.from(new Set(Object.keys(a).concat(Object.keys(b))));keys.forEach(function(k){if(!path&&k==='lastEvent')return;changes(a[k],b[k],path?path+'.'+k:k,out);});
+    }else {var change={path:path,before:a===undefined?null:a,after:b===undefined?null:b};if(b===undefined)change.deleted=true;out.push(change);}}
+  function port(name,segment,path,width){return {name:name,segment:segment,path:path,widthBits:width};}
+  function tx(s,ctx,ports,active,pa){
+    var spec={segments:{internalAddress:{widthBits:9,domain:'virtual'},externalAddress:{widthBits:8,domain:'physical'},
+      internalData:{widthBits:8,domain:'data'},externalData:{widthBits:8,domain:'data'}},ports:ports.slice()};
+    if(pa!==null&&pa!==undefined){s.cpu.alu.addressResult=pa;spec.ports.push(port('MMU','externalAddress',['cpu','alu','addressResult'],8));active.En_MMU=true;ctx.pa=pa;}
+    ctx.signals=signals(active);var en={};spec.ports.forEach(function(p){['En_','Ld_'].forEach(function(prefix){en[prefix+p.name]=ctx.signals[prefix+p.name];});});
+    var r=BusArbiter.transfer(s,spec,en,s.revision);if(r.status==='rejected')fail(r.error.code,r.error.message);
+    r.event.captures.forEach(function(c){set(s,c.path,c.after);});s.buses=r.state.buses;ctx.transferred=true;
+  }
+  function addressTo(s,ctx,value,destination){
+    if(!Number.isInteger(value)||value<0||value>511)fail('OUT_OF_RANGE');s.cpu.alu.addressResult=value;
+    var active={En_ALU:true};active['Ld_'+destination]=true;
+    tx(s,ctx,[port('ALU','internalAddress',['cpu','alu','addressResult'],9),
+      port(destination,'internalAddress',['cpu',destination.toLowerCase()],9)],active,null);
+  }
+  function transferRegister(s,ctx,destination,source){
+    var sourceName,path;
+    if(source.kind==='register'){sourceName=source.name;path=sourceName==='MDR'?['cpu','mdr']:['cpu','registers',sourceName];}
+    else if(source.kind==='immediate'){sourceName='IR';path=['cpu','ir','bytes',2];if(s.cpu.ir.bytes[2]!==source.value)fail('INVALID_OPERAND');}
+    else if(source.kind==='aluResult'){sourceName='ALU';path=['cpu','alu','result'];}else fail('INVALID_OPERAND');
+    var destPath=destination==='MDR'?['cpu','mdr']:['cpu','registers',destination];
+    var ports=[port(sourceName,'internalData',path,8)];
+    // A loopback capture uses one endpoint, not two ports with duplicate names.
+    if(sourceName===destination){var active={};active['En_'+sourceName]=true;active['Ld_'+sourceName]=true;tx(s,ctx,ports,active,null);}
+    else {ports.push(port(destination,'internalData',destPath,8));var sig={};sig['En_'+sourceName]=true;sig['Ld_'+destination]=true;tx(s,ctx,ports,sig,null);}
+  }
+  function commit(before,next,ctx,id,status,value){
+    var sig=ctx.signals||signals({});if(!ctx.transferred)next.buses=buses();
+    var word=0;SIGNALS.forEach(function(k,i){if(sig[k])word+=Math.pow(2,i);});
+    ['internalControl','externalControl'].forEach(function(k){next.buses[k]={widthBits:40,domain:'control',level:'driven',value:word,drivers:['UC'],receivers:[]};});
+    next.revision=before.revision+1;next.clock={cycle:before.clock.cycle+1,microStep:before.clock.microStep+1,phase:ctx.kind};
+    next.cpu.control.phase=ctx.kind;next.cpu.control.microStep=next.clock.microStep;next.cpu.control.signals=sig;next.cpu.control.word=word;
+    next.metrics.committedMicroSteps=before.metrics.committedMicroSteps+1;
+    var delta=[];changes(before,next,'',delta);
+    var event={schemaVersion:1,id:before.lastEvent?before.lastEvent.id+1:1,requestId:id,
+      revisionBefore:before.revision,revisionAfter:next.revision,cycle:next.clock.cycle,microStep:next.clock.microStep,
+      phase:ctx.kind,kind:ctx.kind,signals:copy(sig),controlWord:word,segments:Object.keys(next.buses).map(function(k){var b=next.buses[k];return {name:k,widthBits:b.widthBits,level:b.level,value:b.value,driver:b.drivers.length?b.drivers[0]:null,receivers:b.receivers.slice()};}),
+      va:ctx.va===undefined?null:ctx.va,pa:ctx.pa===undefined?null:ctx.pa,bytes:ctx.bytes||[],changes:delta,result:'committed'};
+    if(ctx.lookup)event.lookup=ctx.lookup;next.lastEvent=copy(event);
+    return {status:status||'completed',requestId:id,state:next,events:[event],value:value===undefined?null:value};
+  }
+  function lookup(s,m,level,outcome,ctx){var r=cacheMetricsRecord(s.metrics,m.accounting,{requestId:m.requestId,lookupId:level,level:level,outcome:outcome});
+    s.metrics=r.metrics;m.accounting=r.accounting;ctx.lookup={level:level,outcome:outcome,counted:r.counted};}
+  function startMemory(s,kind,va,io,endpoint,id){
+    if(s.execution.pendingRequest!==null)fail('BUSY');
+    s.execution.pendingRequest={requestId:id,kind:kind,va:va,io:io,endpoint:endpoint,stage:'translate',
+      accounting:cacheMetricsBeginRequest(id),index:0,buffer:Array(8).fill(0)};s.execution.memoryReceipt=null;
+  }
+  function finishMemory(s,m){s.execution.memoryReceipt={requestId:m.requestId,value:m.kind==='write'?null:s.cpu.mdr};s.execution.pendingRequest=null;}
+  function cachePort(level,index){if(level==='l2')return ['caches','l2','lines',index];return ['caches',level];}
+  function memoryTick(s,ctx){
+    var m=s.execution.pendingRequest;if(!m)fail('UNKNOWN_REQUEST');ctx.va=m.va;ctx.kind='memory-'+m.stage;
+    if(m.stage==='translate'){
+      var tr=mmuResolveAccess(s,{va:m.va,kind:m.kind,io:m.io,endpoint:m.endpoint});if(!tr.ok)fail(tr.error.code,tr.error.message);
+      if(tr.status==='pageFault'){
+        var d=PageFifo.select({revision:s.revision,frames:s.ram.frames,queue:s.mmu.fifo},tr.vpn);
+        m.vpn=tr.vpn;m.pfn=d.pfn;m.victim=d.victim;m.victimDirty=d.victim!==null&&s.mmu.pages[d.victim].dirty;m.index=0;m.stage=m.victimDirty?'save-page':'invalidate';
+        s.mmu.fault={requestId:m.requestId,vpn:m.vpn,victimPfn:m.pfn,stage:m.stage,transferredBytes:0};s.metrics.pageFaults++;ctx.kind='page-fault';return false;
+      }
+      m.translation=tr;m.pa=tr.pa;m.level=m.kind==='fetch'?'l1i':'l1d';m.stage=!tr.access.cacheable?'io':m.kind==='write'?'write-l1':'lookup-l1';return false;
+    }
+    if(m.stage==='save-page'){
+      var from=m.pfn*32+m.index;tx(s,ctx,[port('RAM','externalData',['ram','bytes',from],8),port('SWAP','externalData',['swap','pages',m.victim,m.index],8)],{En_RAM:true,Ld_SWAP:true,Read:true,Mem_R:true},from);
+      ctx.bytes=[s.ram.bytes[from]];m.index++;s.mmu.fault.transferredBytes=m.index;if(m.index===32){m.index=0;m.stage='invalidate';}return false;
+    }
+    if(m.stage==='invalidate'){
+      var inv=CacheCoherence.invalidate(s.caches,m.pfn*32,32);if(inv.status!=='completed')fail('CACHE_WRITEBACK_REQUIRED');s.caches=inv.caches;
+      if(m.victim!==null)s.mmu.pages[m.victim]={vpn:m.victim,present:false,pfn:null,dirty:false,referenced:false,pinned:false};
+      s.ram.frames[m.pfn].vpn=null;s.mmu.fifo=s.mmu.fifo.filter(function(p){return p!==m.pfn;});m.stage='load-page';m.index=0;s.mmu.fault.stage='load-page';s.mmu.fault.transferredBytes=0;return false;
+    }
+    if(m.stage==='load-page'){
+      var pa=m.pfn*32+m.index;tx(s,ctx,[port('SWAP','externalData',['swap','pages',m.vpn,m.index],8),port('RAM','externalData',['ram','bytes',pa],8)],{En_SWAP:true,Ld_RAM:true,Write:true,Mem_W:true},pa);
+      ctx.bytes=[s.ram.bytes[pa]];m.index++;s.mmu.fault.transferredBytes=m.index;if(m.index===32)m.stage='install-page';return false;
+    }
+    if(m.stage==='install-page'){
+      var fs={revision:s.revision,frames:s.ram.frames,queue:s.mmu.fifo};var decision=PageFifo.select(fs,m.vpn);if(decision.pfn!==m.pfn)fail('STALE_REPLACEMENT');
+      var installed=PageFifo.commit(fs,decision);s.ram.frames=installed.frames;s.mmu.fifo=installed.queue;
+      s.mmu.pages[m.vpn]={vpn:m.vpn,present:true,pfn:m.pfn,dirty:false,referenced:false,pinned:false};s.mmu.fault=null;m.stage='translate';return false;
+    }
+    ctx.pa=m.pa;
+    if(m.stage==='io'){
+      if(m.kind==='read'){
+        if(m.consume&&s.io.keyboard.count===0)return 'waiting';
+        var k=s.io.keyboard;if(m.consume)m.pa=k.basePa+k.head;
+        var inputSignals={Ld_MDR:true,Read:true,IO:true};inputSignals['En_'+m.endpoint]=true;
+        tx(s,ctx,[port(m.endpoint,'externalData',['ram','bytes',m.pa],8),port('MDR','externalData',['cpu','mdr'],8)],inputSignals,m.pa);
+        if(m.consume){k.head=(k.head+1)%8;k.count--;}
+      }else{
+        var lcd=s.io.lcd,proposal=null;if(m.advanceCursor){m.pa=lcd.basePa+lcd.cursor;
+          var trf={pa:m.pa,signals:{Ld_LCD:true,Write:true,Read:false,IO:true,Clock:true},bus:{level:'driven',value:s.cpu.mdr,drivers:['MDR'],receivers:['LCD']}};
+          proposal=lcdReceive(s,trf);}
+        tx(s,ctx,[port('MDR','externalData',['cpu','mdr'],8),port('LCD','externalData',['ram','bytes',m.pa],8)],{En_MDR:true,Ld_LCD:true,Write:true,IO:true},m.pa);
+        if(proposal)s.io.lcd.cursor=proposal.state.io.lcd.cursor;
+      }
+      ctx.bytes=[s.cpu.mdr];finishMemory(s,m);return true;
+    }
+    if(m.stage==='lookup-l1'){
+      var result=m.level==='l1i'?InstructionCache.lookup(s.caches.l1i,m.pa,'fetch'):l1dRead(s.caches.l1d,m.translation);
+      lookup(s,m,m.level,result.status,ctx);m.stage=result.status==='hit'?'deliver':'lookup-l2';return false;
+    }
+    if(m.stage==='lookup-l2'){
+      var l2=UnifiedL2.lookup(s.caches.l2,m.pa);lookup(s,m,'l2',l2.status,ctx);m.basePa=Math.floor(m.pa/8)*8;m.index=0;
+      if(l2.status==='hit'){m.slot=l2.index;m.stage='fill-l1';s.caches[m.level].valid=false;s.caches[m.level].tag=null;}
+      else {m.fill=UnifiedL2.begin(s.caches.l2,m.basePa);m.stage='fill-l2';}return false;
+    }
+    if(m.stage==='fill-l2'){
+      var fillPa=m.basePa+m.index;tx(s,ctx,[port('RAM','externalData',['ram','bytes',fillPa],8),port('L2','externalData',['execution','pendingRequest','buffer',m.index],8)],{En_RAM:true,Ld_L2:true,Read:true,Mem_R:true},fillPa);
+      var accepted=UnifiedL2.accept(s.caches.l2,m.fill,{pa:fillPa,value:m.buffer[m.index]});ctx.bytes=[m.buffer[m.index]];m.index++;
+      if(accepted.status==='completed'){s.caches.l2=accepted.cache;m.slot=accepted.index;m.index=0;m.stage='fill-l1';s.caches[m.level].valid=false;s.caches[m.level].tag=null;delete m.fill;}
+      else m.fill=accepted.fill;return false;
+    }
+    if(m.stage==='fill-l1'){
+      var target=m.level==='l1i'?'L1I':'L1D',sig={En_L2:true,Read:true};sig['Ld_'+target]=true;
+      tx(s,ctx,[port('L2','externalData',cachePort('l2',m.slot).concat(['bytes',m.index]),8),port(target,'externalData',cachePort(m.level).concat(['bytes',m.index]),8)],sig,m.basePa+m.index);
+      ctx.bytes=[s.caches[m.level].bytes[m.index]];m.index++;if(m.index===8){s.caches[m.level].valid=true;s.caches[m.level].tag=m.basePa/8;if(m.level==='l1i')s.caches.l1i.generation++;m.stage='deliver';}return false;
+    }
+    if(m.stage==='deliver'){
+      var name=m.level==='l1i'?'L1I':'L1D',sig={Ld_MDR:true,Read:true};sig['En_'+name]=true;
+      tx(s,ctx,[port(name,'externalData',cachePort(m.level).concat(['bytes',m.pa%8]),8),port('MDR','externalData',['cpu','mdr'],8)],sig,m.pa);
+      s.mmu.pages[m.translation.vpn].referenced=true;ctx.bytes=[s.cpu.mdr];finishMemory(s,m);return true;
+    }
+    if(m.stage==='write-l1'){var wr=l1dPlanWrite(s.caches.l1d,m.translation,s.cpu.mdr);lookup(s,m,'l1d',wr.status,ctx);m.stage='write-l2';return false;}
+    if(m.stage==='write-l2'){var hit=UnifiedL2.lookup(s.caches.l2,m.pa);lookup(s,m,'l2',hit.status,ctx);m.slot=hit.status==='hit'?hit.index:null;m.stage='write-ram';return false;}
+    if(m.stage==='write-ram'){
+      tx(s,ctx,[port('MDR','externalData',['cpu','mdr'],8),port('RAM','externalData',['ram','bytes',m.pa],8)],{En_MDR:true,Ld_RAM:true,Write:true,Mem_W:true},m.pa);
+      var pg=s.mmu.pages[m.translation.vpn];pg.dirty=true;pg.referenced=true;
+      if(s.caches.l1i.valid&&s.caches.l1i.tag===Math.floor(m.pa/8))s.caches.l1i=InstructionCache.invalidate(s.caches.l1i);
+      m.stage='write-copy-l1';return false;
+    }
+    if(m.stage==='write-copy-l1'){
+      if(s.caches.l1d.valid&&s.caches.l1d.tag===Math.floor(m.pa/8))tx(s,ctx,[port('MDR','externalData',['cpu','mdr'],8),port('L1D','externalData',['caches','l1d','bytes',m.pa%8],8)],{En_MDR:true,Ld_L1D:true,Write:true},m.pa);
+      m.stage='write-copy-l2';return false;
+    }
+    if(m.stage==='write-copy-l2'){
+      if(m.slot!==null)tx(s,ctx,[port('MDR','externalData',['cpu','mdr'],8),port('L2','externalData',cachePort('l2',m.slot).concat(['bytes',m.pa%8]),8)],{En_MDR:true,Ld_L2:true,Write:true},m.pa);
+      finishMemory(s,m);return true;
+    }
+    fail('INVALID_STAGE',m.stage);
+  }
+  function cpuTick(s,ctx){
+    var m=s.cpu.control.machine;ctx.kind='cpu-'+m.phase+'-'+m.stage;
+    if(m.phase==='fetch'){
+      if(m.stage==='address'){
+        if(s.cpu.ir.loadedBytes===0){if(s.program.starts.indexOf(s.cpu.pc)===-1)fail('INVALID_INSTRUCTION_BOUNDARY');m.instructionStart=s.cpu.pc;}
+        ctx.va=s.cpu.pc;tx(s,ctx,[port('PC','internalAddress',['cpu','pc'],9),port('MAR','internalAddress',['cpu','mar'],9)],{En_PC:true,Ld_MAR:true},null);m.stage='request';
+      }else if(m.stage==='request'){startMemory(s,'fetch',s.cpu.mar,false,null,'fetch-'+m.sequence+'-'+s.cpu.ir.loadedBytes);m.stage='wait';}
+      else if(m.stage==='wait'){var done=memoryTick(s,ctx);if(done==='waiting')return 'waiting';if(done===true)m.stage='ir';}
+      else if(m.stage==='ir'){
+        tx(s,ctx,[port('MDR','internalData',['cpu','mdr'],8),port('IR','internalData',['cpu','ir','bytes',s.cpu.ir.loadedBytes],8)],{En_MDR:true,Ld_IR:true},null);s.cpu.ir.loadedBytes++;m.stage='increment';
+      }else if(m.stage==='increment'){addressTo(s,ctx,s.cpu.pc+1,'PC');m.stage=s.cpu.ir.loadedBytes===4?'decode':'address';}
+      else if(m.stage==='decode'){var d=cpuDecodeInstruction(s.cpu.ir.bytes);if(!d.ok)fail(d.error.code,d.error.message);s.cpu.ir.decoded=d.instruction;m.steps=cpuBuildExecutionPlan(s.cpu.ir.bytes).steps;m.execIndex=0;m.phase='execute';m.stage='operation';}
+      else fail('INVALID_STAGE');return false;
+    }
+    var op=m.steps[m.execIndex];if(!op)fail('INVALID_STAGE');ctx.kind='cpu-'+op.operation.toLowerCase().replace(/_/g,'-');var p=op.parameters;
+    switch(op.operation){
+      case 'TRANSFER_TO_REGISTER':transferRegister(s,ctx,p.destination,p.source);break;
+      case 'CAPTURE_ALU_A':case 'CAPTURE_ALU_B':{
+        var source=p.source,sourceName,path;
+        if(source.kind==='register'){sourceName=source.name;path=['cpu','registers',sourceName];}
+        else {sourceName='IR';path=['cpu','ir','bytes',2];if(source.value===1&&(s.cpu.ir.decoded.mnemonic==='INC'||s.cpu.ir.decoded.mnemonic==='DEC')){sourceName='ALU';s.cpu.alu.result=1;path=['cpu','alu','result'];}}
+        var target=op.operation==='CAPTURE_ALU_A'?'a':'b';
+        // INC/DEC select the ALU's hardwired constant-one input, not a bus load.
+        if(sourceName==='ALU'){s.cpu.alu[target]=1;}
+        else tx(s,ctx,[port(sourceName,'internalData',path,8),port('ALU','internalData',['cpu','alu',target],8)],(function(){var a={Ld_ALU:true};a['En_'+sourceName]=true;return a;}()),null);
+        break;}
+      case 'EVALUATE_ALU':{var alu=CpuAlu.evaluate(p.mnemonic,s.cpu.alu.a,s.cpu.alu.b,s.cpu.flags);s.cpu.alu.result=alu.result;s.cpu.alu.operation=p.mnemonic;m.flags=alu.flags;break;}
+      case 'COMMIT_FLAGS':s.cpu.flags=copy(m.flags);break;
+      case 'PREPARE_ADDRESS':addressTo(s,ctx,p.address,'MAR');break;
+      case 'REQUEST_READ':startMemory(s,'read',s.cpu.mar,s.cpu.mar>=480,s.cpu.mar>=480?(s.cpu.mar<488?'KBD':'LCD'):null,'data-'+m.sequence);break;
+      case 'REQUEST_WRITE':startMemory(s,'write',s.cpu.mar,s.cpu.mar>=480,s.cpu.mar>=480?(s.cpu.mar<488?'KBD':'LCD'):null,'data-'+m.sequence);break;
+      case 'REQUEST_INPUT':startMemory(s,'read',s.profile.ioMap.keyboard.va,true,'KBD','io-'+m.sequence);s.execution.pendingRequest.consume=true;break;
+      case 'REQUEST_OUTPUT':startMemory(s,'write',s.profile.ioMap.lcd.va,true,'LCD','io-'+m.sequence);s.execution.pendingRequest.advanceCursor=true;break;
+      case 'WAIT_READ':case 'WAIT_WRITE':case 'WAIT_INPUT':case 'WAIT_OUTPUT':{var done=memoryTick(s,ctx);if(done==='waiting')return 'waiting';if(done!==true)return false;break;}
+      case 'CAPTURE_RESPONSE_IN_MDR':transferRegister(s,ctx,'MDR',{kind:'register',name:'MDR'});break;
+      case 'RESOLVE_BRANCH':{
+        var take=p.condition==='always'||p.condition==='ZF_SET'&&s.cpu.flags.ZF||p.condition==='ZF_CLEAR'&&!s.cpu.flags.ZF;
+        if(take){if(s.program.starts.indexOf(p.address)===-1)fail('INVALID_INSTRUCTION_BOUNDARY');addressTo(s,ctx,p.address,'PC');}break;}
+      case 'HALT':addressTo(s,ctx,m.instructionStart,'PC');s.execution.mode='halted';break;
+      case 'ADVANCE_PC':break;
+      default:fail('INVALID_MICROCODE',op.operation);
+    }
+    m.execIndex++;
+    if(m.execIndex===m.steps.length&&s.execution.mode!=='halted'){
+      s.cpu.ir={bytes:[0,0,0,0],loadedBytes:0,decoded:null};m.phase='fetch';m.stage='address';m.sequence++;delete m.steps;delete m.flags;
+    }
+    return false;
+  }
+  function step(state,request){
+    try{
+      var before=copy(state);check(before);
+      if(!request||typeof request.requestId!=='string'||!request.requestId.length)fail('INVALID_REQUEST');
+      if(before.lastEvent&&before.lastEvent.requestId===request.requestId){if(request.expectedRevision!==before.lastEvent.revisionBefore)fail('REQUEST_ID_REUSE');return {status:'completed',requestId:request.requestId,state:before,events:[],value:null,replayed:true};}
+      if(request.expectedRevision!==before.revision)fail('STALE_REVISION');
+      if(before.profile.status!=='ready'||before.profile.pendingIssues.length)fail('INVALID_PROFILE');
+      if(before.execution.mode==='halted')fail('HALTED');
+      var next=copy(before),ctx={};var waiting=cpuTick(next,ctx);
+      if(waiting==='waiting')return {status:'pending',requestId:request.requestId,state:before,events:[],reason:'keyboard-empty'};
+      return commit(before,next,ctx,request.requestId);
+    }catch(e){return {status:'rejected',requestId:request?request.requestId:null,error:{code:e.code||'INVALID_STATE',message:e.message,details:{}}};}
+  }
+  function load(state,source,origin){
+    var parsed=AsmParser.assemble(source,origin);if(!parsed.ok)return {status:'rejected',error:{code:'ASSEMBLY_ERROR',message:'Código inválido',details:parsed.errors}};
+    if(!parsed.instructions.length)return {status:'rejected',error:{code:'EMPTY_PROGRAM',message:'Programa vacío'}};
+    var next=create(state.profile),image=Array(512).fill(0);parsed.bytes.forEach(function(b,i){image[parsed.origin+i]=b;});next.swap=swapCreate(image);
+    next.cpu.pc=parsed.origin;next.program={source:source,origin:parsed.origin,starts:parsed.instructions.map(function(i){return i.address;}),sourceMap:parsed.instructions.map(function(i){return {line:i.line,address:i.address,bytes:i.bytes.slice()};})};
+    var ctx={kind:'program-load'};return commit(state,next,ctx,'load-'+state.revision);
+  }
+  function type(state,text){
+    try{check(state);if(typeof text!=='string'||!text.length||text.length+state.io.keyboard.count>8)fail('KBD_FULL');
+      for(var i=0;i<text.length;i++)if(text.charCodeAt(i)<32||text.charCodeAt(i)>126)fail('INVALID_CHARACTER');
+      var current=copy(state),events=[];
+      for(var j=0;j<text.length;j++){
+        var before=copy(current),ctx={kind:'keyboard-input'};current.io.keyboard.inputValue=text.charCodeAt(j);var k=current.io.keyboard,pa=k.basePa+k.tail;
+        tx(current,ctx,[port('KBD','externalData',['io','keyboard','inputValue'],8),port('RAM','externalData',['ram','bytes',pa],8)],{En_KBD:true,Ld_RAM:true,Write:true,IO:true},pa);
+        k.tail=(k.tail+1)%8;k.count++;delete k.inputValue;var result=commit(before,current,ctx,'kbd-'+before.revision);current=result.state;events.push(result.events[0]);
+      }
+      return {status:'completed',state:current,events:events,value:null};
+    }catch(e){return {status:'rejected',error:{code:e.code||'INVALID_STATE',message:e.message}};}
+  }
+  function run(state,limit){var current=copy(state),events=[],r;if(!Number.isInteger(limit)||limit<1||limit>50000)fail('INVALID_BATCH');
+    for(var i=0;i<limit;i++){r=step(current,{requestId:'step-'+current.revision,expectedRevision:current.revision});if(r.status==='rejected')return r;current=r.state;events=events.concat(r.events);if(r.status==='pending'||current.execution.mode==='halted')break;}
+    return {status:r.status,state:current,events:events,value:null};}
+  function editPage(state,vpn,patch){
+    try{check(state);if(state.execution.pendingRequest||state.execution.mode==='running')fail('BUSY');
+      if(!Number.isInteger(vpn)||vpn<0||vpn>15||!patch||Object.keys(patch).some(function(k){return k!=='referenced'&&k!=='dirty';}))fail('INVALID_OPERAND');
+      var page=state.mmu.pages[vpn];if(!page.present||page.pinned)fail('IO_PROTECTED');
+      if(patch.referenced!==undefined&&typeof patch.referenced!=='boolean'||patch.dirty!==undefined&&patch.dirty!==true)fail('INVALID_OPERAND','Dirty solo puede marcarse; limpiarlo requiere guardar en Swap.');
+      var next=copy(state);Object.keys(patch).forEach(function(k){next.mmu.pages[vpn][k]=patch[k];});
+      return commit(state,next,{kind:'page-table-edit'},'edit-'+state.revision);
+    }catch(e){return {status:'rejected',error:{code:e.code||'INVALID_STATE',message:e.message}};}
+  }
+  function editRam(state,pa,value){
+    try {
+      check(state);
+      var phase=state.cpu.control.machine;
+      if(state.execution.pendingRequest||state.execution.mode==='running'||
+        phase.phase!=='fetch'||phase.stage!=='address'||state.cpu.ir.loadedBytes!==0)
+        fail('BUSY','Pausa al inicio de una instrucción para editar RAM.');
+      if(!Number.isInteger(pa)||pa<0||pa>255)fail('OUT_OF_RANGE');
+      byte(value);
+      if(PhysicalRam.region(pa)!=='ram')fail('IO_PROTECTED');
+      var vpn=state.ram.frames[Math.floor(pa/32)].vpn;
+      if(vpn===null)fail('UNMAPPED_FRAME');
+      var update=PhysicalRam.write(state.ram,pa,value,'loader');
+      var invalidated=CacheCoherence.invalidate(state.caches,pa,1);
+      if(invalidated.status!=='completed')fail('CACHE_WRITEBACK_REQUIRED');
+      var next=copy(state);
+      next.ram=update.ram;
+      next.caches=invalidated.caches;
+      next.mmu.pages[vpn].dirty=true;
+      next.mmu.pages[vpn].referenced=true;
+      return commit(state,next,{kind:'ram-edit',va:vpn*32+pa%32,pa:pa,bytes:[value]},'ram-edit-'+state.revision);
+    } catch(e) {
+      return {status:'rejected',error:{code:e.code||'INVALID_STATE',message:e.message}};
+    }
+  }
+  return {profile:profile,create:create,check:check,step:step,load:load,type:type,run:run,editPage:editPage,editRam:editRam,signals:SIGNALS.slice()};
+}());
+
+
 // src/core/simulator.js
 /** Delivery coordinator. Step commits one instruction and returns its ordered trace. */
 function Simulator(template) {
@@ -1037,24 +1365,37 @@ function Simulator(template) {
     if (original.execution.mode==='halted') return {status:'halted',state:clone(original),events:[]};
     var s=clone(original),trace=[],pc=s.cpu.pc;
     function emit(e){trace.push(e);}
-    function transfer(from,to,sourcePath,targetPath,width,segment,extra) {
+    function recordTransfer(event, capture, pa, va, control) {
+      var bus = event.segments[capture.segment];
+      emit({kind:'bus',from:bus.drivers[0],to:capture.port,signals:Object.assign({},event.signals,control),
+        segment:capture.segment,widthBits:bus.widthBits,value:capture.after,
+        va:va===undefined?null:va,pa:pa===undefined?null:pa});
+    }
+    function transfer(from,to,sourcePath,targetPath,width,segment,pa,va,control) {
       var segments={};segments[segment]={widthBits:width,domain:width===9?'virtual':'data'};
-      var wiring={segments:segments,ports:[{name:from,segment:segment,path:sourcePath,widthBits:width},
-        {name:to,segment:segment,path:targetPath,widthBits:width}]};
+      var ports=[{name:from,segment:segment,path:sourcePath,widthBits:width}];
+      if(from!==to) ports.push({name:to,segment:segment,path:targetPath,widthBits:width});
+      var wiring={segments:segments,ports:ports};
       var signals={};signals['En_'+from]=true;signals['Ld_'+to]=true;
       var r=BusArbiter.transfer(s,wiring,signals,s.revision);
       if(r.status!=='completed')throw Error(r.error.code);
-      s=r.state;emit({kind:'bus',from:from,to:to,signals:signals,segment:segment,
-        value:r.event.captures[0].after,pa:extra===undefined?null:extra});
+      s=r.state;
+      recordTransfer(r.event,r.event.captures[0],pa,va,control);
     }
     function translated(va,kind) {
-      var q={va:va,kind:kind,io:false,endpoint:null},r=mmuResolveAccess(s,q);
+      var endpoint=null;
+      if(kind!=='fetch') {
+        var map=s.profile.ioMap;
+        if(va>=map.keyboard.va&&va<map.keyboard.va+map.keyboard.length) endpoint='KBD';
+        if(va>=map.lcd.va&&va<map.lcd.va+map.lcd.length) endpoint='LCD';
+      }
+      var q={va:va,kind:kind,io:endpoint!==null,endpoint:endpoint},r=mmuResolveAccess(s,q);
       if(!r.ok)throw Error(r.error.code);
       if(r.status==='pageFault') {
         var plan=pages.prepare(s,Math.floor(va/32));
         s=pages.finish(s,plan,plan.bytes).state;s.metrics.pageFaults++;
         plan.trace.forEach(emit);emit({kind:'page-fault',vpn:plan.decision.vpn,
-          victim:plan.decision.victim,pfn:plan.decision.pfn,bytes:32});
+          victim:plan.decision.victim,pfn:plan.decision.pfn,reason:plan.decision.reason,va:va,bytes:32});
         r=mmuResolveAccess(s,q);
       }
       if(!r.ok||r.status!=='translated')throw Error('TRANSLATION_FAILED');
@@ -1064,26 +1405,41 @@ function Simulator(template) {
       emit({kind:'cache',level:level,result:outcome,pa:pa,tag:Math.floor(pa/8)});}
     function read(va,kind) {
       var t=translated(va,kind),pa=t.pa,isFetch=kind==='fetch',level=isFetch?'l1i':'l1d';
+      if(t.access.io) {
+        transfer(t.access.endpoint,'MDR',['ram','bytes',pa],['cpu','mdr'],8,'externalData',pa,va,
+          {Read:true,IO:true,Clock:true});
+        emit({kind:'io-peek',endpoint:t.access.endpoint,va:va,pa:pa,value:s.cpu.mdr});
+        return s.cpu.mdr;
+      }
       var hit=isFetch?InstructionCache.lookup(s.caches.l1i,pa,'fetch'):l1dRead(s.caches.l1d,t);
       count(level,hit.status,pa);
       if(hit.status==='miss'){
         var request={kind:'read-line',level:'L2',basePa:Math.floor(pa/8)*8,length:8};
         var line=UnifiedL2.readLine(s.caches.l2,request,function(address){
-          transfer('RAM','MDR',['ram','bytes',address],['cpu','mdr'],8,'externalData',address);
+          transfer('RAM','MDR',['ram','bytes',address],['cpu','mdr'],8,'externalData',address,va,
+            {Read:true,Mem_R:true,Clock:true});
           return {pa:address,value:s.cpu.mdr,event:trace[trace.length-1]};
         });
         s.caches.l2=line.cache;s.metrics.l2.hits+=line.metrics.hits;s.metrics.l2.misses+=line.metrics.misses;
         line.events.filter(function(e){return e.kind!=='line-byte';}).forEach(emit);
         s.caches[level]=isFetch?InstructionCache.fill(s.caches.l1i,hit.request,line.response):l1dFill(t,line.response.bytes);
       }
-      transfer(isFetch?'L1I':'L1D','MDR',['caches',level,'bytes',pa%8],['cpu','mdr'],8,'internalData',pa);
+      transfer(isFetch?'L1I':'L1D','MDR',['caches',level,'bytes',pa%8],['cpu','mdr'],8,'internalData',pa,va);
       return s.cpu.mdr;
     }
     function write(va,register) {
       var t=translated(va,'write'),value=s.cpu.registers[register];
+      if(t.access.io) {
+        transfer(register,'MDR',['cpu','registers',register],['cpu','mdr'],8,'internalData');
+        transfer('MDR',t.access.endpoint,['cpu','mdr'],['ram','bytes',t.pa],8,'externalData',t.pa,va,
+          {Write:true,IO:true,Clock:true});
+        emit({kind:'io-store',endpoint:t.access.endpoint,va:va,pa:t.pa,value:value});
+        return;
+      }
       var plan=l1dPlanWrite(s.caches.l1d,t,value);count('l1d',plan.status,t.pa);
       transfer(register,'MDR',['cpu','registers',register],['cpu','mdr'],8,'internalData');
-      transfer('MDR','RAM',['cpu','mdr'],['ram','bytes',t.pa],8,'externalData',t.pa);
+      transfer('MDR','RAM',['cpu','mdr'],['ram','bytes',t.pa],8,'externalData',t.pa,va,
+        {Write:true,Mem_W:true,Clock:true});
       var invalidated=CacheCoherence.invalidate(s.caches,t.pa,1);
       if(invalidated.status!=='completed')throw Error('WRITEBACK_REQUIRED');
       s.caches=invalidated.caches;s.caches.l1d=plan.lineAfterCommit;
@@ -1091,7 +1447,7 @@ function Simulator(template) {
     }
     try {
       if(!Number.isInteger(pc)||pc<0||pc+4>480)throw Error('INVALID_PC');
-      transfer('PC','MAR',['cpu','pc'],['cpu','mar'],9,'internalAddress');
+      transfer('PC','MAR',['cpu','pc'],['cpu','mar'],9,'internalAddress',undefined,pc,{Clock:true});
       s.cpu.ir.loadedBytes=0;
       for(var i=0;i<4;i++){
         read(pc+i,'fetch');transfer('MDR','IR',['cpu','mdr'],['cpu','ir','bytes',i],8,'internalData');
@@ -1114,12 +1470,19 @@ function Simulator(template) {
         var input=KeyboardQueue.consume(s,r,s.revision,BusArbiter);
         if(input.status==='waiting')return {status:'waiting',state:clone(original),events:[{kind:'waiting-keyboard'}]};
         if(input.status!=='completed')throw Error(input.error.code);
-        s=input.state;emit({kind:'io-read',endpoint:'KBD',register:r,value:s.cpu.registers[r],
+        s=input.state;
+        input.events.forEach(function(event,index){
+          var capture=event.captures[0];
+          var pa=index===0?original.io.keyboard.basePa+original.io.keyboard.head:undefined;
+          recordTransfer(event,capture,pa,undefined,index===0?{Read:true,IO:true,Clock:true}:undefined);
+        });
+        emit({kind:'io-read',endpoint:'KBD',register:r,value:s.cpu.registers[r],
           signals:{Read:true,Write:false,IO:true,En_KBD:true},transfers:input.events});
       } else if(op==='OUT'){
         transfer(r,'MDR',['cpu','registers',r],['cpu','mdr'],8,'internalData');
         var address=s.io.lcd.basePa+s.io.lcd.cursor,before=clone(s);
-        transfer('MDR','LCD',['cpu','mdr'],['ram','bytes',address],8,'externalData',address);
+        transfer('MDR','LCD',['cpu','mdr'],['ram','bytes',address],8,'externalData',address,undefined,
+          {IO:true,Write:true,Clock:true});
         var out=lcdReceive(before,{pa:address,signals:{Ld_LCD:true,Write:true,Read:false,IO:true,Clock:true},
           bus:{level:'driven',drivers:['MDR'],receivers:['LCD'],value:s.cpu.mdr}});
         s.io.lcd=out.state.io.lcd;emit({kind:'io-write',endpoint:'LCD',pa:address,value:s.cpu.mdr,
@@ -1133,6 +1496,7 @@ function Simulator(template) {
       s.cpu.pc=nextPc;s.clock.cycle++;s.clock.microStep+=trace.filter(function(e){return e.kind==='bus';}).length;
       s.clock.phase=op;s.runtime.instructions++;s.runtime.lastTrace=trace;
       s.revision=original.revision+1;s.lastEvent=null;
+      s.buses=Object.assign(clone(template.buses),s.buses);
       CpuAlu.validate(s.cpu);
       return {status:s.execution.mode==='halted'?'halted':'completed',state:s,events:trace};
     }catch(e){return {status:'error',error:String(e.message),state:clone(original),events:[]};}
@@ -1144,7 +1508,23 @@ function Simulator(template) {
       if(result.status!=='completed')break;}
     result.events=all;return result;
   }
-  return {load:load,step:step,run:run};
+  function editRam(original,pa,value) {
+    var update=PhysicalRam.write(original.ram,pa,value,'loader');
+    var frame=original.ram.frames[Math.floor(pa/32)];
+    if(frame.vpn===null) throw Error('La dirección pertenece a un marco libre.');
+    var va=frame.vpn*32+pa%32;
+    var invalidated=CacheCoherence.invalidate(original.caches,pa,1);
+    if(invalidated.status!=='completed') throw Error('WRITEBACK_REQUIRED');
+    var next=pages.markAccess(original,{va:va,kind:'write',io:false,endpoint:null}).state;
+    next.ram=update.ram;
+    next.caches=invalidated.caches;
+    next.revision++;
+    next.lastEvent=null;
+    var event=Object.assign({kind:'ram-edit',va:va,invalidated:invalidated.invalidated},update.event);
+    next.runtime.lastTrace=[event];
+    return {state:next,events:[event]};
+  }
+  return {load:load,step:step,run:run,editRam:editRam};
 }
 
 
@@ -1592,8 +1972,9 @@ function lcdReceive(state, transfer) {
 
   var bus = transfer.bus;
 
-  if (!bus || bus.level === "Z" ||
+  if (!bus || bus.level !== "driven" ||
       !Array.isArray(bus.drivers) || bus.drivers.length !== 1 ||
+      typeof bus.drivers[0] !== "string" || !bus.drivers[0].length ||
       !Array.isArray(bus.receivers) ||
       bus.receivers.indexOf("LCD") === -1 ||
       !Number.isInteger(bus.value) ||
@@ -2494,7 +2875,10 @@ function onOpen() {
     .addItem('Guardar fuente en catálogo','simSave').addItem('Verificar fuente','simVerify')
     .addItem('3. Cargar / Reset','simLoad').addSeparator()
     .addItem('Step (una instrucción)','simStep').addItem('Run (8 instrucciones)','simRun')
-    .addItem('Ingresar teclado','simKeyboard').addToUi();
+    .addItem('Pausar entre lotes','simPause').addItem('Reset del programa cargado','simReset')
+    .addItem('Ingresar teclado','simKeyboard').addItem('Editar byte de RAM','simEditRam')
+    .addItem('Redibujar estado','simRefresh').addToUi();
+  if (typeof P2_InstallMenu === 'function') P2_InstallMenu();
 }
 function simSheet(name){var book=SpreadsheetApp.getActiveSpreadsheet();return book.getSheetByName(name)||book.insertSheet(name);}
 function simStore(){var p=PropertiesService.getScriptProperties();
@@ -2505,6 +2889,8 @@ function simStore(){var p=PropertiesService.getScriptProperties();
 function simLocked(action){var lock=LockService.getScriptLock();if(!lock.tryLock(1000))throw Error('Otra operación está en curso.');
   try{return action();}finally{lock.releaseLock();}}
 function simEngine(){return Simulator(SIM_RESET);}
+function simHeader(range){range.setBackground('#17365D').setFontColor('#FFFFFF').setFontWeight('bold');}
+function simText(value){return typeof value==='string'&&value.charAt(0)==='='?"'"+value:value;}
 function simSetup(){simLocked(function(){
   var catalog=simSheet('Catalogo'),editor=simSheet('Editor');
   if(catalog.getLastRow()===0){catalog.getRange(1,1,1,2).setValues([['Programa','Fuente ASM']]);
@@ -2512,6 +2898,8 @@ function simSetup(){simLocked(function(){
   editor.getRange('A2').setValue('Programa del catálogo');
   if(!editor.getRange('B2').getValue())editor.getRange('B2').setValue(SIM_PROGRAMS[0].name);
   editor.getRange('A4').setValue('Estado');editor.getRange('A6').setValue('Fuente ASM editable →');
+  editor.getRange('A1').setValue('Los Anunakis | Arquitectura');
+  simHeader(editor.getRange('A1:B1'));simHeader(catalog.getRange('A1:B1'));
   editor.getRange('B6').setWrap(true);editor.setColumnWidth(2,600);editor.setRowHeight(6,320);
   simSheet('Estado');simSheet('Traza');
   editor.getRange('B4').setValue('Selecciona un programa y usa el menú Simulador.');
@@ -2537,25 +2925,65 @@ function simExecute(limit){simLocked(function(){var store=simStore(),s=store.loa
   simSheet('Editor').getRange('B4').setValue(r.status==='waiting'?'Esperando teclado':r.status==='halted'?'HALT':'Pausado tras '+limit+' instrucciones');});}
 function simStep(){simExecute(1);}
 function simRun(){simExecute(8);}
+function simPause(){simLocked(function(){
+  var s=simStore().load();if(!s)throw Error('Primero carga un programa.');
+  simSheet('Editor').getRange('B4').setValue(s.execution.mode==='halted'?'HALT':'Pausado entre lotes');
+});}
+function simReset(){simLocked(function(){
+  var store=simStore(),s=store.load();if(!s)throw Error('Primero carga un programa.');
+  var reset=simEngine().load(s.runtime.source);
+  if(!reset.ok)throw Error('No se pudo reiniciar el programa cargado.');
+  store.save(reset.state);simRender(reset.state,[]);
+  simSheet('Editor').getRange('B4').setValue('Reiniciado desde la fuente cargada.');
+});}
+function simRefresh(){simLocked(function(){
+  var s=simStore().load();if(!s)throw Error('Primero carga un programa.');
+  simRender(s,s.runtime.lastTrace||[]);
+});}
+function simEditRam(){
+  var ui=SpreadsheetApp.getUi(),answer=ui.prompt('Editar RAM','PA decimal y byte separados por un espacio. Ejemplo: 2 77',ui.ButtonSet.OK_CANCEL);
+  if(answer.getSelectedButton()!==ui.Button.OK)return;
+  var parts=answer.getResponseText().trim().match(/^(\d+)\s+(\d+)$/);
+  if(!parts)throw Error('Escribe dos enteros decimales.');
+  simLocked(function(){
+    var store=simStore(),s=store.load();if(!s)throw Error('Primero carga un programa.');
+    var result=simEngine().editRam(s,Number(parts[1]),Number(parts[2]));
+    store.save(result.state);simRender(result.state,result.events);
+  });
+}
 function simKeyboard(){var ui=SpreadsheetApp.getUi(),answer=ui.prompt('Teclado','Hasta 8 caracteres ASCII imprimibles',ui.ButtonSet.OK_CANCEL);
   if(answer.getSelectedButton()!==ui.Button.OK)return;
   simLocked(function(){var store=simStore(),s=store.load();if(!s)throw Error('Primero carga un programa.');
     var chars=answer.getResponseText();if(chars.length>8-s.io.keyboard.count)throw Error('No hay espacio suficiente en la cola.');
     for(var i=0;i<chars.length;i++){var r=KeyboardQueue.enqueue(s,chars[i],s.revision);if(r.status!=='completed')throw Error('Cola llena');s=r.state;}
-    store.save(s);simRender(s,[]);});}
+    store.save(s);simRender(s,s.runtime.lastTrace||[]);});}
 function simRender(s,events){var sheet=simSheet('Estado');sheet.clearContents();
   var rows=[['SIMULADOR — LOS ANUNAKIS',''],['Modo',s.execution.mode],['PC',s.cpu.pc],['MAR',s.cpu.mar],['MDR',s.cpu.mdr],
     ['IR',s.cpu.ir.bytes.join(' ')],['AX',s.cpu.registers.AX],['BX',s.cpu.registers.BX],['CX',s.cpu.registers.CX],['DX',s.cpu.registers.DX],
     ['ZF / CF / SF',[s.cpu.flags.ZF,s.cpu.flags.CF,s.cpu.flags.SF].join(' / ')],['Instrucciones',s.runtime.instructions],
-    ['LCD',lcdReadDisplay(s).text],['Teclado',KeyboardQueue.view(s).text],['Page faults',s.metrics.pageFaults]];
+    ['LCD',simText(lcdReadDisplay(s).text)],['Teclado',simText(KeyboardQueue.view(s).text)],['Page faults',s.metrics.pageFaults],
+    ['Cola FIFO (PFN)',s.mmu.fifo.join(' → ')||'Vacía'],['Cabeza FIFO (PFN)',s.mmu.fifo.length?s.mmu.fifo[0]:'—'],
+    ['KBD head / tail / count',[s.io.keyboard.head,s.io.keyboard.tail,s.io.keyboard.count].join(' / ')]];
   sheet.getRange(1,1,rows.length,2).setValues(rows);
+  simHeader(sheet.getRange('A1:B1'));sheet.setFrozenRows(1);
   var rates=cacheMetricsRates(s.metrics);sheet.getRange(1,4,4,4).setValues([['Caché','Hits','Misses','Hit rate']].concat(['l1i','l1d','l2'].map(function(k){return [k,rates[k].hits,rates[k].misses,rates[k].hitRate];})));
   sheet.getRange(7,4,17,5).setValues([['VPN','Presente','PFN','Dirty','Ref']].concat(s.mmu.pages.map(function(p){return [p.vpn,p.present,p.pfn===null?'—':p.pfn,p.dirty,p.referenced];})));
   sheet.getRange(26,4,7,4).setValues([['Línea','Válida','Tag','Bytes']].concat([{name:'L1I',line:s.caches.l1i},{name:'L1D',line:s.caches.l1d}].concat(s.caches.l2.lines.map(function(l,i){return {name:'L2-'+i,line:l};})).map(function(x){return [x.name,x.line.valid,x.line.tag===null?'—':x.line.tag,x.line.bytes.join(' ')];})));
-  sheet.getRange(35,1,33,9).setValues([['PA','0','1','2','3','4','5','6','7']].concat(Array.from({length:32},function(_,i){return [i*8].concat(s.ram.bytes.slice(i*8,i*8+8));})));
-  var t=simSheet('Traza');t.clearContents();t.getRange(1,1,1,3).setValues([['Orden','Evento','Detalle']]);
-  if(events.length)t.getRange(2,1,events.length,3).setValues(events.map(function(e,i){return [i+1,e.kind,JSON.stringify(e)];}));
-  t.setColumnWidth(3,900);sheet.setColumnWidth(2,250);
+  sheet.getRange(35,1,33,9).setValues([['PA','+0','+1','+2','+3','+4','+5','+6','+7']].concat(Array.from({length:32},function(_,i){
+    var base=i*8;return [base].concat(s.ram.bytes.slice(base,base+8).map(function(value){
+      return value+' / '+value.toString(16).toUpperCase().padStart(2,'0');
+    }));
+  })));
+  sheet.getRange('A34').setValue('RAM · decimal / hexadecimal · PA 224–231 KBD · 232–239 LCD');
+  ['D1:G1','D7:H7','D26:G26','A35:I35'].forEach(function(a1){simHeader(sheet.getRange(a1));});
+  var t=simSheet('Traza');t.clearContents();t.setFrozenRows(1);
+  var header=[['Orden','Evento','Segmento','Emisor','Receptor','VA','PA','Valor','Señales activas','Detalle']];
+  t.getRange(1,1,1,10).setValues(header);simHeader(t.getRange('A1:J1'));
+  if(events.length)t.getRange(2,1,events.length,10).setValues(events.map(function(e,i){
+    return [i+1,e.kind,e.segment||'',e.from||'',e.to||'',e.va??'',e.pa??'',e.value??'',
+      Object.keys(e.signals||{}).filter(function(name){return e.signals[name]===true;}).join(', '),JSON.stringify(e)];
+  }));
+  t.setColumnWidth(9,250);t.setColumnWidth(10,500);sheet.setColumnWidth(2,250);
 }
 
 
@@ -2610,6 +3038,123 @@ function lcdRenderSnapshot(state) {
 
   console.log("Vista LCD actualizada.");
 }
+
+
+// src/sheets/marcelo-app.js
+/** Shared bound-sheet application. State is stored once, under the clock lock. */
+function P2_Clock() {
+  return clockAppsScript(P2Machine.step,function(){
+    var previous=clockPropertyStore(PropertiesService.getScriptProperties()).load();
+    return P2Machine.create(previous?previous.state.profile:P2Machine.profile(false));
+  });
+}
+function P2_InstallMenu(){SpreadsheetApp.getUi().createMenu('Simulador P2')
+  .addItem('Preparar y abrir controles','P2_Setup').addItem('Abrir controles','P2_OpenControls').addToUi();}
+function P2_Setup(){var record=P2_Clock().initialize();P2_Render(record.state);P2_EnsureSheet('Traza');
+  var editor=P2_EnsureSheet('Editor');if(!editor.getRange('A2').getValue())P2_WriteEditor(P2Catalog.get('arithmetic').source);
+  P2_InstallMenu();P2_OpenControls();}
+function P2_EnsureSheet(name){var ss=SpreadsheetApp.getActiveSpreadsheet();return ss.getSheetByName(name)||ss.insertSheet(name);}
+function P2_EnsureGrid(sheet,rows,columns){
+  var currentRows=sheet.getMaxRows(),currentColumns=sheet.getMaxColumns();
+  if(currentRows<rows)sheet.insertRowsAfter(currentRows,rows-currentRows);
+  if(currentColumns<columns)sheet.insertColumnsAfter(currentColumns,columns-currentColumns);
+}
+function P2_Read(){return P2_Clock().read();}
+function P2_Change(action,payload){
+  var lock=LockService.getScriptLock();if(!lock.tryLock(0))throw new Error('BUSY');
+  var store=clockPropertyStore(PropertiesService.getScriptProperties()),record,result;
+  try{record=store.load();if(!record)throw new Error('Primero ejecuta P2_Setup.');
+    if(payload&&payload.expectedRevision!==undefined&&payload.expectedRevision!==record.state.revision)throw new Error('STALE_REVISION');
+    if(action==='activate'){
+      if(record.state.execution.pendingRequest)throw new Error('BUSY');
+      record.state=P2Machine.create(P2Machine.profile(true));record.epoch++;record.sequence=0;record.receipt=null;result={state:record.state,events:[]};
+    }else if(action==='load'){
+      result=P2Machine.load(record.state,payload.source,payload.origin||0);
+      if(result.status==='rejected')throw new Error(JSON.stringify(result.error));
+      record.state=result.state;record.epoch++;record.sequence=0;record.receipt=null;
+    }else if(action==='type'){
+      result=P2Machine.type(record.state,payload.text);if(result.status==='rejected')throw new Error(JSON.stringify(result.error));
+      record.state=result.state;record.sequence++;record.receipt=null;
+    }else if(action==='editPage'){
+      result=P2Machine.editPage(record.state,payload.vpn,{referenced:payload.referenced});if(result.status==='rejected')throw new Error(JSON.stringify(result.error));
+      record.state=result.state;record.sequence++;record.receipt=null;
+    }else if(action==='editRam'){
+      result=P2Machine.editRam(record.state,payload.pa,payload.value);if(result.status==='rejected')throw new Error(JSON.stringify(result.error));
+      record.state=result.state;record.sequence++;record.receipt=null;
+    }else throw new Error('INVALID_ACTION');
+    store.save(record);
+  }finally{lock.releaseLock();}
+  P2_AppendEvents(result.events,record.epoch);P2_Render(record.state);return record;
+}
+function P2_Dispatch(request){var output=P2_Clock().dispatch(request);P2_AppendEvents(output.events,output.epoch);P2_Render(output.state);return P2_Read();}
+function P2_LoadDemo(id,expectedRevision){var entry=P2Catalog.get(id);var record=P2_Change('load',{source:entry.source,origin:0,expectedRevision:expectedRevision});P2_WriteEditor(entry.source);return record;}
+function P2_LoadEditor(expectedRevision){var sheet=P2_EnsureSheet('Editor');var lines=sheet.getRange(2,1,Math.max(1,sheet.getLastRow()-1),1).getDisplayValues().map(function(r){return r[0];});
+  return P2_Change('load',{source:lines.join('\n'),origin:0,expectedRevision:expectedRevision});}
+function P2_WriteEditor(source){var sheet=P2_EnsureSheet('Editor');sheet.getRange('A1').setValue('Ensamblador: una línea por celda; carga desde el panel');
+  sheet.getRange(2,1,Math.max(1,sheet.getLastRow()-1),1).clearContent();var rows=source.split('\n').map(function(line){return ["'"+line];});
+  sheet.getRange(2,1,rows.length,1).setNumberFormat('@').setValues(rows);sheet.setColumnWidth(1,650);}
+function P2_Render(state){
+  var cpu=P2_EnsureSheet('CPU'),c=state.cpu;
+  var registers=[['Registro','Decimal','Hexadecimal']];['AX','BX','CX','DX'].forEach(function(k){registers.push([k,c.registers[k],c.registers[k].toString(16).toUpperCase().padStart(2,'0')]);});
+  [['PC',c.pc],['MAR',c.mar],['MDR',c.mdr]].forEach(function(x){registers.push([x[0],x[1],x[1].toString(16).toUpperCase().padStart(x[0]==='MDR'?2:3,'0')]);});
+  cpu.getRange('A1').setValue('Los Anunakis · Computadora de 8 bits');cpu.getRange('A2:D2').setValues([['Estado',state.execution.mode,'Perfil',state.profile.status]]);
+  cpu.getRange(4,1,registers.length,3).setValues(registers);cpu.getRange('E4:F9').setValues([['Indicador','Valor'],['ZF',c.flags.ZF?1:0],['CF',c.flags.CF?1:0],['SF',c.flags.SF?1:0],['Ciclo',state.clock.cycle],['Micro paso',state.clock.microStep]]);
+  cpu.getRange('A14:B16').setValues([['Fase',state.clock.phase],['IR (bytes)',c.ir.bytes.map(function(b){return b.toString(16).padStart(2,'0');}).join(' ')],['Instrucción',c.ir.decoded?c.ir.decoded.mnemonic:'']]);
+  var busRows=[['Segmento','Nivel','Valor','Emisor','Receptores']];Object.keys(state.buses).forEach(function(k){var b=state.buses[k];busRows.push([k,b.level,b.value===null?'High-Z':b.value,b.drivers.join(', '),b.receivers.join(', ')]);});
+  cpu.getRange(19,1,busRows.length,5).setValues(busRows);cpu.setColumnWidth(1,230);cpu.setColumnWidths(2,5,130);
+  var mmu=P2_EnsureSheet('MMU_P2_011'),rows=mmuPageTableRows(state.mmu.pages).rows;
+  mmu.getRange('A1').setValue('Tabla de páginas · estado activo');mmu.getRange('A2:D2').setValues([['Marcos reemplazables',7,'FIFO',state.mmu.fifo.join(' → ')]]);
+  var fault=state.mmu.fault;mmu.getRange('A3:F3').setValues([fault?['PAGE FAULT',fault.vpn,'PFN',fault.victimPfn,fault.stage,fault.transferredBytes+'/32']:['Sin Page Fault','','','','','']]);
+  mmu.getRange('A3:F3').setBackground(fault?'#F4CCCC':'#E2F0D9');mmu.getRange(5,1,17,6).setValues(rows.map(function(r){return r.map(function(v){return v===null?'':v;});}));mmu.setFrozenRows(5);
+  var pending=state.execution.pendingRequest;
+  mmu.getRange('E2:F2').setValues([['Offset',pending?pending.va%32:'']]);
+  mmu.getRange('A4:F4').setValues([['Víctima VPN',fault&&pending&&pending.victim!==null?pending.victim:'','Dirty víctima',fault&&pending?pending.victimDirty:false,'VA',pending?pending.va:'']]);
+  mmu.getRange('G2:H3').setValues([
+    ['Cabeza FIFO (PFN)',state.mmu.fifo.length?state.mmu.fifo[0]:'Vacía'],
+    ['Selección',fault&&pending?(pending.victim===null?'Marco libre':'Víctima FIFO'):'—']
+  ]);
+  mmu.getRange('A6:F21').setBackgrounds(state.mmu.pages.map(function(p){var color=p.pinned?'#FFF2CC':fault&&fault.vpn===p.vpn?'#F4CCCC':p.present?'#E2F0D9':'#F2F2F2';return Array(6).fill(color);}));
+  var ram=P2_EnsureSheet('RAM'),grid=[['PA'].concat(Array.from({length:16},function(_,i){return i.toString(16).toUpperCase();}))];
+  for(var row=0;row<16;row++)grid.push([(row*16).toString(16).toUpperCase().padStart(2,'0')].concat(state.ram.bytes.slice(row*16,row*16+16).map(function(b){return b.toString(16).toUpperCase().padStart(2,'0');})));
+  ram.getRange(1,1,17,17).setNumberFormat('@').setValues(grid);ram.setColumnWidths(1,17,44);
+  var decimal=[['PA decimal'].concat(Array.from({length:16},function(_,i){return '+'+i;}))];
+  for(var r=0;r<16;r++)decimal.push([r*16].concat(state.ram.bytes.slice(r*16,r*16+16)));
+  ram.getRange(21,1,17,17).setValues(decimal);
+  ram.getRange('A19').setValue('E0–E7 teclado · E8–EF LCD · F0–FF reservado');
+  var swap=P2_EnsureSheet('Swap'),swapRows=[['VPN'].concat(Array.from({length:32},function(_,i){return i;}))];
+  P2_EnsureGrid(swap,17,33);
+  state.swap.pages.forEach(function(page,vpn){swapRows.push([vpn].concat(page));});swap.getRange(1,1,17,33).setValues(swapRows);swap.setColumnWidths(1,33,38);
+  var cache=P2_EnsureSheet('Caches'),rates=cacheMetricsRates(state.metrics),stats=[['Nivel','Hits','Misses','Hit rate']];
+  ['l1i','l1d','l2'].forEach(function(k){stats.push([k.toUpperCase(),rates[k].hits,rates[k].misses,rates[k].hitRate]);});cache.getRange('A1:D4').setValues(stats);cache.getRange('D2:D4').setNumberFormat('0.00%');
+  var lines=[['Línea','Válida','Tag','Dirty','B0','B1','B2','B3','B4','B5','B6','B7']];
+  [['L1I',state.caches.l1i],['L1D',state.caches.l1d]].concat(state.caches.l2.lines.map(function(l,i){return ['L2-'+i,l];})).forEach(function(x){lines.push([x[0],x[1].valid?1:0,x[1].tag===null?'':x[1].tag,x[1].dirty?1:0].concat(x[1].bytes));});
+  cache.getRange(6,1,7,12).setValues(lines);cache.getRange('A14:D14').setValues([['FIFO L2',state.caches.l2.fifo.join(' → '),'Page Faults',state.metrics.pageFaults]]);
+  lcdRenderSnapshot(state);P2_EnsureSheet('LCD_P2_023').getRange('A2').setValue('Video RAM · estado activo del simulador');
+  var k=KeyboardQueue.view(state),kbd=P2_EnsureSheet('Teclado');kbd.getRange('A1:B5').setValues([['Cola de teclado',"'"+k.text],['Cantidad',k.count],['Head',k.head],['Tail',k.tail],['Capacidad',8]]);
+  var control=P2_EnsureSheet('Señales'),sigrows=[['Bit','Señal','Activa','Estado']];P2Machine.signals.forEach(function(k,i){sigrows.push([i,k,state.cpu.control.signals[k]?1:0,k.indexOf('En_')===0?(state.cpu.control.signals[k]?'Conduce':'High-Z'):'']);});
+  control.getRange(1,1,sigrows.length,4).setValues(sigrows);
+  var word=state.cpu.control.word;
+  control.getRange('F1:G2').setValues([['Palabra (decimal)',word===null?'—':word],
+    ['Palabra (40 bits)',word===null?'—':"'"+word.toString(2).padStart(40,'0')]]);
+  control.getRange(2,3,P2Machine.signals.length,1).setBackgrounds(sigrows.slice(1).map(function(row){
+    return [row[2]?'#D9EAD3':'#F2F2F2'];
+  }));
+  [cpu,mmu,cache,control].forEach(function(sh){sh.getRange(sh===mmu?'A5:F5':sh===cpu?'A4:C4':sh===cache?'A1:D1':'A1:D1').setFontWeight('bold').setBackground('#243746').setFontColor('#FFFFFF');});
+}
+function P2_AppendEvents(events,epoch){if(!events.length)return;var sheet=P2_EnsureSheet('Traza');
+  if(!sheet.getRange('A1').getValue())sheet.getRange('A1:M1').setValues([['Época','Evento','Revisión','Ciclo','Fase','VA','PA','Bytes','Emisores','Receptores','Señales','Micro-palabra','Cambios JSON']]);
+  var last=sheet.getLastRow()>1?sheet.getRange(sheet.getLastRow(),1,1,2).getValues()[0]:[0,0];
+  var fresh=events.filter(function(e){return last[0]!==epoch||e.id>last[1];});if(!fresh.length)return;
+  var rows=fresh.map(function(e){return [epoch,e.id,e.revisionAfter,e.cycle,e.kind,e.va===null?'':e.va,e.pa===null?'':e.pa,e.bytes.join(' '),
+    e.segments.filter(function(b){return b.driver;}).map(function(b){return b.name+':'+b.driver;}).join(' | '),
+    e.segments.filter(function(b){return b.receivers.length;}).map(function(b){return b.name+':'+b.receivers.join(',');}).join(' | '),
+    Object.keys(e.signals).filter(function(k){return e.signals[k];}).join(' '),e.controlWord===null?'':e.controlWord,JSON.stringify(e.changes)];});
+  var start=sheet.getLastRow()+1;
+  P2_EnsureGrid(sheet,start+rows.length-1,13);
+  sheet.getRange(start,1,rows.length,13).setValues(rows);sheet.setFrozenRows(1);
+}
+function P2_OpenControls(){SpreadsheetApp.getUi().showSidebar(HtmlService.createHtmlOutput(P2_Sidebar()).setTitle('Simulador · controles'));}
+function P2_Sidebar(){return '<!doctype html><html><head><base target="_top"><style>body{font:14px Arial;padding:12px;color:#243746}button,select,input{padding:9px;margin:4px 0;width:100%;box-sizing:border-box}button{cursor:pointer}pre{white-space:pre-wrap;font-size:12px}.row{display:flex;gap:6px}.row button{width:50%}#lcd{font:24px monospace;letter-spacing:3px;background:#d9ead3;padding:12px;white-space:pre}#error{color:#a31515}</style></head><body><h3>Los Anunakis · CPU de 8 bits</h3><div id="status">Conectando…</div><pre id="lcd">        </pre><button onclick="change(\'activate\',{})">Activar configuración del equipo</button><select id="demo"><option value="arithmetic">Aritmética 7 × 5</option><option value="echo">Eco de ocho caracteres</option><option value="scattered">Fallos de página y caché</option></select><button onclick="loadDemo()">Cargar demo</button><button onclick="loadEditor()">Cargar código de la hoja Editor</button><div class="row"><button onclick="dispatch(\'step\')">STEP</button><button onclick="startRun()">RUN</button></div><div class="row"><button onclick="pause()">PAUSA</button><button onclick="reset()">RESET</button></div><input id="kbd" maxlength="8" placeholder="Teclado: hasta 8 caracteres"><button onclick="typeText()">Enviar al teclado</button><hr><label>Página a inspeccionar</label><input id="vpn" type="number" min="0" max="15" value="0"><button onclick="editReference()">Alternar Reference (en pausa)</button><hr><label for="pa">Editar byte de RAM en pausa</label><input id="pa" type="number" min="0" max="223" placeholder="Dirección física decimal"><input id="byte" type="number" min="0" max="255" placeholder="Byte decimal"><button onclick="editRam()">Aplicar byte</button><pre id="details"></pre><p id="error"></p><script>let record=null,busy=false,running=false,pendingAction=null;function error(e){busy=false;running=false;document.getElementById("error").textContent=e.message||String(e);google.script.run.withSuccessHandler(r=>{show(r);document.getElementById("error").textContent=e.message||String(e);}).P2_Read();}function show(r){record=r;busy=false;if(!r)return;if(pendingAction){let action=pendingAction;pendingAction=null;dispatch(action);return;}let s=r.state;document.getElementById("error").textContent="";document.getElementById("status").textContent=s.execution.mode+" · "+s.profile.status+" · ciclo "+s.clock.cycle;document.getElementById("lcd").textContent=s.ram.bytes.slice(s.io.lcd.basePa,s.io.lcd.basePa+8).map(b=>b>=32&&b<=126?String.fromCharCode(b):" ").join("");document.getElementById("details").textContent=JSON.stringify(s.cpu.registers)+"\\n"+s.clock.phase+"\\nFIFO: "+s.mmu.fifo.join(",")+(s.mmu.fault?"\\nPAGE FAULT: "+JSON.stringify(s.mmu.fault):"");if(running&&s.execution.mode!=="halted"){if(s.execution.pendingRequest&&s.execution.pendingRequest.stage==="io"&&s.execution.pendingRequest.consume&&s.io.keyboard.count===0){running=false;return;}setTimeout(()=>dispatch("run"),150);}else running=false;}function dispatch(action){if(busy||!record)return;busy=true;google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_Dispatch({action:action,epoch:record.epoch,sequence:record.sequence+1,expectedRevision:record.state.revision,limit:8});}function startRun(){running=true;dispatch("run");}function pause(){running=false;if(busy){pendingAction="pause";return;}dispatch("pause");}function reset(){running=false;if(busy){pendingAction="reset";return;}dispatch("reset");}function change(action,payload){if(busy||!record)return;running=false;busy=true;payload.expectedRevision=record.state.revision;google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_Change(action,payload);}function loadDemo(){if(busy||!record)return;running=false;busy=true;google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_LoadDemo(document.getElementById("demo").value,record.state.revision);}function loadEditor(){if(busy||!record)return;running=false;busy=true;google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_LoadEditor(record.state.revision);}function typeText(){change("type",{text:document.getElementById("kbd").value});}function editRam(){let pa=document.getElementById("pa").valueAsNumber,value=document.getElementById("byte").valueAsNumber;if(!Number.isInteger(pa)||!Number.isInteger(value)){document.getElementById("error").textContent="Escribe una dirección y un byte enteros.";return;}change("editRam",{pa:pa,value:value});}function editReference(){if(!record)return;let vpn=Number(document.getElementById("vpn").value);if(!Number.isInteger(vpn)||vpn<0||vpn>15)return;change("editPage",{vpn:vpn,referenced:!record.state.mmu.pages[vpn].referenced});}google.script.run.withSuccessHandler(show).withFailureHandler(error).P2_Read();</script></body></html>';}
 
 
 // src/sheets/mmu-view.js

@@ -44,14 +44,14 @@ test('all source values are sampled before any destination is changed', () => {
 
 test('LCD capture updates only the bound byte in existing RAM', () => {
   const f = scenario();
-  f.state.ram.bytes[247] = 11;
-  f.state.ram.bytes[249] = 22;
+  f.state.ram.bytes[231] = 11;
+  f.state.ram.bytes[233] = 22;
   f.state.cpu.registers.AX = 65;
   const result = transfer(f.state, f.wiring, { En_AX: true, Ld_LCD: true }, 0);
   assert.equal(result.status, 'completed');
   assert.equal(result.state.ram.bytes.length, 256);
-  assert.deepEqual(result.state.ram.bytes.slice(247, 250), [11, 65, 22]);
-  assert.equal(f.state.ram.bytes[248], 0);
+  assert.deepEqual(result.state.ram.bytes.slice(231, 234), [11, 65, 22]);
+  assert.equal(f.state.ram.bytes[232], 32);
 });
 
 test('script exposes a global without CommonJS (Apps Script loading shape)', () => {

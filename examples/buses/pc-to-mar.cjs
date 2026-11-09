@@ -1,12 +1,13 @@
 'use strict';
 const { transfer } = require('../../src/buses/arbiter.js');
 
-// Test-only wiring. Addresses/control widths await #2/#3; this is not a CPU.
+// Map/IR follow the integrated ISA (#51). Bus routing/control widths still await #3.
 function scenario() {
   const state = { revision: 0, buses: {},
     cpu: { registers: { AX: 0, BX: 0, CX: 0, DX: 0 }, pc: 300, mar: 0,
-      mdr: 0, ir: { bytes: [0] }, alu: { result: 0 } },
+      mdr: 0, ir: { bytes: [0, 0, 0, 0], loadedBytes: 0 }, alu: { result: 0 } },
     ram: { bytes: Array(256).fill(0) } };
+  state.ram.bytes.fill(32, 232, 240);
   const segments = {
     internalAddress: { widthBits: 9, domain: 'virtual' },
     internalData: { widthBits: 8, domain: 'data' },
@@ -22,7 +23,7 @@ function scenario() {
   }
   for (const [name, path] of [['MDR', ['cpu', 'mdr']], ['IR', ['cpu', 'ir', 'bytes', 0]],
     ['ALU', ['cpu', 'alu', 'result']], ['RAM', ['ram', 'bytes', 32]],
-    ['KBD', ['ram', 'bytes', 240]], ['LCD', ['ram', 'bytes', 248]]]) {
+    ['KBD', ['ram', 'bytes', 224]], ['LCD', ['ram', 'bytes', 232]]]) {
     ports.push({ name, path, segment: 'internalData', widthBits: 8 });
   }
   return { state, wiring: { segments, ports } };

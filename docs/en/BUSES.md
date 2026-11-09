@@ -8,7 +8,7 @@
 `BusArbiter.transfer(state, wiring, signals, expectedRevision)` calculates a
 complete transaction on a detached state copy. It neither writes to Sheets
 nor owns another register bank. Ports bind existing paths, such as
-`['cpu', 'registers', 'AX']` or `['ram', 'bytes', 248]`. Receivers update those
+`['cpu', 'registers', 'AX']` or `['ram', 'bytes', 232]`. Receivers update those
 locations in the new state.
 
 A `completed` result contains `state` and `event`. The coordinator may replace
@@ -29,15 +29,18 @@ or control. The example provides six segments:
   Joseph must establish the production widths in #3.
 
 Each `wiring.ports` entry supplies `{name, segment, path, widthBits}`. Names
-are unique and paths must exist. Values are unsigned integers. A wider bus
+are unique and paths must exist. Array paths require an existing integer
+index; `length` cannot be a port, preventing accidental RAM/IR resizing.
+Values are unsigned integers. A wider bus
 can feed a narrow receiver only when the value fits; overflow is rejected,
 never truncated or coerced from text. Two active receivers cannot target
 the same path. Ports cannot target the reserved revision/buses metadata.
 
 The demo connects PC/MAR to the address segment and other endpoints to the
-data segment to test Enable/Load. IR receives one byte at cpu.ir.bytes[0];
-this does not define an ISA or multibyte instruction assembly. RAM[240] and
-RAM[248] are **illustrative** KBD/LCD locations pending #2. Their internal-bus
+data segment to test Enable/Load. IR receives one byte at one of its four
+positions, following the [ISA integrated in PR #51](../ISA_MAPA_MEMORIA.md).
+RAM[224] and RAM[232] are the first KBD/LCD positions; LCD starts with eight
+ASCII spaces (32). Their internal-bus
 connection is a test arrangement; the final external route/bridges belong to #3.
 
 ## Transaction rules
@@ -73,6 +76,7 @@ Requires Node with node:test; verified using v24.18.0 without dependencies:
 
 ```sh
 node --test tests/unit/bus-arbiter.test.cjs tests/unit/bus-ports.test.cjs
+node --test tests/contracts/core.test.mjs tests/integration/bus-state.test.cjs
 node examples/buses/pc-to-mar.cjs
 ```
 
@@ -84,7 +88,8 @@ Captured output is linked in the evidence.
 
 This is a tested standalone kernel. Before closing #7:
 
-- Resolve #1/#2/#3 and finalize wiring, control widths, mappings and legal signals.
+- Complete #1/#2/#3 compatibility and finalize wiring, control widths and
+  legal signals. The memory map and IR format now follow PR #51.
 - Connect the approved state, clock, control and complete snapshot. Validate
   ISA, I/O and coherence **before publishing** a result; the kernel alone
   does not authorize memory writes.
@@ -98,3 +103,5 @@ This is a tested standalone kernel. Before closing #7:
 Global BusArbiter loading without CommonJS was tested using Node VM.
 **No Google Apps Script deployment or execution has been performed.**
 The issue stays In Progress with a draft PR until integration is ready.
+Integration tests exercise the kernel against the complete #1 snapshot and
+the #2 memory map/IR; they do not run a complete CPU or spreadsheet.

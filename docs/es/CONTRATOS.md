@@ -18,18 +18,19 @@ y dos reservas de ocho bytes para teclado y LCD **dentro de RAM**.
 
 Pendiente de revisión, sin afirmar acuerdos del equipo:
 
-- Marcelo (#2): codificación ISA, longitud máxima de IR, semántica de flags,
-  anchuras finales PC/MAR, direcciones KBD/LCD y páginas/marcos protegidos.
+- La referencia de #2 ya está integrada mediante el PR #51:
+  [ISA y mapa](../ISA_MAPA_MEMORIA.md). Este contrato adopta sus anchos,
+  IR de cuatro bytes, mapa de E/S y contenido inicial del LCD.
 - Joseph (#3): escritura/asignación de cachés, vector y codificación binaria
   de señales, anchura de buses de control y secuencias de acceso.
 - Marcelo y Joseph: revisar este contrato y sus ejemplos en el PR. No se
   considera cumplido el criterio de revisión hasta que ambos lo comprueben.
 
-Las anchuras de 9 bits para PC/MAR y el perfil de ejemplos son propuestas.
-El perfil ilustrativo reserva PA 240..247 para KBD y 248..255 para LCD;
+PC/MAR tienen 9 bits según la ISA integrada. El perfil reserva
+PA 224..231 (VA 480..487) para KBD y PA 232..239 (VA 488..495) para LCD;
 VPN 15 se fija a PFN 7 (VA 480..511). Todo el marco 7 queda excluido de FIFO,
 incluidos sus 16 bytes sin periférico. Quedan siete marcos reemplazables.
-No se deben implementar estas ubicaciones como constantes hasta resolver #2.
+PA 240..255 / VA 496..511 quedan reservadas y rechazan accesos ordinarios.
 Las políticas de escritura y la codificación de control permanecen `null`
 hasta resolver #3; `null` significa pendiente, nunca una política implícita.
 
@@ -46,8 +47,9 @@ convertir cadenas en números ni aplicar módulo para ocultar entradas inválida
   de las decisiones. `status: "proposal"` impide Run/Step de producción.
 - `revision`: contador de commits de estado, empieza en 0. No es un commit Git.
 - `cpu.registers`: AX, BX, CX, DX (0..255); `pc`, `mar` (0..511 en este
-  perfil), `mdr` (0..255), `ir: {bytes, decoded}`. IR conserva bytes en orden
-  de fetch; `decoded` es `null` hasta completar una instrucción válida.
+  perfil), `mdr` (0..255), `ir: {bytes, decoded, loadedBytes}`. IR tiene cuatro
+  bytes inicializados en cero y `loadedBytes` de 0 a 4. El fetch llena una
+  posición por vez; `decoded` es `null` hasta completar una instrucción válida.
 - `cpu.flags`: ZF, CF, SF booleanos, inicialmente falsos. Las reglas por
   operación pertenecen a #2; este contrato no las inventa.
 - `cpu.alu`: operandos A/B y resultado (bytes), operación nula en reposo.
@@ -79,7 +81,7 @@ convertir cadenas en números ni aplicar módulo para ocultar entradas inválida
   índices 0..7, count 0..8. Vacío: head=tail=count=0. Lleno: count=8;
   head=tail por sí solo no distingue lleno de vacío. No guarda otro buffer.
 - `io.lcd`: `basePa`, `length: 8`, `cursor: 0`. La vista se obtiene de
-  RAM; el byte 0 se presenta vacío, no como un carácter visible.
+  RAM; reset escribe ocho espacios ASCII (32) en PA 232..239.
 - `clock`: `cycle`, `microStep`, `phase`; reset da 0, 0, `idle`.
 - `execution`: `mode` (`idle`, `paused`, `running`, `halted`, `error`),
   `pendingRequest`, `lastError`; reset da `idle`, `null`, `null`.
@@ -121,8 +123,11 @@ Se rechazan VA negativa, no entera o mayor que 511, bytes fuera de 0..255,
 longitud inválida y fetch en E/S. Un acceso se traduce por página **antes**
 de consultar cachés. Un fetch que cruza línea/página se divide en accesos
 correctamente traducidos; no se suma un offset a un PA de otro marco.
-L1I solo recibe fetch, L1D solo datos. E/S evita todas las cachés, requiere
-señal IO y endpoint autorizado; una escritura ordinaria no toca reservas.
+L1I solo recibe fetch, L1D solo datos. E/S evita todas las cachés y activa
+IO con un endpoint autorizado, también para LOAD/STORE. LOAD sobre KBD
+inspecciona sin consumir; STORE sobre KBD se rechaza. LOAD/STORE sobre LCD
+acceden a bytes y STORE no mueve el cursor. IN consume una vez al completar;
+OUT escribe y avanza el cursor. El controlador valida ASCII 32..126.
 Dirty/Reference se actualizan aun si hay hit según la operación y #3.
 
 Resultados discriminados:
@@ -186,7 +191,8 @@ Las animaciones no pueden avanzar la CPU ni escribir directamente en RAM.
 ## Reinicio determinista
 
 Para el mismo perfil aprobado, reset produce siempre los mismos datos:
-registros, flags, reloj, métricas, RAM y Swap a cero; IR vacío; señales
+registros, flags, reloj, métricas y Swap a cero; RAM a cero excepto los ocho
+espacios ASCII (32) de LCD; IR con cuatro ceros y loadedBytes=0; señales
 apagadas; buses Z; cachés inválidas y bytes cero; colas FIFO vacías;
 sin peticiones, fallos, errores ni evento. KBD vacío y cursor LCD a cero.
 Las páginas/marcos fijados por el perfil conservan su mapeo, no su contenido.

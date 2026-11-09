@@ -2,11 +2,11 @@
 
 Estos archivos se construyeron para revisar el formato; **no son una traza
 obtenida ejecutando el simulador**. El perfil sigue siendo una propuesta y
-Run/Step debe rechazarlo hasta cerrar #2 y #3. La transferencia describe cómo
+Run/Step debe rechazarlo hasta cerrar #3 y aprobar el perfil conjunto. La transferencia describe cómo
 se representaría un paso con perfil aprobado, sin implementarlo ni ejecutarlo.
 
 These are hand-built contract fixtures, **not simulator execution traces**.
-Run/Step must reject the proposal profile until #2 and #3 settle the pending
+Run/Step must reject the proposal profile until #3 and joint review settle the pending
 decisions. The transfer describes an approved-profile step without executing it.
 
 - [reset.snapshot.json](reset.snapshot.json): estado completo de reset
@@ -29,10 +29,12 @@ translation or memory access: PA is null and bytes is empty. The other five
 segments remain Z. `changes` lists all changes except `lastEvent`, which
 receives the event itself without circular references.
 
-El mapa KBD PA 240..247 / VA 496..503, LCD PA 248..255 / VA 504..511 y VPN
-15 → PFN 7 fijado es ilustrativo, pendiente de Marcelo. Las políticas de
-escritura/asignación y codificación de control esperan a Joseph.
+El mapa sigue la [ISA integrada en PR #51](../../ISA_MAPA_MEMORIA.md): KBD
+PA 224..231 / VA 480..487, LCD PA 232..239 / VA 488..495 y VPN 15 → PFN 7
+fijado. LCD inicia con ocho espacios (32), IR con cuatro ceros y loadedBytes=0.
+Las políticas de escritura/asignación y codificación de control esperan a Joseph.
 
-The illustrative mapping (KBD PA 240..247 / VA 496..503, LCD PA 248..255 /
-VA 504..511, pinned VPN 15 → PFN 7) awaits Marcelo. Write/allocation policies
-and control encoding await Joseph.
+The map follows the ISA integrated in PR #51: KBD PA 224..231 / VA 480..487,
+LCD PA 232..239 / VA 488..495, pinned VPN 15 → PFN 7. LCD starts with eight
+spaces (32); IR has four zeros and loadedBytes=0. Write/allocation policies
+and control encoding still await Joseph.

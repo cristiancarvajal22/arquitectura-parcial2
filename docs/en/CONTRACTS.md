@@ -17,18 +17,18 @@ and LCD reservations **within RAM**.
 
 Pending review; these are not claimed team agreements:
 
-- Marcelo (#2): ISA encoding, maximum IR length, flag semantics, final
-  PC/MAR widths, KBD/LCD addresses and pinned pages/frames.
+- The #2 reference is integrated through PR #51: [ISA and memory map](../ISA_MAPA_MEMORIA.md).
+  This contract adopts its widths, four-byte IR, I/O map and initial LCD contents.
 - Joseph (#3): cache write/allocation policies, complete signal vector and
   binary encoding, control-bus widths and access sequences.
 - Both Marcelo and Joseph: review this contract and its examples in the PR.
   Their review criterion remains incomplete until both actually review it.
 
-Nine-bit PC/MAR and the example profile are proposals. The illustrative
-profile reserves PA 240..247 for KBD and 248..255 for LCD, mapping VPN 15
+PC/MAR use nine bits according to the integrated ISA. The profile reserves
+PA 224..231 (VA 480..487) for KBD and PA 232..239 (VA 488..495) for LCD, mapping VPN 15
 to pinned PFN 7 (VA 480..511). The entire frame 7 is excluded from FIFO,
 including its sixteen non-peripheral bytes. Seven frames are replaceable.
-Do not hard-code these locations before #2 is resolved. Cache write policies
+PA 240..255 / VA 496..511 remain reserved and reject ordinary accesses. Cache write policies
 and control encoding remain `null` pending #3; null never implies a default.
 
 ## Shared representation · schemaVersion 1
@@ -43,8 +43,9 @@ mutation: do not truncate addresses, coerce strings or wrap invalid inputs.
   status. `status: "proposal"` prevents production Run/Step.
 - `revision`: state commit counter, initially 0; unrelated to Git commits.
 - `cpu.registers`: AX/BX/CX/DX (0..255); `pc`/`mar` (0..511 in this
-  profile), `mdr` (0..255), `ir: {bytes, decoded}`. IR retains fetch order;
-  decoded stays null until a complete valid instruction is available.
+  profile), `mdr` (0..255), `ir: {bytes, decoded, loadedBytes}`. IR has four
+  initially zero bytes and loadedBytes from 0 to 4. Fetch fills one position
+  at a time; decoded stays null until a complete valid instruction is available.
 - `cpu.flags`: ZF/CF/SF booleans, initially false. Operation-specific rules
   belong to #2 and are not invented by this contract.
 - `cpu.alu`: byte operands A/B and result; operation null when idle.
@@ -74,8 +75,8 @@ mutation: do not truncate addresses, coerce strings or wrap invalid inputs.
 - `io.keyboard`: basePa, capacity 8, head, tail, count; indices 0..7 and
   count 0..8. Reset sets head=tail=count=0. Full means count=8; head=tail
   alone does not distinguish full/empty. There is no second byte buffer.
-- `io.lcd`: basePa, length 8, cursor 0. Its view reads RAM; zero displays
-  an empty position rather than a visible character.
+- `io.lcd`: basePa, length 8, cursor 0. Its view reads RAM; reset writes eight
+  ASCII spaces (32) to PA 232..239.
 - `clock`: cycle 0, microStep 0, phase idle on reset.
 - `execution`: mode (`idle`, `paused`, `running`, `halted`, `error`),
   pendingRequest and lastError; reset values are idle, null and null.
@@ -114,8 +115,11 @@ positive length and va + length <= 512. Reject fractional/negative/out-of-range
 VA, values outside 0..255, invalid lengths and instruction fetches from I/O.
 Translate each page **before** caches. Fetches crossing lines/pages split into
 correctly translated accesses; never extend a PA into an unrelated frame.
-L1I serves only fetch; L1D serves data. I/O bypasses all caches and requires
-IO plus an authorized endpoint; ordinary writes cannot touch reservations.
+L1I serves only fetch; L1D serves data. I/O bypasses all caches and asserts
+IO with an authorized endpoint, including LOAD/STORE. LOAD from KBD peeks
+without consuming; STORE to KBD is rejected. LCD LOAD/STORE access bytes;
+STORE does not advance its cursor. IN consumes once on completion; OUT
+writes and advances the cursor. The controller validates ASCII 32..126.
 Dirty/Reference update even on hits, according to the operation and #3.
 
 Discriminated results:
@@ -175,7 +179,8 @@ maintenance steps. Animations cannot advance CPU or write RAM directly.
 ## Deterministic reset
 
 The same approved profile produces the same reset data: zeroed registers,
-flags, clock, metrics, RAM and Swap; empty IR; inactive signals; Z buses;
+flags, clock, metrics and Swap; RAM zero except eight LCD ASCII spaces (32);
+IR with four zero bytes and loadedBytes=0; inactive signals; Z buses;
 invalid zeroed cache lines; empty FIFOs; no request, fault, error or event;
 empty keyboard and LCD cursor zero. Pinned pages/frames retain their mapping,
 not their contents. Other pages are non-present and other frames free.

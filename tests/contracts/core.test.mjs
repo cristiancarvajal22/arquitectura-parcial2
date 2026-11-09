@@ -22,7 +22,7 @@ const signalNames = [...endpoints.flatMap(x => [`En_${x}`, `Ld_${x}`]),
 function validateSnapshot(state) {
   assert.equal(state.schemaVersion, 1);
   assert.equal(state.profile.status, 'proposal');
-  assert.deepEqual(state.profile.pendingIssues, [2, 3]);
+  assert.deepEqual(state.profile.pendingIssues, [3]);
   assert.deepEqual(state.profile.sizes, { ramBytes: 256, virtualBytes: 512,
     pageBytes: 32, frameCount: 8, pageCount: 16, lineBytes: 8, l2Lines: 4 });
   assert.equal(state.profile.cachePolicy.write, null);
@@ -35,7 +35,9 @@ function validateSnapshot(state) {
   integer(state.cpu.pc, 511);
   integer(state.cpu.mar, 511);
   integer(state.cpu.mdr, 255);
-  bytes(state.cpu.ir.bytes, state.cpu.ir.bytes.length);
+  assert.equal(state.profile.widths.irMaxBytes, 4);
+  bytes(state.cpu.ir.bytes, 4);
+  integer(state.cpu.ir.loadedBytes, 4);
   assert.deepEqual(Object.keys(state.cpu.flags), ['ZF', 'CF', 'SF']);
   Object.values(state.cpu.flags).forEach(flag => assert.equal(typeof flag, 'boolean'));
   for (const key of ['a', 'b', 'result']) integer(state.cpu.alu[key], 255);
@@ -117,6 +119,10 @@ function validateSnapshot(state) {
     .flatMap((line, i) => line.valid ? [i] : []).sort());
 
   const reserved = [];
+  assert.deepEqual(state.profile.ioMap, {
+    keyboard: { va: 480, pa: 224, length: 8 },
+    lcd: { va: 488, pa: 232, length: 8 },
+  });
   for (const [name, mapping] of Object.entries(state.profile.ioMap)) {
     assert.equal(mapping.length, 8);
     integer(mapping.pa, 248);
@@ -152,10 +158,11 @@ for (const [name, state] of Object.entries({ reset, before, after })) {
 }
 
 test('reset fixture: zero data, invalid caches, empty queues and idle control', () => {
-  for (const values of [Object.values(reset.cpu.registers), reset.ram.bytes,
+  for (const values of [Object.values(reset.cpu.registers),
     ...reset.swap.pages, reset.caches.l1i.bytes, reset.caches.l1d.bytes,
     ...reset.caches.l2.lines.map(line => line.bytes)]) assert.ok(values.every(v => v === 0));
-  assert.deepEqual(reset.cpu.ir, { bytes: [], decoded: null });
+  assert.deepEqual(reset.cpu.ir, { bytes: [0, 0, 0, 0], decoded: null, loadedBytes: 0 });
+  reset.ram.bytes.forEach((byte, pa) => assert.equal(byte, pa >= 232 && pa < 240 ? 32 : 0));
   for (const field of ['pc', 'mar', 'mdr']) assert.equal(reset.cpu[field], 0);
   assert.ok(Object.values(reset.cpu.flags).every(v => v === false));
   assert.ok(Object.values(reset.cpu.control.signals).every(v => v === false));
@@ -168,7 +175,7 @@ test('reset fixture: zero data, invalid caches, empty queues and idle control', 
   assert.deepEqual(reset.mmu.fifo, []);
   assert.deepEqual(reset.caches.l2.fifo, []);
   assert.ok([reset.caches.l1i, reset.caches.l1d, ...reset.caches.l2.lines].every(l => !l.valid));
-  assert.deepEqual(reset.io.keyboard, { basePa: 240, capacity: 8, head: 0, tail: 0, count: 0 });
+  assert.deepEqual(reset.io.keyboard, { basePa: 224, capacity: 8, head: 0, tail: 0, count: 0 });
   assert.equal(reset.io.lcd.cursor, 0);
   assert.deepEqual(reset.metrics, { l1i: { hits: 0, misses: 0 }, l1d: { hits: 0, misses: 0 },
     l2: { hits: 0, misses: 0 }, pageFaults: 0, committedMicroSteps: 0 });
@@ -220,7 +227,7 @@ const invalidCases = {
   'pinned frame in FIFO': s => { s.mmu.fifo.push(7); },
   'duplicate FIFO entry': s => { s.mmu.fifo.push(0, 0); },
   'inconsistent page-frame mapping': s => { s.mmu.pages[15].pfn = 6; },
-  'overlapping I/O reservations': s => { s.profile.ioMap.lcd = { ...s.profile.ioMap.keyboard }; s.io.lcd.basePa = 240; },
+  'overlapping I/O reservations': s => { s.profile.ioMap.lcd = { ...s.profile.ioMap.keyboard }; s.io.lcd.basePa = 224; },
   'duplicated keyboard buffer': s => { s.io.keyboard.buffer = Array(8).fill(0); },
   'Z represented as zero': s => { s.buses.internalData.value = 0; },
   'two drivers in committed state': s => { s.buses.internalData.drivers = ['AX', 'BX']; },

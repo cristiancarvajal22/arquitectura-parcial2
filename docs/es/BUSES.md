@@ -9,7 +9,7 @@
 transacción completa sobre una copia del estado recibido. No escribe en Sheets
 ni conserva un segundo banco de registros. Los puertos señalan rutas existentes
 del estado compartido: por ejemplo `['cpu', 'registers', 'AX']` o
-`['ram', 'bytes', 248]`. Un receptor actualiza esa ubicación en el nuevo estado.
+`['ram', 'bytes', 232]`. Un receptor actualiza esa ubicación en el nuevo estado.
 
 Un resultado `completed` contiene `state` y `event`. El coordinador puede
 sustituir el estado anterior una sola vez después de validar el resto del
@@ -30,7 +30,9 @@ enteros de 1 a 32 bits; no hay anchos implícitos. Los dominios permitidos son
   Joseph debe fijar los anchos reales en #3 antes de la integración.
 
 `wiring.ports` contiene `{name, segment, path, widthBits}` por puerto. El nombre
-debe ser único y la ruta debe existir. Los valores son enteros sin signo.
+debe ser único y la ruta debe existir. Dentro de un arreglo se exige un índice
+entero existente; nunca se admite `length` como puerto, para no redimensionar
+RAM o IR accidentalmente. Los valores son enteros sin signo.
 Un bus más ancho puede alimentar un receptor estrecho únicamente si el valor
 cabe en él. Se rechaza overflow; nunca se truncan bits ni se convierten cadenas.
 Dos receptores activos no pueden escribir la misma ruta en una transacción.
@@ -38,9 +40,10 @@ Los puertos no pueden apuntar a `revision` o `buses`, reservados al resultado.
 
 La demo conecta PC/MAR al segmento de direcciones y los demás puertos al
 segmento de datos para comprobar Enable/Load. Usa IR como un byte recibido
-en `cpu.ir.bytes[0]`. No define una ISA ni el ensamblado de IR multibyte.
-RAM[240] y RAM[248] son ubicaciones **ilustrativas** de KBD/LCD, pendientes
-de #2. La conexión de ambos periféricos al bus interno es un montaje de
+en una de las cuatro posiciones de `cpu.ir.bytes`, siguiendo la ISA integrada
+en [PR #51](../ISA_MAPA_MEMORIA.md). RAM[224] y RAM[232] son las primeras
+posiciones de KBD/LCD; LCD inicia con ocho espacios ASCII (32).
+La conexión de ambos periféricos al bus interno sigue siendo un montaje de
 prueba; el recorrido externo definitivo y sus puentes pertenecen a #3.
 
 ## Reglas del paso
@@ -77,6 +80,7 @@ Requiere Node.js con `node:test`; se comprobó con v24.18.0, sin dependencias:
 
 ```sh
 node --test tests/unit/bus-arbiter.test.cjs tests/unit/bus-ports.test.cjs
+node --test tests/contracts/core.test.mjs tests/integration/bus-state.test.cjs
 node examples/buses/pc-to-mar.cjs
 ```
 
@@ -88,7 +92,8 @@ intacto. La salida guardada está en la evidencia.
 
 Esta entrega prueba un núcleo independiente. Antes de cerrar #7 hacen falta:
 
-- Resolver #1/#2/#3 y fijar cableado, anchos de control, mapeo y señales legales.
+- Completar la compatibilidad entre #1/#2/#3 y fijar cableado, anchos de
+  control y señales legales. El mapa y el formato IR ya siguen el PR #51.
 - Conectar el núcleo al estado aprobado, reloj, control y snapshot completo.
   El coordinador debe validar ISA, E/S y coherencia **antes de publicar** el
   resultado; este módulo no autoriza por sí mismo una escritura de memoria.
@@ -102,3 +107,5 @@ Esta entrega prueba un núcleo independiente. Antes de cerrar #7 hacen falta:
 El archivo se carga como `BusArbiter` global sin CommonJS; se verificó esa
 forma de carga en Node VM. **No se desplegó ni ejecutó en Google Apps Script**.
 La tarjeta permanece In Progress con un PR en borrador hasta la integración.
+Las pruebas de integración comprueban el núcleo contra el snapshot completo
+de #1 y el mapa/IR de #2; no ejecutan una CPU ni una planilla completa.

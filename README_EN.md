@@ -4,7 +4,7 @@ A computer simulator built with **Google Sheets + JavaScript/Google Apps Script*
 
 **Team:** Cristian, Marcelo and Joseph.
 **Reported deadline:** Monday, November 9, 2026, 10:00 (America/La_Paz).
-**Status:** organization and planning only. Simulator implementation has not started.
+**Branch status:** integrated motor, local tests and three reproducible demos. Live Sheets installation, peer review and access from another account must be checked before declaring delivery complete.
 
 ## Work organization
 Tasks and progress are recorded on the [Project board](https://github.com/users/cristiancarvajal22/projects/6). Each issue includes a description, planned work, acceptance criteria and deliverables. The first three tasks define the shared state, instruction set, memory map, cache rules and control signals used to integrate the simulator.
@@ -25,4 +25,10 @@ The target is Excellent across 100 group points and 60 individual points per stu
 ## Links
 [Español](README.md) · [Team organization](docs/ORGANIZACION.md) · [Contribution steps](CONTRIBUTING.md) · [Architecture](docs/ARQUITECTURA.md) · [Rubric](docs/RUBRICA.md) · [Issues](https://github.com/cristiancarvajal22/arquitectura-parcial2/issues)
 
-The spreadsheet does not exist yet. Its verified direct link will be added with the implementation and complete bilingual user manual.
+[Team spreadsheet](https://docs.google.com/spreadsheets/d/1VhOJ5jGlvC1rMByyLyrB1OWXCSWokwGDJDajLnvnqLE/edit). Earlier standalone views were checked; the integrated build and evaluator access still require live verification.
+
+## Run this build
+
+[English manual](docs/en/MANUAL.md) · [Spanish manual](docs/es/MANUAL.md) · [Apps Script bundle](dist/SimuladorP2.gs) · [Integration](docs/en/INTEGRATION.md) · [Real local demo results](docs/evidence/integration/demos.json).
+
+Install the bundle in the bound Apps Script project and run `P2_Setup`. Local regression uses Node.js and no npm dependencies; see the Spanish README for the exact commands. Team dependencies retain their original commits and authorship. Local tests are not a claim of live deployment or completed peer review.

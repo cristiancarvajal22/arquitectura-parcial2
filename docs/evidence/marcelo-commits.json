@@ -1,0 +1,223 @@
+{
+  "scope": "origin/develop..HEAD; non-merge commits only",
+  "sourceCommit": "308773398f507462192c8a4f0f4322af5ce472ae",
+  "authors": {
+    "marceloaguilera777": 35,
+    "JOSEPHPEREZ": 15,
+    "Cristian carvajal": 18,
+    "cristiancarvajal22": 3
+  },
+  "marceloCommits": [
+    {
+      "sha": "308773398f507462192c8a4f0f4322af5ce472ae",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:52:32-04:00",
+      "subject": "fix(build): normalizar paquete Apps Script entre Windows y Linux"
+    },
+    {
+      "sha": "3985ec7e7c240c9cf8a8c353a6f8e7fb5e382f25",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:23-04:00",
+      "subject": "ci: verificar integracion completa y paquete Apps Script"
+    },
+    {
+      "sha": "332763724730a60ceb2bd12aa2c5c36e1dff92ca",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:21-04:00",
+      "subject": "feat(sheets): conectar controles paneles y estado persistente"
+    },
+    {
+      "sha": "482072eecacb0f08843c51cd1190d41654b82d9f",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:19-04:00",
+      "subject": "feat(programs): agregar demos ejecutables y trazas reproducibles"
+    },
+    {
+      "sha": "2f00a90dea5cf05ffaf41a18c62720affa713cb6",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:17-04:00",
+      "subject": "feat(cpu): integrar microsecuencias buses memoria y perifericos"
+    },
+    {
+      "sha": "08bd0ce6e0c8893ffe07b904edf96e59b33da604",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:50:14-04:00",
+      "subject": "fix(lcd): validar bus driven y respetar el reset compartido"
+    },
+    {
+      "sha": "02c7a2092d0bfd4d1d919e3c5c975ab84a77be4b",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:04:38-04:00",
+      "subject": "feat: mostrar ocho caracteres LCD y bytes de video"
+    },
+    {
+      "sha": "8a915905e8fab03f17009ceedc42aa0cacb353af",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:01:31-04:00",
+      "subject": "ci: ejecutar pruebas LCD"
+    },
+    {
+      "sha": "390d5f382ff27cc70bb1adf4a484be2bf1e50402",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:00:33-04:00",
+      "subject": "test: verificar LCD cursor circular y recepcion por bus"
+    },
+    {
+      "sha": "68f0e4416c0adf0b1800d3bb41ab162aaee5b16b",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T07:59:46-04:00",
+      "subject": "feat: implementar receptor LCD y vista desde RAM"
+    },
+    {
+      "sha": "9348c851dcefd2fbd0e42d3e99f6c71fc6cdf0ea",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T07:53:24-04:00",
+      "subject": "feat: agregar implementacion L1D faltante"
+    },
+    {
+      "sha": "2f9b5d1b48613ef80dcfd6b6bdb68e7b12e3f491",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T07:49:30-04:00",
+      "subject": "ci: ejecutar pruebas L1D"
+    },
+    {
+      "sha": "ff876400be82e45f2a306774a0c3ba096d981406",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T07:48:46-04:00",
+      "subject": "test: verificar lecturas escrituras y bypass de L1D"
+    },
+    {
+      "sha": "4654a96622f40b92354ba1a7c66c834ae1fe0190",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T07:33:05-04:00",
+      "subject": "ci: ejecutar pruebas de metricas de cache"
+    },
+    {
+      "sha": "36524c831e3319b3d49c968afbea14a3f7a691ab",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T07:32:28-04:00",
+      "subject": "test: verificar metricas de cache y consultas repetidas"
+    },
+    {
+      "sha": "b1730aee50c892b6f99e59d2fd5bd25dd1882f15",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T07:31:54-04:00",
+      "subject": "feat: implementar contadores y tasas de acierto de cache"
+    },
+    {
+      "sha": "26185682ddc6ea6e8771772bfdaf5a4317498712",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T01:36:20-04:00",
+      "subject": "ci: incluir pruebas de permisos de acceso MMU"
+    },
+    {
+      "sha": "3f7d227c618360831ca86befe2572505afb36aea",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T01:33:30-04:00",
+      "subject": "test: comprobar permisos de memoria y bypass de E/S"
+    },
+    {
+      "sha": "21007da9cb3e26807aa9352f764cfde1ea6c6d9e",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T01:31:48-04:00",
+      "subject": "feat: validar reservas y permisos de acceso de la MMU"
+    },
+    {
+      "sha": "127430aa652d49175aabaf7cc0fb59e068fc2e9b",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T00:52:05-04:00",
+      "subject": "feat: agregar vista de tabla de paginas en Sheets"
+    },
+    {
+      "sha": "1a54a26867704148b14b9855bac175159eb3de34",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T00:33:49-04:00",
+      "subject": "ci: incluir pruebas de coherencia del snapshot"
+    },
+    {
+      "sha": "cc52b1a871dbcafd2e34b7cdf9f4d2456ffe6123",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T00:32:58-04:00",
+      "subject": "test: verificar coherencia de paginas marcos y reservas"
+    },
+    {
+      "sha": "66bbd58aa336720c372007938585b7048d950cf4",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T00:31:09-04:00",
+      "subject": "feat: validar coherencia entre paginas y marcos del snapshot"
+    },
+    {
+      "sha": "579eb5b4a17b2d61668751e19c81513475e360e6",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T00:22:08-04:00",
+      "subject": "docs: registrar evidencia de pruebas MMU"
+    },
+    {
+      "sha": "1ad6fb3fe74abaf5d704c07e110ed48acbcd656a",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T00:15:45-04:00",
+      "subject": "ci: ejecutar pruebas de traduccion MMU"
+    },
+    {
+      "sha": "6898685e567d334f61bc3679225ca3f43cbe74cd",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T00:15:21-04:00",
+      "subject": "test: comprobar traduccion MMU y consistencia de paginas"
+    },
+    {
+      "sha": "4366f7f8b6e1d6fa3e7613ab1ad9eac4a5382363",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T00:13:59-04:00",
+      "subject": "feat: implementar tabla de paginas y traduccion virtual a fisica"
+    },
+    {
+      "sha": "b180fb801e6a7ca4f785a496f11d8486683bd303",
+      "author": "marceloaguilera777",
+      "date": "2026-11-08T23:50:20-04:00",
+      "subject": "ci: incluir pruebas de microsecuencias de CPU"
+    },
+    {
+      "sha": "30f65f521f3fe5175bc6b59df720c1ce736725a5",
+      "author": "marceloaguilera777",
+      "date": "2026-11-08T23:48:24-04:00",
+      "subject": "test: comprobar planes de microsecuencias de CPU"
+    },
+    {
+      "sha": "f150424cd50bbfc9ed1931d658300a1e24f2b852",
+      "author": "marceloaguilera777",
+      "date": "2026-11-08T23:46:57-04:00",
+      "subject": "feat: definir planes de microoperaciones para la ISA"
+    },
+    {
+      "sha": "222d57fcef41681fe1184765b157cf239d70493c",
+      "author": "marceloaguilera777",
+      "date": "2026-11-08T23:43:27-04:00",
+      "subject": "docs: registrar evidencia de pruebas del decodificador"
+    },
+    {
+      "sha": "346596014f8fd64eed94f8c6dc8381f94d858e95",
+      "author": "marceloaguilera777",
+      "date": "2026-11-08T23:32:55-04:00",
+      "subject": "ci: ejecutar pruebas del decodificador en GitHub Actions"
+    },
+    {
+      "sha": "0826e24af599d27afb1924ca5fe3d703249b2294",
+      "author": "marceloaguilera777",
+      "date": "2026-11-08T23:30:47-04:00",
+      "subject": "test: verificar decodificacion y validacion de la ISA"
+    },
+    {
+      "sha": "66b76379c61100e0c5b0d4f9065ee1f7e6d1a01f",
+      "author": "marceloaguilera777",
+      "date": "2026-11-08T23:21:04-04:00",
+      "subject": "feat: implementar decodificador de instrucciones de cuatro bytes"
+    },
+    {
+      "sha": "8f78776056db517b52acd831015de06a72d8b674",
+      "author": "marceloaguilera777",
+      "date": "2026-11-08T23:18:12-04:00",
+      "subject": "docs: definir microsecuencias iniciales de CPU para P2-005"
+    }
+  ],
+  "review": "Peer review, oral rehearsal and actual Sheets deployment are not inferred from commit counts."
+}

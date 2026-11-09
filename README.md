@@ -4,7 +4,7 @@ Simulador de una computadora en **Google Sheets + JavaScript/Google Apps Script*
 
 **Equipo:** Cristian, Marcelo y Joseph.
 **Cierre comunicado:** lunes 9 de noviembre de 2026 a las 10:00, hora de Bolivia (America/La_Paz).
-**Estado:** organización y planificación. Todavía no se ha programado el simulador.
+**Estado de esta rama:** motor integrado con pruebas locales y tres demos reproducibles. La instalación integrada en Sheets, la revisión entre compañeros y la comprobación desde otra cuenta deben verificarse antes de declarar la entrega terminada.
 
 ## Trabajo del equipo
 Las tareas y su avance se registran en el [tablero](https://github.com/users/cristiancarvajal22/projects/6). Cada tarjeta reúne la descripción, el trabajo a realizar, los criterios de aceptación y el entregable.
@@ -34,4 +34,22 @@ Los detalles obligatorios están en la [arquitectura](docs/ARQUITECTURA.md) y la
 - [Cómo usar ramas, commits y PR](CONTRIBUTING.md)
 - [English documentation](README_EN.md)
 
-La planilla de Google Sheets todavía no existe. Se añadirá su enlace directo verificado y el manual cuando se implemente el simulador.
+[Planilla del equipo](https://docs.google.com/spreadsheets/d/1VhOJ5jGlvC1rMByyLyrB1OWXCSWokwGDJDajLnvnqLE/edit). Existe y se comprobaron previamente vistas aisladas; la versión integrada y el acceso de evaluación requieren comprobación real.
+
+## Ejecutar esta versión
+
+- [Manual ES](docs/es/MANUAL.md) · [Manual EN](docs/en/MANUAL.md).
+- [Paquete único de Apps Script](dist/SimuladorP2.gs): instalar en el proyecto vinculado y ejecutar `P2_Setup`.
+- [Integración y buses](docs/es/INTEGRACION.md) · [Resultados y trazas de las demos](docs/evidence/integration/demos.json).
+- [Guion de Marcelo](docs/es/DEFENSA_MARCELO.md) · [Auditoría y pendientes](docs/evidence/MARCELO_AUDIT.md).
+
+Pruebas sin dependencias npm:
+
+```sh
+node scripts/prepare-test-deps.cjs
+node scripts/build-app.cjs --check
+node --test tests/contracts/*.mjs tests/unit/*.mjs tests/unit/*.cjs tests/integration/*.cjs tests/acceptance/*.cjs
+node scripts/demo-evidence.cjs --check
+```
+
+Las ramas originales de los compañeros se integraron preservando sus commits. Los módulos de terceros del equipo no se presentan como código original de Marcelo.

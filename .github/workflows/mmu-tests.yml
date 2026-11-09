@@ -1,0 +1,29 @@
+name: Pruebas MMU
+
+on:
+  push:
+    branches:
+      - feature/marcelo/mmu-traduccion
+  pull_request:
+    branches:
+      - develop
+
+permissions:
+  contents: read
+
+jobs:
+  mmu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v6
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - name: Probar MMU
+        run: node --test tests/unit/mmu.test.mjs

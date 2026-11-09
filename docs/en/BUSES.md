@@ -84,6 +84,39 @@ The demo moves MAR from 0 to 300 and revision from 0 to 1. Simultaneously
 enabling PC and MAR returns BUS_CONTENTION and leaves the original intact.
 Captured output is linked in the evidence.
 
+## Internal step coordination
+
+[`BusMicroStep.execute`](../../src/core/bus-step.js) wraps the kernel for
+internal register transfers. It takes snapshot, wiring and
+`{requestId, expectedRevision, phase, va, signals}`. Only ready profiles with
+no pending decisions can execute. The repository profile remains a proposal
+and is rejected. Tests explicitly use a synthetic configuration; they do
+not claim team approval or modify the production profile.
+
+A successful step commits captures, revision, clock, signals, committed-step
+count and lastEvent together. The global event includes ID, request, cycle,
+phase, segments, VA/null, PA=null, empty bytes and before/after changes. IR
+receives one byte at a time in order, increments loadedBytes and rejects a
+fifth byte; decoding is not implemented.
+
+Failure commits none of these changes. HALT and stale requests preserve state.
+An identical retry of the latest request returns its receipt without advancing
+counters; reusing that ID for different work is rejected. Deduplication covers
+only the latest receipt, not persistent history or an Apps Script lock.
+
+This step accepts Enable/Load on internal CPU paths only, asserts Clock and
+clears previous signals. RAM, KBD, LCD, external ports, Read/Write and pending
+memory requests are rejected: they need memory/I/O coordination. The numeric
+control word remains null until #3 is settled.
+
+```sh
+node --test tests/integration/bus-step.test.cjs
+node examples/buses/micro-step.cjs
+```
+
+The demo first rejects the incomplete repository profile, then demonstrates
+a transfer, retry and contention using a synthetic validation profile.
+
 ## Remaining integration
 
 This is a tested standalone kernel. Before closing #7:
@@ -93,8 +126,8 @@ This is a tested standalone kernel. Before closing #7:
 - Connect the approved state, clock, control and complete snapshot. Validate
   ISA, I/O and coherence **before publishing** a result; the kernel alone
   does not authorize memory writes.
-- Complete the global event with cycle, phase, request ID, VA/PA, bytes,
-  control word and lastEvent. This module returns only the local bus event.
+- Extend global coordination to memory/I/O and settle the numeric control
+  word in #3. Internal register steps already include clock and lastEvent.
 - Implement peripheral transactions: En_KBD alone does not consume a byte;
   LCD does not advance its cursor; RAM does not update caches or Dirty/Reference.
 - Test actual integrated modules and High-Z visualization in Sheets, obtain

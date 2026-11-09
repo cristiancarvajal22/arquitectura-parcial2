@@ -88,6 +88,40 @@ Resultado de la demo: MAR pasa de 0 a 300, revisión 0 → 1; el intento con
 En_PC y En_MAR simultáneos devuelve `BUS_CONTENTION`, con estado original
 intacto. La salida guardada está en la evidencia.
 
+## Coordinación de pasos internos
+
+[`BusMicroStep.execute`](../../src/core/bus-step.js) envuelve el núcleo para
+transferencias internas entre registros. Recibe snapshot, cableado y
+`{requestId, expectedRevision, phase, va, signals}`. Solo acepta perfiles
+`ready` sin decisiones pendientes; el perfil del repositorio sigue siendo
+`proposal` y se rechaza. Las pruebas usan una configuración sintética explícita,
+sin declarar aprobación del equipo ni modificar el perfil real.
+
+Un paso correcto confirma capturas, revisión, reloj, señales, contador de
+micro-pasos y `lastEvent` juntos. El evento global incluye ID, petición,
+ciclo, fase, segmentos, VA/null, PA=null, bytes vacíos y cambios antes/después.
+IR recibe un byte por vez en orden, incrementa `loadedBytes` y rechaza un
+quinto byte; el decodificador todavía no está implementado.
+
+Un fallo no confirma ninguno de esos cambios. HALT y las peticiones antiguas
+se rechazan sin alterar el estado. Repetir la última petición idéntica devuelve
+su resultado sin aumentar contadores; reutilizar el ID para otro trabajo es
+error. La deduplicación cubre el último recibo; no es un historial persistente
+ni sustituye el bloqueo de concurrencia de Apps Script.
+
+El paso admite solo señales Enable/Load sobre rutas internas de CPU. Activa
+Clock y apaga las señales anteriores. Rechaza RAM, KBD, LCD, puertos externos,
+Read/Write y peticiones de memoria pendientes: requieren su coordinación de
+memoria/E/S. La micro-palabra numérica continúa null hasta cerrar #3.
+
+```sh
+node --test tests/integration/bus-step.test.cjs
+node examples/buses/micro-step.cjs
+```
+
+La demo muestra primero el rechazo del perfil real incompleto y luego la
+transferencia, repetición y contención con un perfil sintético de validación.
+
 ## Integración pendiente
 
 Esta entrega prueba un núcleo independiente. Antes de cerrar #7 hacen falta:
@@ -97,8 +131,8 @@ Esta entrega prueba un núcleo independiente. Antes de cerrar #7 hacen falta:
 - Conectar el núcleo al estado aprobado, reloj, control y snapshot completo.
   El coordinador debe validar ISA, E/S y coherencia **antes de publicar** el
   resultado; este módulo no autoriza por sí mismo una escritura de memoria.
-- Completar el evento global con ciclo, fase, ID de petición, VA/PA, bytes,
-  micro-palabra y `lastEvent`. Aquí se entrega solo el evento local del bus.
+- Extender la coordinación global a memoria/E/S y fijar la micro-palabra
+  numérica de #3. Los pasos internos ya incluyen reloj y `lastEvent`.
 - Implementar transacciones periféricas: En_KBD no consume un carácter por
   sí solo; LCD no avanza el cursor; RAM no actualiza cachés ni Dirty/Reference.
 - Probar los módulos reales juntos y su visualización High-Z en Sheets,

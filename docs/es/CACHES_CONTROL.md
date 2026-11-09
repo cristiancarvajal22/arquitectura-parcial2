@@ -116,3 +116,27 @@ Una línea de caché contiene ocho bytes, pero el bus de datos transporta
 un byte por transferencia: su llenado debe mostrar los ocho movimientos.
 Las animaciones y contadores usan los eventos confirmados, no cambian
 directamente RAM ni registros.
+
+## Diagrama del recorrido
+
+```mermaid
+flowchart TD
+    CPU["CPU: dirección virtual"] --> MMU["MMU: consultar página"]
+    MMU --> PRESENTE{"¿Página presente?"}
+    PRESENTE -->|No| PF["Resolver Page Fault"]
+    PF --> MMU
+    PRESENTE -->|Sí| PA["Calcular dirección física"]
+    PA --> TIPO{"Tipo de acceso"}
+    TIPO -->|E/S| IO["Bus de E/S: teclado o LCD"]
+    TIPO -->|Instrucción| L1I["L1I"]
+    TIPO -->|Dato| L1D["L1D"]
+    L1I -->|Miss| L2["L2 unificada"]
+    L1D -->|Miss| L2
+    L2 -->|Miss| RAM["RAM"]
+```
+
+El diagrama muestra lecturas y búsqueda de instrucciones. Un hit devuelve
+el byte sin consultar niveles inferiores. Si se llega a RAM, se carga
+la línea de ocho bytes en L2 y en la L1 solicitante.
+Las escrituras siguen la política write-through y no-write-allocate
+descrita arriba. La E/S no consulta las cachés.

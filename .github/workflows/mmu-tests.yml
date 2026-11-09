@@ -26,4 +26,4 @@ jobs:
           node-version: '24'
 
       - name: Probar MMU
-        run: node --test tests/unit/mmu.test.mjs tests/unit/mmu-state.test.mjs
+        run: node --test tests/unit/mmu.test.mjs tests/unit/mmu-state.test.mjs tests/unit/mmu-access.test.mjs

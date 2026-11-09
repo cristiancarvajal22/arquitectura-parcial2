@@ -17,7 +17,7 @@ El [índice de tareas](docs/BACKLOG.md) reúne las 48 tarjetas y el [glosario](d
 Cada integrante tiene **16 tareas** y **57 puntos relativos de esfuerzo**. Los puntos sirven para comparar la carga; no son horas ni calificación. Las tareas combinan programación, pruebas, documentación y preparación de la defensa. Cada tarjeta tiene un responsable y criterios de finalización; no hay una persona fija asignada para revisar cada tarea. Los PR se comprueban entre compañeros, como pide la rúbrica.
 
 Cuentas: Cristian = `cristiancarvajal22`; Marcelo = `marceloaguilera777`; Joseph = `JosephPerez725`.
-Marcelo ya tiene acceso al repositorio y sus 16 asignaciones de GitHub. Joseph tiene permiso de escritura en el tablero; su invitación de escritura al repositorio está enviada y debe aceptarla para completar sus asignaciones allí.
+Marcelo ya tiene acceso al repositorio y sus 16 asignaciones de GitHub. Joseph ya publica commits y PR desde `JosephPerez725` y sus tareas están asignadas en GitHub.
 
 ## Alcance
 - CPU con cuatro registros, operaciones e instrucciones; buses y señales que muestran cómo se mueve cada dato.
@@ -53,3 +53,12 @@ node scripts/demo-evidence.cjs --check
 ```
 
 Las ramas originales de los compañeros se integraron preservando sus commits. Los módulos de terceros del equipo no se presentan como código original de Marcelo.
+
+## Evidencias y especificaciones
+
+
+- [Matriz G1–G7 e I1–I4](docs/es/EVIDENCIAS.md)
+- [ISA y mapa de memoria](docs/ISA_MAPA_MEMORIA.md)
+- [Micro-palabra y pruebas (PR #62)](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/62)
+- [Contrato de cachés y señales (PR #60)](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/60)
+- [Planilla y manual: estado de verificación](docs/es/EVIDENCIAS.md#pendientes-de-entrega)

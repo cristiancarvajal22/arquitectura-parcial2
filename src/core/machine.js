@@ -280,5 +280,30 @@ var P2Machine = (function () {
       return commit(state,next,{kind:'page-table-edit'},'edit-'+state.revision);
     }catch(e){return {status:'rejected',error:{code:e.code||'INVALID_STATE',message:e.message}};}
   }
-  return {profile:profile,create:create,check:check,step:step,load:load,type:type,run:run,editPage:editPage,signals:SIGNALS.slice()};
+  function editRam(state,pa,value){
+    try {
+      check(state);
+      var phase=state.cpu.control.machine;
+      if(state.execution.pendingRequest||state.execution.mode==='running'||
+        phase.phase!=='fetch'||phase.stage!=='address'||state.cpu.ir.loadedBytes!==0)
+        fail('BUSY','Pausa al inicio de una instrucción para editar RAM.');
+      if(!Number.isInteger(pa)||pa<0||pa>255)fail('OUT_OF_RANGE');
+      byte(value);
+      if(PhysicalRam.region(pa)!=='ram')fail('IO_PROTECTED');
+      var vpn=state.ram.frames[Math.floor(pa/32)].vpn;
+      if(vpn===null)fail('UNMAPPED_FRAME');
+      var update=PhysicalRam.write(state.ram,pa,value,'loader');
+      var invalidated=CacheCoherence.invalidate(state.caches,pa,1);
+      if(invalidated.status!=='completed')fail('CACHE_WRITEBACK_REQUIRED');
+      var next=copy(state);
+      next.ram=update.ram;
+      next.caches=invalidated.caches;
+      next.mmu.pages[vpn].dirty=true;
+      next.mmu.pages[vpn].referenced=true;
+      return commit(state,next,{kind:'ram-edit',va:vpn*32+pa%32,pa:pa,bytes:[value]},'ram-edit-'+state.revision);
+    } catch(e) {
+      return {status:'rejected',error:{code:e.code||'INVALID_STATE',message:e.message}};
+    }
+  }
+  return {profile:profile,create:create,check:check,step:step,load:load,type:type,run:run,editPage:editPage,editRam:editRam,signals:SIGNALS.slice()};
 }());

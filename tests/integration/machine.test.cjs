@@ -1,6 +1,29 @@
 const test=require('node:test');const assert=require('node:assert/strict');
 const {machine,execute}=require('../helpers/machine.cjs');
 function loaded(api,source,origin){const r=api.load(api.create(api.profile(true)),source,origin);assert.equal(r.status,'completed',JSON.stringify(r.error));return r.state;}
+test('paused RAM edit invalidates the fetched line and rejects pending or reserved accesses',()=>{
+ const api=machine();
+ let state=loaded(api,'MOV AX, 1\nJMP 0');
+ const tick=()=>{const r=api.step(state,{requestId:'test-'+state.revision,expectedRevision:state.revision});
+  assert.equal(r.status,'completed',JSON.stringify(r.error));state=r.state;};
+ tick();
+ assert.equal(api.editRam(state,2,77).error.code,'BUSY');
+ for(let i=0;i<400&&(state.cpu.pc!==4||state.cpu.control.machine.stage!=='address'||state.cpu.ir.loadedBytes!==0);i++)tick();
+ assert.equal(state.cpu.pc,4);
+ const pa=state.mmu.pages[0].pfn*32+2;
+ assert.equal(state.caches.l1i.valid,true);
+ assert.equal(api.editRam(state,224,77).error.code,'IO_PROTECTED');
+ const before=state;
+ const edited=api.editRam(state,pa,77);
+ assert.equal(edited.status,'completed',JSON.stringify(edited.error));
+ state=edited.state;
+ assert.equal(state.caches.l1i.valid,false);
+ assert.equal(state.mmu.pages[0].dirty,true);
+ assert.equal(before.ram.bytes[pa],1);
+ assert.equal(edited.events[0].kind,'ram-edit');
+ for(let i=0;i<400&&state.cpu.registers.AX!==77;i++)tick();
+ assert.equal(state.cpu.registers.AX,77);
+});
 test('arithmetic, four registers, branch loop, physical buses and HALT',()=>{
  const api=machine();let s=loaded(api,'MOV AX, 0\nMOV BX, 7\nMOV CX, 5\nMOV DX, 0\nloop: ADD AX, BX\nINC DX\nDEC CX\nCMP CX, 0\nJNZ loop\nSTORE [300], AX\nHALT');
  const r=execute(api,s);s=r.state;assert.equal(s.cpu.registers.AX,35);assert.equal(s.cpu.registers.DX,5);assert.equal(s.cpu.registers.CX,0);

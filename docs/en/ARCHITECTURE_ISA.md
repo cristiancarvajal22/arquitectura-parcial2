@@ -1,8 +1,8 @@
 # Architecture, ISA and control
 
-Progress on #37. References: ISA merged in #51, modules in #52–#57 and progress
-on #16/#19/#28/#34. These are locally tested modules, not a deployed spreadsheet.
-Another member's bilingual review and control encoding in #3 remain pending.
+Technical reference for #37 and the integrated coordinator. See #51 for the ISA,
+#60 for the cache and control contract, and #69 and #70 for integration. Bilingual
+review by another team member remains pending.
 
 ## State and memory
 
@@ -16,30 +16,35 @@ Keyboard accepts ASCII 32..126, rejects a ninth character and waits when empty.
 MMU translates each byte before cache lookup: VPN=floor(VA/32), offset=VA%32,
 PA=PFN*32+offset. L1I/L1D each hold one 8-byte line; L2 holds four 8-byte lines.
 Physical tags identify floor(PA/8). I/O bypasses caches. FIFO hits do not refresh age.
-Write/allocation policy and writeback remain pending in #3.
+STORE uses write-through with no allocation on a miss. The micro-step engine
+updates L1D and L2 hits and invalidates the affected instruction copy. The
+instruction-level adapter keeps the updated L1D hit and invalidates the
+L2 copy. Swap saves dirty frames
+before reuse. A RAM edit marks the page dirty and invalidates affected lines
+before the next fetch.
 
 ## Paths
 
-Solid arrow: path tested in modules. Dashed arrow: intended integration,
-not yet demonstrated as a system. Boxes do not imply complete implementation.
+Solid arrows represent routes exercised by the micro-step engine.
+Dashed arrows show signals published by the control unit.
 
 ```mermaid
 flowchart LR
   PC[PC 9 bits] --> IA[Internal address bus] --> MAR[MAR 9 bits]
   ALU[ALU 8 bits] --> ID[Internal data bus] --> REG[AX BX CX DX]
   KBD[KBD in RAM] --> ED[External data bus] --> MDR[MDR 8 bits] --> ID
-  MAR -.-> MMU[MMU: VA to PA]
-  MMU -.-> EA[External address bus]
-  EA -.-> L1I[L1I: fetch]
-  EA -.-> L1D[L1D: data]
-  L1I -.-> L2[L2: 4 x 8 bytes]
-  L1D -.-> L2
-  L2 -.-> RAM[RAM: 256 bytes]
-  RAM -.-> ED
-  ED -.-> LCD[LCD in RAM]
-  MMU -.-> FIFO[Page FIFO]
-  FIFO -.-> SWAP[Swap: 32-byte pages]
-  SWAP -.-> RAM
+  MAR --> MMU[MMU: VA to PA]
+  MMU --> EA[External address bus]
+  MMU --> L1I[L1I: fetch]
+  MMU --> L1D[L1D: data]
+  L1I --> L2[L2: 4 x 8 bytes]
+  L1D --> L2
+  L2 --> RAM[RAM: 256 bytes]
+  RAM --> ED
+  ED --> LCD[LCD in RAM]
+  MMU --> FIFO[Page FIFO]
+  FIFO --> SWAP[Swap: 32-byte pages]
+  SWAP --> RAM
   CU[Internal and external control] -.-> IA
   CU -.-> ID
   CU -.-> ED
@@ -92,9 +97,15 @@ IR receives four byte loads, not a 32-bit value over an 8-bit bus.
 
 `Read`/`Write` specify the operation; `IO` selects peripherals;
 `Mem_R`/`Mem_W` enable memory; `Clock` confirms the step.
-Legal combinations and binary bit assignments belong to #3.
-`control.word` and control widths remain null: no bit mapping is approved.
-The internal coordinator accepts En/Ld only, generates Clock and rejects memory/I/O operations.
+The #60 contract defines 30 bits. Pairs 0–23 are Enable/Load
+for AX, BX, CX, DX, PC, IR, MAR, MDR, ALU, RAM, KBD and LCD in that order.
+Bits 24–29 are Read, Write, Clock, IO, Mem_R and Mem_W.
+In the integrated fetch, PC→MAR activates bits 8, 13 and 26, giving the
+derived word 67117312 (0x04002100). See [bit table and validation](MICROWORD.md).
+The #69 engine retains those bits and adds Enable/Load pairs for L1I, L1D,
+L2, Swap and MMU in bits 30–39. The signal and trace panels show the 40-bit
+word and the committed events. The alternate #70 bundle steps one instruction
+at a time and keeps the transfer trace.
 
 Real #34 example: PC=300 and MAR=0, En_PC=true and Ld_MAR=true on a 9-bit
 virtual bus. The arbiter produces MAR=300, revision 0→1 and a capture with before=0,
@@ -108,6 +119,6 @@ Reproduce on `feature/cristian/test-cpu-buses`: `node scripts/cpu-bus-trace.cjs`
 [bus PR #52](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/52),
 [ALU PR #53](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/53),
 [keyboard PR #56](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/56).
-Pending: external terminology review, control bits #3, complete CPU #5,
-memory/cache integration and Sheets demonstration. Initial #1 fixtures are
-illustrative: the applicable map is #51's map described here.
+External terminology review and a visual micro-step check in the shared
+sheet remain pending. The initial #1 fixtures are illustrative. The map described here
+comes from #51.

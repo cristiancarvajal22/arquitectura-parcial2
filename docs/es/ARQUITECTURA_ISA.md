@@ -1,8 +1,8 @@
 # Arquitectura, ISA y control
 
-Avance de #37. Referencia: ISA integrada en #51, módulos de #52–#57 y avances
-de #16/#19/#28/#34. Son módulos probados localmente; no una planilla desplegada.
-La revisión bilingüe por otro integrante y la codificación de control #3 siguen pendientes.
+Referencia técnica de #37 para el coordinador integrado. La ISA viene de #51,
+el contrato de caché y control de #60 y la integración de #69 y #70. La revisión
+bilingüe por otro integrante sigue pendiente.
 
 ## Estado y memoria
 
@@ -16,30 +16,35 @@ Teclado acepta ASCII 32..126, rechaza noveno carácter y espera si está vacío.
 MMU traduce cada byte antes de consultar caché: VPN=floor(VA/32), offset=VA%32,
 PA=PFN*32+offset. L1I/L1D tienen una línea de 8 bytes; L2, cuatro líneas de 8.
 Tags físicos identifican floor(PA/8). E/S evita cachés. FIFO no rejuvenece por hit.
-La política de escritura/asignación y el writeback siguen pendientes de #3.
+STORE usa write-through sin asignar línea en un miss. El motor de micro-pasos
+actualiza los hits de L1D y L2 e invalida la copia de instrucciones afectada.
+El adaptador por instrucción conserva el hit actualizado de L1D e invalida la
+copia de L2. Swap guarda
+el marco Dirty antes de reutilizarlo. Una edición de RAM marca la página
+Dirty e invalida las líneas afectadas antes del próximo fetch.
 
 ## Recorridos
 
-Flecha continua: recorrido probado en módulos. Flecha discontinua: integración
-prevista, todavía no demostrada como sistema. Las cajas no afirman implementación completa.
+Las flechas continuas representan rutas ejercitadas por el motor de micro-pasos.
+Las discontinuas muestran señales que publica la unidad de control.
 
 ```mermaid
 flowchart LR
   PC[PC 9 bits] --> IA[Bus interno de dirección] --> MAR[MAR 9 bits]
   ALU[ALU 8 bits] --> ID[Bus interno de datos] --> REG[AX BX CX DX]
   KBD[KBD en RAM] --> ED[Bus externo de datos] --> MDR[MDR 8 bits] --> ID
-  MAR -.-> MMU[MMU: VA a PA]
-  MMU -.-> EA[Bus externo de dirección]
-  EA -.-> L1I[L1I: fetch]
-  EA -.-> L1D[L1D: datos]
-  L1I -.-> L2[L2: 4 x 8 bytes]
-  L1D -.-> L2
-  L2 -.-> RAM[RAM: 256 bytes]
-  RAM -.-> ED
-  ED -.-> LCD[LCD en RAM]
-  MMU -.-> FIFO[FIFO de páginas]
-  FIFO -.-> SWAP[Swap: páginas de 32 bytes]
-  SWAP -.-> RAM
+  MAR --> MMU[MMU: VA a PA]
+  MMU --> EA[Bus externo de dirección]
+  MMU --> L1I[L1I: fetch]
+  MMU --> L1D[L1D: datos]
+  L1I --> L2[L2: 4 x 8 bytes]
+  L1D --> L2
+  L2 --> RAM[RAM: 256 bytes]
+  RAM --> ED
+  ED --> LCD[LCD en RAM]
+  MMU --> FIFO[FIFO de páginas]
+  FIFO --> SWAP[Swap: páginas de 32 bytes]
+  SWAP --> RAM
   CU[Control interno y externo] -.-> IA
   CU -.-> ID
   CU -.-> ED
@@ -92,9 +97,15 @@ IR recibe cuatro cargas de byte, no un dato de 32 bits por bus de 8 bits.
 
 `Read`/`Write` indican la operación; `IO`, selección de periféricos;
 `Mem_R`/`Mem_W`, habilitación de memoria; `Clock`, confirmación del paso.
-Sus combinaciones legales y asignación de posiciones binarias corresponden a #3.
-`control.word` y anchuras de control siguen null: no hay un mapa de bits aprobado.
-El coordinador interno solo acepta En/Ld, genera Clock y rechaza operaciones de memoria/E/S.
+El contrato de #60 define 30 bits. Los pares 0–23 son
+Enable/Load de AX, BX, CX, DX, PC, IR, MAR, MDR, ALU, RAM, KBD y LCD en
+ese orden. Los bits 24–29 son Read, Write, Clock, IO, Mem_R y Mem_W.
+En el fetch integrado, PC→MAR activa bits 8, 13 y 26. La palabra derivada
+es 67117312 (0x04002100). Véase [tabla y validación](MICROPALABRA.md).
+El motor de #69 conserva esos bits y añade los pares Enable/Load para L1I,
+L1D, L2, Swap y MMU en los bits 30–39. Los paneles Señales y Traza muestran
+la palabra de 40 bits y los eventos confirmados. El paquete alternativo de
+#70 usa Step por instrucción y conserva la traza de transferencias.
 
 Ejemplo real de #34: PC=300 y MAR=0, En_PC=true y Ld_MAR=true sobre bus virtual
 de 9 bits. El árbitro produce MAR=300, revisión 0→1 y una captura con before=0,
@@ -108,6 +119,6 @@ Reproducción en rama `feature/cristian/test-cpu-buses`: `node scripts/cpu-bus-t
 [PR buses #52](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/52),
 [PR ALU #53](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/53),
 [PR teclado #56](https://github.com/cristiancarvajal22/arquitectura-parcial2/pull/56).
-Pendiente: revisión terminológica externa, bits de control #3, CPU completa #5,
-conexión de memoria/cachés y demostración en Sheets. Las fixtures iniciales de #1
-son ilustrativas: el mapa aplicable es el de #51 descrito aquí.
+Quedan la revisión terminológica externa y la comprobación visual del
+avance por micro-paso en la hoja compartida. Las fixtures de #1 son ilustrativas.
+El mapa aplicable es el de #51 descrito aquí.

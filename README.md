@@ -41,6 +41,7 @@ Los detalles obligatorios están en la [arquitectura](docs/ARQUITECTURA.md) y la
 - [Paquete único de Apps Script](dist/SimuladorP2.gs): instalar en el proyecto vinculado y ejecutar `P2_Setup`.
 - [Integración y buses](docs/es/INTEGRACION.md) · [Resultados y trazas de las demos](docs/evidence/integration/demos.json).
 - [Guion de Marcelo](docs/es/DEFENSA_MARCELO.md) · [Auditoría y pendientes](docs/evidence/MARCELO_AUDIT.md).
+- [Guion de Cristian](docs/evidence/P2-040.md) · [Auditoría de sus 16 tareas](docs/evidence/P2-046.md) · [Regresión de los paquetes](docs/evidence/P2-043.md).
 
 Pruebas sin dependencias npm:
 

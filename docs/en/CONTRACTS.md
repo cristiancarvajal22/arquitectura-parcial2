@@ -152,7 +152,8 @@ cycle, microStep, phase, kind, signals, controlWord, segments, va, pa, bytes,
 changes and result. IDs are unique and monotonic within a run. result is
 committed for a published event; rejection is a separate diagnostic. Each
 segment names its width, level, value, driver or null, and receivers.
-changes lists paths with before/after values. Use null for absent VA/PA.
+changes lists paths with before/after values, excluding lastEvent, which
+receives the event itself without circular references. Use null for absent VA/PA.
 
 Micro-step order:
 
@@ -185,7 +186,7 @@ operation, not a hidden reset side effect.
 
 ## Verification and completion
 
-JSON examples and their checker will be linked on this branch. They are
+[JSON examples](../examples/core/README.md) are
 illustrative contract data, not evidence of a running CPU or working sheet.
 To close #1: verify examples, settle shared decisions, obtain actual reviews
 from Marcelo and Joseph, and merge into develop. Until review and integration

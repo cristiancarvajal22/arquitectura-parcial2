@@ -161,7 +161,8 @@ Cada evento contiene `schemaVersion`, `id`, `requestId`, `revisionBefore`,
 `id` es único y monotónico dentro de la ejecución. `result` es `committed`
 para un evento confirmado; el rechazo es un diagnóstico separado.
 Cada segmento del evento identifica nombre, ancho, nivel, valor, emisor
-o null y receptores. `changes` enumera rutas con valor anterior y nuevo.
+o null y receptores. `changes` enumera rutas con valor anterior y nuevo;
+excluye `lastEvent`, que recibe el propio evento sin referencias circulares.
 No inventar VA/PA cuando el paso no tiene una dirección: usar null.
 
 Orden de un micro-paso:
@@ -197,7 +198,7 @@ Cargar un programa es una operación posterior, no un efecto oculto de reset.
 
 ## Comprobación y cierre
 
-Los ejemplos JSON y su verificador se enlazarán en esta rama. Son datos
+Los [ejemplos JSON](../examples/core/README.md) son datos
 ilustrativos del contrato, no evidencia de una CPU ni de una planilla funcional.
 Para cerrar #1: comprobar los ejemplos, resolver decisiones cruzadas,
 registrar revisión real de Marcelo y Joseph, e integrar el PR a develop.

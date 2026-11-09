@@ -1,11 +1,16 @@
 {
   "scope": "origin/develop..HEAD; non-merge commits only",
-  "sourceCommit": "7c61a6ba403f75019ba1ee4160821bd617b104d3",
+  "sourceCommit": "f80bba9ed03eb2cd5bce777d1ff476b76507db47",
   "authors": {
-    "marceloaguilera777": 11,
-    "Cristian carvajal": 4
+    "marceloaguilera777": 8
   },
   "marceloCommits": [
+    {
+      "sha": "4fc126883394c11cbbd0b56780fbe390c2563a66",
+      "author": "marceloaguilera777",
+      "date": "2026-11-09T08:57:49-04:00",
+      "subject": "test: registrar regresion de 330 pruebas contra develop actualizado"
+    },
     {
       "sha": "549f1e90fd41c1d7352dc518353c13ba440f954f",
       "author": "marceloaguilera777",
@@ -47,30 +52,6 @@
       "author": "marceloaguilera777",
       "date": "2026-11-09T08:50:14-04:00",
       "subject": "fix(lcd): validar bus driven y respetar el reset compartido"
-    },
-    {
-      "sha": "02c7a2092d0bfd4d1d919e3c5c975ab84a77be4b",
-      "author": "marceloaguilera777",
-      "date": "2026-11-09T08:04:38-04:00",
-      "subject": "feat: mostrar ocho caracteres LCD y bytes de video"
-    },
-    {
-      "sha": "8a915905e8fab03f17009ceedc42aa0cacb353af",
-      "author": "marceloaguilera777",
-      "date": "2026-11-09T08:01:31-04:00",
-      "subject": "ci: ejecutar pruebas LCD"
-    },
-    {
-      "sha": "390d5f382ff27cc70bb1adf4a484be2bf1e50402",
-      "author": "marceloaguilera777",
-      "date": "2026-11-09T08:00:33-04:00",
-      "subject": "test: verificar LCD cursor circular y recepcion por bus"
-    },
-    {
-      "sha": "68f0e4416c0adf0b1800d3bb41ab162aaee5b16b",
-      "author": "marceloaguilera777",
-      "date": "2026-11-09T07:59:46-04:00",
-      "subject": "feat: implementar receptor LCD y vista desde RAM"
     }
   ],
   "review": "Peer review, oral rehearsal and actual Sheets deployment are not inferred from commit counts."

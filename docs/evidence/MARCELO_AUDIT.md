@@ -25,7 +25,7 @@ Las 16 asignaciones reales son #2, #5, #8, #11, #14, #17, #20, #23, #26, #29, #3
 
 ## Resultados ejecutados
 
-La regresión local terminó con **330 pruebas aprobadas, cero fallidas**. Las tres demos se ejecutaron por el motor real de Node.js: aritmética AX=35; eco LCD=ABCDEFGH; accesos dispersos DX=71. Los JSON y trazas están en [integration](integration).
+La regresión local terminó con **366 pruebas aprobadas, cero fallidas**. Las tres demos se ejecutaron por el motor real de Node.js: aritmética AX=35; eco LCD=ABCDEFGH; accesos dispersos DX=71. Los JSON y trazas están en [integration](integration).
 
 La prueba del adaptador de Sheets usa dobles de los servicios y el almacén de propiedades. No es una prueba desde otra cuenta ni una captura del producto instalado. Las vistas aisladas que Marcelo comprobó antes no demuestran por sí solas la integración nueva.
 
